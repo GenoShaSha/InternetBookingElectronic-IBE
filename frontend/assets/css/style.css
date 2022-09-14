@@ -849,12 +849,17 @@ html,body{
   
   .dd-button {
     display: inline-block;
-    border: 1px solid gray;
+    border: none;
     border-radius: 4px;
     padding: 10px 30px 10px 20px;
-    background-color: #ffffff;
+    background-color: transparent;
     cursor: pointer;
     white-space: nowrap;
+    color: #222222;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
   }
   
   .dd-button:after {
