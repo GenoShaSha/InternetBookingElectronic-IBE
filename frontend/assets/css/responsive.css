@@ -90,12 +90,13 @@
 
 
 @media screen and (max-width:767px){
-	#sticky-wrapper{background: rgba(77,78,84,1);}
 	.sticky-wrapper .navbar-collapse.collapse.in{background: rgba(77,78,84,1);width: 112%;margin-left: -14px;padding-left: 27px;}
 	.logo {float: left;}
 	.main-menu .navbar-toggle {float: right;margin: 17px 0;}
 	.navbar-collapse {padding-right: 15px;padding-left: 15px;}
-	.main-menu .nav li a {font-size: 14px;padding: 0px 1px 10px;display: inline-block;}
+	.main-menu .nav li a {font-size: 14px;padding: 0px 1px 10px;display: inline-block;color: #ffffff;}
+	.main-menu .nav li div.dd-button {font-size: 14px;padding: 0px 1px 10px;display:inline-block;color: #ffffff;}
+	.main-menu .nav ul.dd-menu li.profile-btn {font-size: 14px;padding: 0px 1px 10px;display:inline-block;color: #ffffff;}
 	.sticky-wrapper.is-sticky .main-menu .nav a:before {bottom: 0px;}
 
 	.about-us h2 {font-size: 43px;}
@@ -152,7 +153,7 @@
 
 @media screen and (max-width: 480px){
 
-	.about-us h2 {font-size: 30px;}
+	.about-us h2 {font-size: 15px;}
 
 	.time-after:after{display: none;}
 
