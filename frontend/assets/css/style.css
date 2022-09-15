@@ -29,7 +29,6 @@ font-family: 'Poppins', sans-serif;
 }
 
 *{
-    border-radius: 30px;
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-o-box-sizing:border-box;
@@ -363,6 +362,7 @@ html,body{
 		4. 	Travel-box
 --------------------------------------*/
 .single-travel-boxes {
+    border-radius: 30px;
     margin-top: -125px;
     background: #fff;
 }
@@ -875,10 +875,7 @@ html,body{
     border-top: 5px solid black;
   }
   
-  .dd-button:hover {
-    back
-  }
-  
+ 
   
   .dd-input {
     display: none;
