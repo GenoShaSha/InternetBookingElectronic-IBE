@@ -29,6 +29,7 @@ font-family: 'Poppins', sans-serif;
 }
 
 *{
+    /* border-radius: 30px; */
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-o-box-sizing:border-box;
@@ -227,7 +228,8 @@ html,body{
 }
 .main-menu .nav li.active  a:before,
 .main-menu .nav a:hover:before{
-    background: #00d8ff;
+    /* background: #00d8ff; */
+    background: #ffffff;
     width: 100%;
 }
 
@@ -241,7 +243,7 @@ html,body{
     float:left;
 }
 .main-menu .navbar-toggle {
-    color: #00d8ff;
+    color: #ffffff;
 }
 .main-menu .navbar-default .navbar-toggle:focus, 
 .main-menu .navbar-default .navbar-toggle:hover {
@@ -431,6 +433,7 @@ html,body{
 /*===ab-select-box===*/
 .tab-para{
 	padding: 43px 42px 24px;
+    margin-top: 250px;
 }
 .single-tab-select-box h2{
 	color: #565a5c;
@@ -514,7 +517,7 @@ html,body{
 }
 .single-trip-circle input[type="radio"] + label {
     color: #565a5c;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
     text-transform: capitalize;
@@ -860,13 +863,17 @@ html,body{
     text-transform: capitalize;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+    -webkit-transition: all 0.25s ease-in-out 0s;
+    -moz-transition: all 0.25s ease-in-out 0s;
+    -o-transition: all 0.25s ease-in-out 0s;
+    transition: all 0.25s ease-in-out 0s;
   }
   
   .dd-button:after {
     content: '';
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: auto;
     transform: translateY(-50%);
     width: 0; 
     height: 0; 
@@ -884,13 +891,19 @@ html,body{
   .dd-menu {
     position: absolute;
     top: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid transparent;
+    border-radius: 0px;
     padding: 0;
-    margin: 2px 0 0 0;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
-    background-color: #ffffff;
+    /* padding-bottom: 5px; */
+    margin: 20px 0 0 25px;
+    /* box-shadow: 0 0 6px 0 rgb(255, 255, 255); */
+    /* background-color: #79d2f0; */
+    background-color:transparent;
     list-style-type: none;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
   }
   
   .dd-input + .dd-menu {
@@ -908,11 +921,13 @@ html,body{
   }
   
   .dd-menu li:hover {
-    background-color: #f6f6f6;
+    background-color: transparent;
+    color: #ffffff;
   }
+
   
   .dd-menu li a {
-    display: block;
+    display: block;     
     margin: -10px -20px;
     padding: 10px 20px;
   }
