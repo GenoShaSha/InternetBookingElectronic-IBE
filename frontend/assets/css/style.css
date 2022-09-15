@@ -893,13 +893,14 @@ html,body{
   .dd-menu {
     position: absolute;
     top: 100%;
-    border: 1px solid rgb(88, 167, 213);
+    border: 1px solid transparent;
     border-radius: 0px;
     padding: 0;
     /* padding-bottom: 5px; */
     margin: 20px 0 0 25px;
     /* box-shadow: 0 0 6px 0 rgb(255, 255, 255); */
-    background-color: #79d2f0;
+    /* background-color: #79d2f0; */
+    background-color:transparent;
     list-style-type: none;
     font-size: 16px;
     text-transform: capitalize;
@@ -922,7 +923,7 @@ html,body{
   }
   
   .dd-menu li:hover {
-    background-color: #08a2e9;
+    background-color: transparent;
     color: #ffffff;
   }
 
