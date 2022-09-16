@@ -1,24 +1,29 @@
-
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
-    background: #3786CE;
+  background: #3786CE;
 }
 
 * {
   box-sizing: border-box;
 }
 
+.LoginTitle {
+  color: black !important;
+  font-size: 40px !important;
+}
+
 /* style the container */
 .container {
   position: relative;
-  border-radius: 5px;
+  border-radius: 30px;
   background-color: #f2f2f2;
-  padding: 20px 0 30px 0;
+  padding: 30px;
+  margin: 250px;
 }
+
 
 /* style inputs and link buttons */
 input,
@@ -32,12 +37,38 @@ input,
   display: inline-block;
   font-size: 17px;
   line-height: 20px;
-  text-decoration: none; /* remove underline from anchors */
+  text-decoration: none;
+  /* remove underline from anchors */
 }
 
 input:hover,
 .btn:hover {
   opacity: 1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: url(../../assets/images/home/banner.jpg)no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 1000px;
 }
 
 /* add appropriate colors to fb, twitter and google buttons */
@@ -48,11 +79,18 @@ input:hover,
 
 
 a.google.btn {
-    margin-top: 58px;
+  margin-top: 58px;
 }
 
+
 p.links {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  color: #565a5c;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 17px;
+  margin-left: 0px;
 }
 
 .twitter {
@@ -117,8 +155,8 @@ input[type="button"]:hover {
   display: none;
 }
 
-.LoginForm{
-    border-radius: 30px;
+.LoginForm {
+  border-radius: 30px;
 }
 
 /* bottom container */
@@ -134,13 +172,16 @@ input[type="button"]:hover {
     width: 100%;
     margin-top: 0;
   }
+
   /* hide the vertical line */
   .vl {
     display: none;
   }
+
   /* show the hidden text on small screens */
   .hide-md-lg {
     display: block;
     text-align: center;
   }
+
 }
