@@ -459,11 +459,7 @@
 		<script src="assets/js/custom.js"></script>
 
 
-		<script>
-			$(document).ready(function() {
-			$("#headeritem").load("./pages/templates/header.html");
-		});
-		</script>
+
 
 	</body>
 
