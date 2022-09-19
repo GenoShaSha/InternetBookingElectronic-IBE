@@ -181,9 +181,9 @@ $this->registerJsFile("@web/js/waypoint.min.js");
 				<hr>
 				<div class="foot-icons ">
 					<ul class="footer-social-links list-inline list-unstyled">
-		                <li><a href="#" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
-		                <li><a href="#" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
-		                <li><a href="#" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
+		                <li><a href="https://id.linkedin.com/company/sqiva" target="_blank" > <img  src="<?= \Yii::getAlias('@web/images/footer/linked.png') ?> "></a></li>
+		                <li><a href="#" target="_blank"> <img  src="<?= \Yii::getAlias('@web/images/footer/twitter.png') ?> "></a></li>
+		                <li><a href="#" target="_blank" > <img  src="<?= \Yii::getAlias('@web/images/footer/insta.png') ?> "> </a></li>
 		        	</ul>
 		        	<p>&copy; 2022 <a href="https://www.sqiva.com/">Squiva</a>. All Right Reserved</p>
 
@@ -199,44 +199,6 @@ $this->registerJsFile("@web/js/waypoint.min.js");
     
 
 		
-
-		
-		<script src="assets/js/jquery.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-
-		<!--modernizr.min.js-->
-		<script  src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-
-
-		<!--bootstrap.min.js-->
-		<script  src="assets/js/bootstrap.min.js"></script>
-
-		<!-- bootsnav js -->
-		<script src="assets/js/bootsnav.js"></script>
-
-		<!-- jquery.filterizr.min.js -->
-		<script src="assets/js/jquery.filterizr.min.js"></script>
-
-		<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-
-		<!--jquery-ui.min.js-->
-        <script src="assets/js/jquery-ui.min.js"></script>
-
-        <!-- counter js -->
-		<script src="assets/js/jquery.counterup.min.js"></script>
-		<script src="assets/js/waypoints.min.js"></script>
-
-		<!--owl.carousel.js-->
-        <script  src="assets/js/owl.carousel.min.js"></script>
-
-        <!-- jquery.sticky.js -->
-		<script src="assets/js/jquery.sticky.js"></script>
-
-        <!--datepicker.js-->
-        <script  src="assets/js/datepicker.js"></script>
-
-		<!--Custom JS-->
-		<script src="assets/js/custom.js"></script>
 		
 
 <?php $this->endBody() ?>

@@ -1,4 +1,5 @@
-	
+
+		
 		<!--about-us start -->
 		<section id="home" class="about-us">
 		
@@ -185,7 +186,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="service-img">
-								<img src="@web/images/service/s1.png" alt="service-icon" />
+								<img src="<?= \Yii::getAlias('@web/images/service/s1.png') ?>" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 								<h2>
@@ -201,7 +202,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="service-img">
-								<img src="assets/images/service/s2.png" alt="service-icon" />
+								<img src="<?= \Yii::getAlias('@web/images/service/s2.png') ?>" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 								<h2>
@@ -217,7 +218,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="statistics-img">
-								<img src="assets/images/service/s3.png" alt="service-icon" />
+								<img src="<?= \Yii::getAlias('@web/images/service/s3.png') ?>" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 
