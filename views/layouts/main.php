@@ -40,21 +40,21 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 	
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
 	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
 </head>
 <body>
 	
 <?php $this->beginBody() ?>
 
-
-			<!-- main-menu Start -->
-			<header class="top-area">
+<!-- main-menu Start -->
+<header class="top-area">
 			<div class="header-area">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-2">
 							<div class="logo">
-								<a href="index.html">
+								<a href="index.php">
 									<img src = './assets/logo/FullLogo.png' style="width:100%; height:auto; max-width:300px;">
 								</a>
 							</div><!-- /.logo-->
@@ -188,7 +188,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 		
 
 		
-		<script src="assets/js/jquery.js"></script>
+		<script src="@web/js/jquery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 
 		<!--modernizr.min.js-->
@@ -196,35 +196,34 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 
 
 		<!--bootstrap.min.js-->
-		<script  src="assets/js/bootstrap.min.js"></script>
+		<script  src="@web/js/bootstrap.min.js"></script>
 
 		<!-- bootsnav js -->
-		<script src="assets/js/bootsnav.js"></script>
+		<script src="@web/js/bootsnav.js"></script>
 
 		<!-- jquery.filterizr.min.js -->
-		<script src="assets/js/jquery.filterizr.min.js"></script>
+		<script src="@web/js/jquery.filterizr.min.js"></script>
 
 		<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 		<!--jquery-ui.min.js-->
-        <script src="assets/js/jquery-ui.min.js"></script>
+        <script src="@web/js/jquery-ui.min.js"></script>
 
         <!-- counter js -->
-		<script src="assets/js/jquery.counterup.min.js"></script>
-		<script src="assets/js/waypoints.min.js"></script>
+		<script src="@web/js/jquery.counterup.min.js"></script>
+		<script src="@web/js/waypoints.min.js"></script>
 
 		<!--owl.carousel.js-->
-        <script  src="assets/js/owl.carousel.min.js"></script>
+        <script  src="@web/js/owl.carousel.min.js"></script>
 
         <!-- jquery.sticky.js -->
-		<script src="assets/js/jquery.sticky.js"></script>
+		<script src="@web/js/jquery.sticky.js"></script>
 
         <!--datepicker.js-->
-        <script  src="assets/js/datepicker.js"></script>
+        <script  src="@web/js/datepicker.js"></script>
 
 		<!--Custom JS-->
-		<script src="assets/js/custom.js"></script>
-		
+		<script src="@web/js/custom.js"></script>
 
 <?php $this->endBody() ?>
 </body>

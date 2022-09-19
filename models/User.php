@@ -1,10 +1,27 @@
 <?php
 
 namespace app\models;
-use yii\db\ActiveRecord;
 
-class User extends ActiveRecord implements \yii\web\IdentityInterface
+use Yii;
+
+/**
+ * This is the model class for table "user".
+ *
+ * @property int $user_id
+ * @property string $username
+ * @property string $password
+ * @property string $email
+ * @property string $auth_key
+ * @property string $access_token
+ *
+ * @property Booking[] $bookings
+ * @property Person[] $people
+ */
+class user extends \yii\db\ActiveRecord
 {
+    /**
+     * {@inheritdoc}
+     */
     public static function tableName()
     {
         return 'user';
@@ -13,62 +30,47 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public static function findIdentity($id)
+    public function rules()
     {
-        return self::findOne($id);
+        return [
+            [['username', 'password', 'email', 'auth_key', 'access_token'], 'required'],
+            [['username', 'password'], 'string', 'max' => 50],
+            [['email', 'auth_key', 'access_token'], 'string', 'max' => 255],
+        ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public static function findIdentityByAccessToken($token, $type = null)
+    public function attributeLabels()
     {
-        return self::findOne(['access_token'=>$token]);
+        return [
+            'user_id' => 'User ID',
+            'username' => 'Username',
+            'password' => 'Password',
+            'email' => 'Email',
+            'auth_key' => 'Auth Key',
+            'access_token' => 'Access Token',
+        ];
     }
 
     /**
-     * Finds user by username
+     * Gets query for [[Bookings]].
      *
-     * @param string $username
-     * @return static|null
+     * @return \yii\db\ActiveQuery
      */
-    public static function findByUsername($username)
+    public function getBookings()
     {
-        return self::findOne(['username'=>$username]);
+        return $this->hasMany(Booking::class, ['user_id' => 'user_id']);
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
-        return $this->user_id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAuthKey()
-    {
-        return $this->auth_key;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function validateAuthKey($authKey)
-    {
-        return $this->auth_key === $authKey;
-    }
-
-    /**
-     * Validates password
+     * Gets query for [[People]].
      *
-     * @param string $password password to validate
-     * @return bool if password provided is valid for current user
+     * @return \yii\db\ActiveQuery
      */
-    public function validatePassword($password)
+    public function getPeople()
     {
-        return $this->password === $password;
+        return $this->hasMany(Person::class, ['user_id' => 'user_id']);
     }
 }
