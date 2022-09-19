@@ -19,6 +19,19 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['met
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@web/favicon.ico']);
 
+$this->registerJsFile("@web/js/bootsnav.js");
+$this->registerJsFile("@web/js/bootsrap.min.js");
+$this->registerJsFile("@web/js/custom.js");
+$this->registerJsFile("@web/js/datepicker.js");
+$this->registerJsFile("@web/js/jquery-ui.min.js");
+$this->registerJsFile("@web/js/jquery.counterup.min.js");
+$this->registerJsFile("@web/js/jquery.filterizr.min.js");
+$this->registerJsFile("@web/js/jquery.js");
+$this->registerJsFile("@web/js/jquery.min.js");
+$this->registerJsFile("@web/js/jquery.sticky.js");
+$this->registerJsFile("@web/js/owl.carousel.min.js");
+$this->registerJsFile("@web/js/waypoint.min.js");
+
 ?>
 
 <?php $this->beginPage() ?>
