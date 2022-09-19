@@ -1,4 +1,5 @@
-	
+
+		
 		<!--about-us start -->
 		<section id="home" class="about-us">
 		
@@ -59,23 +60,15 @@
 												<div class="col-lg-2 col-md-3 col-sm-4">
 													<div class="single-tab-select-box">
 														<h2>departure</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" name="departure" class="form-control" data-toggle="datepicker"
-																placeholder="12 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
+															<input type="date" class="datepicker" name="datetime" id="datetime" />
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
 
 												<div class="col-lg-2 col-md-3 col-sm-4">
 													<div class="single-tab-select-box">
 														<h2>return</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" name="return" class="form-control" data-toggle="datepicker" placeholder="22 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
+														<input type="date" class = "datepicker" name="datetime" id="datetime" />
+
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
 
@@ -193,7 +186,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="service-img">
-								<img src="@web/images/service/s1.png" alt="service-icon" />
+								<img src="<?= \Yii::getAlias('@web/images/service/s1.png') ?>" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 								<h2>
@@ -209,7 +202,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="service-img">
-								<img src="assets/images/service/s2.png" alt="service-icon" />
+								<img src="<?= \Yii::getAlias('@web/images/service/s2.png') ?>" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 								<h2>
@@ -225,7 +218,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-service-box">
 							<div class="statistics-img">
-								<img src="assets/images/service/s3.png" alt="service-icon" />
+								<img src="<?= \Yii::getAlias('@web/images/service/s3.png') ?>" alt="service-icon" />
 							</div><!--/.service-img-->
 							<div class="service-content">
 

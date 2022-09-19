@@ -18,7 +18,6 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@web/favicon.ico']);
-
 ?>
 
 <?php $this->beginPage() ?>
@@ -115,7 +114,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 						<div class="col-sm-3">
 							<div class="single-footer-item">
 								<div class="footer-logo">
-									<a href="index.html">
+									<a href="https://www.sqiva.com/">
 										Sqiva<span></span>
 									</a>
 									<p>
@@ -130,7 +129,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 								<h2>link</h2>
 								<div class="single-footer-txt">
 									<p><a href="#">home</a></p>
-									<p><a href="#">Manage booking</a></p>
+									<p><a href="../views/site/login.php">Manage booking</a></p>
 									<p><a href="#">Check-in</a></p>
 									<p><a href="#">contact</a></p>
 								</div><!--/.single-footer-txt-->
@@ -168,9 +167,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 				<hr>
 				<div class="foot-icons ">
 					<ul class="footer-social-links list-inline list-unstyled">
-		                <li><a href="#" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
-		                <li><a href="#" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
-		                <li><a href="#" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
+		                <li><a href="https://id.linkedin.com/company/sqiva" target="_blank" > <img  src="<?= \Yii::getAlias('@web/images/footer/linked.png') ?> "></a></li>
+		                <li><a href="#" target="_blank"> <img  src="<?= \Yii::getAlias('@web/images/footer/twitter.png') ?> "></a></li>
+		                <li><a href="#" target="_blank" > <img  src="<?= \Yii::getAlias('@web/images/footer/insta.png') ?> "> </a></li>
 		        	</ul>
 		        	<p>&copy; 2022 <a href="https://www.sqiva.com/">Squiva</a>. All Right Reserved</p>
 
@@ -186,44 +185,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
     
 
 		
-
 		
-		<script src="@web/js/jquery.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-
-		<!--modernizr.min.js-->
-		<script  src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-
-
-		<!--bootstrap.min.js-->
-		<script  src="@web/js/bootstrap.min.js"></script>
-
-		<!-- bootsnav js -->
-		<script src="@web/js/bootsnav.js"></script>
-
-		<!-- jquery.filterizr.min.js -->
-		<script src="@web/js/jquery.filterizr.min.js"></script>
-
-		<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-
-		<!--jquery-ui.min.js-->
-        <script src="@web/js/jquery-ui.min.js"></script>
-
-        <!-- counter js -->
-		<script src="@web/js/jquery.counterup.min.js"></script>
-		<script src="@web/js/waypoints.min.js"></script>
-
-		<!--owl.carousel.js-->
-        <script  src="@web/js/owl.carousel.min.js"></script>
-
-        <!-- jquery.sticky.js -->
-		<script src="@web/js/jquery.sticky.js"></script>
-
-        <!--datepicker.js-->
-        <script  src="@web/js/datepicker.js"></script>
-
-		<!--Custom JS-->
-		<script src="@web/js/custom.js"></script>
 
 <?php $this->endBody() ?>
 </body>

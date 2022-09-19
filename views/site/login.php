@@ -1,44 +1,89 @@
-<?php
+<!DOCTYPE html>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
-/** @var app\models\LoginForm $model */
+<link rel="stylesheet" href="../assets/css/Login.css" />
 
-use yii\bootstrap5\ActiveForm;
-use yii\bootstrap5\Html;
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+<html>
+  <head>
+    <div class="banner">
+    <div class="LoginForm">
+    <title>Login page with jQuery and AJAX</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <form method="post" ,action="Login.html">
+        <div class="row">
+          <h2 class="LoginTitle" style="text-align: left">
+            Sign In
+          </h2>
+          <div class="vl">
+            <span class="vl-innertext">or</span>
+          </div>
 
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'layout' => 'horizontal',
-        'fieldConfig' => [
-            'template' => "{label}\n{input}\n{error}",
-            'labelOptions' => ['class' => 'col-lg-1 col-form-label mr-lg-3'],
-            'inputOptions' => ['class' => 'col-lg-3 form-control'],
-            'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
-        ],
-    ]); ?>
+          <div class="col">
+            <a href="#" class="google btn"
+              ><i class="fa fa-google fa-fw"> </i> Login with Google+
+            </a>
+          </div>
 
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-        <?= $form->field($model, 'password')->passwordInput() ?>
-
-        <?= $form->field($model, 'rememberMe')->checkbox([
-            'template' => "<div class=\"offset-lg-1 col-lg-3 custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-        ]) ?>
-
-        <div class="form-group">
-            <div class="offset-lg-1 col-lg-11">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+          <div class="col">
+            <div class="hide-md-lg">
+              <p>Or sign in manually:</p>
             </div>
+            <h3>Email :</h3>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
+            <h3>Password :</h3>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />       
+            <input type="button" value="Login" id="login" />
+            <br>
+            <p class="links">Forgotten password? <a href="https://www.w3schools.com/">Reset password</a></p>
+            <p class="links">Not a member yet?<a href="https://www.w3schools.com/">Sign up here</a></p>
+          </div>
         </div>
+      </form>
+    </div>
 
-    <?php ActiveForm::end(); ?>
-</div>
+  </div>
+
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#login").on("click", function () {
+          var email = $("#email").val();
+          var password = $("#password").val();
+          $.ajax({
+            url: "Login.html",
+            data: {
+              emailAttempt: email,
+              passwordAttempt: password,
+            },
+            success: function (response) {
+              console.log("Your email and password are: ".emailAttempt);
+            },
+            dataType: "text",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
