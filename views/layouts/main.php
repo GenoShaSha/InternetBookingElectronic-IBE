@@ -18,20 +18,6 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@web/favicon.ico']);
-
-$this->registerJsFile("@web/js/bootsnav.js");
-$this->registerJsFile("@web/js/bootsrap.min.js");
-$this->registerJsFile("@web/js/custom.js");
-$this->registerJsFile("@web/js/datepicker.js");
-$this->registerJsFile("@web/js/jquery-ui.min.js");
-$this->registerJsFile("@web/js/jquery.counterup.min.js");
-$this->registerJsFile("@web/js/jquery.filterizr.min.js");
-$this->registerJsFile("@web/js/jquery.js");
-$this->registerJsFile("@web/js/jquery.min.js");
-$this->registerJsFile("@web/js/jquery.sticky.js");
-$this->registerJsFile("@web/js/owl.carousel.min.js");
-$this->registerJsFile("@web/js/waypoint.min.js");
-
 ?>
 
 <?php $this->beginPage() ?>
@@ -128,7 +114,7 @@ $this->registerJsFile("@web/js/waypoint.min.js");
 						<div class="col-sm-3">
 							<div class="single-footer-item">
 								<div class="footer-logo">
-									<a href="index.html">
+									<a href="https://www.sqiva.com/">
 										Sqiva<span></span>
 									</a>
 									<p>
@@ -143,7 +129,7 @@ $this->registerJsFile("@web/js/waypoint.min.js");
 								<h2>link</h2>
 								<div class="single-footer-txt">
 									<p><a href="#">home</a></p>
-									<p><a href="#">Manage booking</a></p>
+									<p><a href="../views/site/login.php">Manage booking</a></p>
 									<p><a href="#">Check-in</a></p>
 									<p><a href="#">contact</a></p>
 								</div><!--/.single-footer-txt-->
