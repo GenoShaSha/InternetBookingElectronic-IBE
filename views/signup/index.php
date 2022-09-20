@@ -83,16 +83,17 @@ $this->registerCssFile("@web/css/login.css")
         $("#login").on("click", function () {
           var email = $("#email").val();
           var password = $("#password").val();
+          var RepeatPassword = $("#repeatPassword").val();
           $.ajax({
-            url: "index",
+            url: '<?php echo Yii::$app->request->baseUrl.'/signup/save'?>',
+            type:"POST",
             data: {
-              emailAttempt: email,
-              passwordAttempt: password,
+              email:$("#email").val(),
+              password:$("#password").val()
             },
             success: function (response) {
-              console.log("Your email and password are: ".emailAttempt);
+              console.log(response);
             },
-            dataType: "text",
           });
         });
       });
