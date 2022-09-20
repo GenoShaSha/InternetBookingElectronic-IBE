@@ -52,20 +52,32 @@ body {
 
 }
 
-
-
-a,
-a:hover,
-a:active,
-a:focus {
-
-    display: inline-block;
-    text-decoration: none;
-    font-size: 13px;
-    padding: 0;
-    margin: 0;
-
+img {
+  height: auto;
+  width: 100px;
 }
+
+nav#w0 {
+  background: #008Dff !important;
+}
+
+a.nav-link {
+  color: #222222;
+  border-radius: 15px;
+}
+
+a.nav-link:hover {
+  background-color: #023436 !important;
+}
+
+a.nav-link.active {
+  font-family: 'Poppins', sans-serif;
+}
+
+a.nav-link {
+  font-family: 'Poppins', sans-serif;
+}
+
 
 h1,
 h2,
@@ -151,6 +163,7 @@ body {
 .top-area {
     position: absolute;
     width: 100%;
+    z-index: 1;
 }
 
 .wrapper {
@@ -240,7 +253,7 @@ body {
 .main-menu .nav li.active a,
 .main-menu .nav li a:hover,
 .main-menu .nav li a:focus {
-    color: #222222;
+    color: red;
     background-color: transparent;
 }
 
@@ -260,12 +273,7 @@ body {
 
 }
 
-.main-menu .nav li.active a:before,
-.main-menu .nav a:hover:before {
-    /* background: #00d8ff; */
-    background: #ffffff;
-    width: 100%;
-}
+
 
 /*.main-menu*/
 
@@ -10045,13 +10053,6 @@ html {
     bottom: 0;
     margin-bottom: 0;
     border-width: 1px 0 0;
-  }
-  .navbar-brand {
-    float: left;
-    height: 50px;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
   }
   .navbar-brand:focus,
   .navbar-brand:hover {
