@@ -140,6 +140,11 @@ input#password{
   font-family: 'Poppins', sans-serif;
 }
 
+input#repeatPassword{
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
 
 
 
@@ -171,7 +176,7 @@ input#password{
   @media (min-width: 1200px) {
     .containerSignIn {
       width: 750px;
-      height: 450px;
+      height: 520px;
     }
   }
 

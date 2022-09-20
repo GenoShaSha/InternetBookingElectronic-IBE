@@ -61,7 +61,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
             ['label' => 'Manage Booking', 'url' => ['/site/about']],
             ['label' => 'Check in', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest
-                ? ['label' => 'Login', 'url' => ['/signup/index']]
+                ? 
+				[
+					'label' => 'Profile',
+					'items' => [
+						 ['label' => 'Login', 'url' => ['login/index']],
+						 ['label' => 'Register', 'url' => ['signup/index']],
+					],
+				]
                 : '<li class="nav-item">'
                     . Html::beginForm(['/site/logout'])
                     . Html::submitButton(

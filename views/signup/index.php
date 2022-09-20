@@ -26,7 +26,7 @@ $this->registerCssFile("@web/css/login.css")
       <form method="post" ,action="Login.html">
         <div class="row">
           <h2 class="LoginTitle" style="text-align: left">
-            Sign Up
+            Register
           </h2>
 
        
@@ -51,16 +51,23 @@ $this->registerCssFile("@web/css/login.css")
               placeholder="Password"
               required
             />   
+            <h3>Repeat Password :</h3>
+            <input
+              type="repeatPassword"
+              name="repeatPassword"
+              id="repeatPassword"
+              placeholder="Reapeat Password"
+              required
+            />  
             <br></br>    
             <input type="button" value="Login" id="login" />
             <br>
-            <div class = butns>
             <p class="links">Already have an account? <a href="https://www.w3schools.com/">Sign In here</a></p>
             <div class="foot-icons">
           <ul class="footer-social-links list-inline list-unstyled">
           <p class="links">Or Sign Up with Google :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>	  
 		      </ul>
-</div>
+          
           </div>
           </div>
         </div>
@@ -77,7 +84,7 @@ $this->registerCssFile("@web/css/login.css")
           var email = $("#email").val();
           var password = $("#password").val();
           $.ajax({
-            url: "Login.html",
+            url: "index",
             data: {
               emailAttempt: email,
               passwordAttempt: password,
