@@ -58,7 +58,7 @@ $this->registerCssFile("@web/css/login.css")
             <p class="links">Already have an account? <a href="https://www.w3schools.com/">Sign In here</a></p>
             <div class="foot-icons">
           <ul class="footer-social-links list-inline list-unstyled">
-          <p class="links">Or Sign Up with Google :<a href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>	  
+          <p class="links">Or Sign Up with Google :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>	  
 		      </ul>
 </div>
           </div>

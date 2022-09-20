@@ -15,18 +15,11 @@ html {
   font-size: 40px !important;
 }
 
-/* style the container */
-.container {
-  position: relative;
-  border-radius: 30px;
-  background-color: #f2f2f2;
-  padding: 30px;
-  margin: 250px;
-  /* border-radius: 5px;
-  background-color: #ffffff;
-  padding: 20px 0 30px 0;
-  */
+.glink{
+  margin-left: 200px;
+  margin-top: 0px;
 }
+
 
 
 /* style inputs and link buttons */
