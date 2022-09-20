@@ -18,7 +18,9 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@web/favicon.ico']);
+
 ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <?php $this->beginPage() ?>
 
@@ -40,65 +42,44 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
 	
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		
+
 </head>
 <body>
 	
 <?php $this->beginBody() ?>
 
 <!-- main-menu Start -->
-<header class="top-area">
-			<div class="header-area">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-2">
-							<div class="logo">
-								<a href="index.php">
-									<img src = './assets/logo/FullLogo.png' style="width:100%; height:auto; max-width:300px;">
-								</a>
-							</div><!-- /.logo-->
-						</div><!-- /.col-->
-						<div class="col-sm-10">
-							<div class="main-menu">
-							
-								<!-- Brand and toggle get grouped for better mobile display -->
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-										<i class="fa fa-bars"></i>
-									</button><!-- / button-->
-								</div><!-- /.navbar-header-->
-								<div class="collapse navbar-collapse">		  
-									<ul class="nav navbar-nav navbar-right">
-										<li class="smooth-menu"><a href="#home">home</a></li>
-										<li class="smooth-menu"><a href="#gallery">My Trips</a></li>
-										<li class="smooth-menu"><a href="#gallery">Check-in</a></li>
-										<li>
-											<label class="dropdown">
-												<div class="dd-button">
-												  Dropdown
-												</div>
-											  
-												<input type="checkbox" class="dd-input" id="test">
-											  
-												<ul class="dd-menu">
-												  <li class="profile-btn"><a href="./pages/Login.html">Log in</a></li>
-												  <li  class="profile-btn"><a href="./pages/Register.html">Register</a></li>
-												
-												</ul>
-												
-											  </label>
-										</li><!--/.project-btn--> 
-									</ul>
-								</div><!-- /.navbar-collapse -->
-							</div><!-- /.main-menu-->
-						</div><!-- /.col-->
-					</div><!-- /.row -->
-					<div class="home-border"></div><!-- /.home-border-->
-				</div><!-- /.container-->
-			</div><!-- /.header-area -->
-	
-		</header><!-- /.top-area-->
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="#">
+		<img src=" <?= \Yii::getAlias('@web/images/home/BigLogo.png') ?>" width="100" height="10" alt="">
+	</a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+			<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Link</a>
+		</li>
+		<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+		
+		</ul>
+	</div>
+	</nav>
+</header>
 
         <?php if (!empty($this->params['breadcrumbs'])): ?>
             <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
