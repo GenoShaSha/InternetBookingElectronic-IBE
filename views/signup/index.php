@@ -12,7 +12,6 @@ $this->registerCssFile("@web/css/login.css")
 
 />
 
-<link rel="stylesheet" href="../assets/css/Login.css" />
 
 
 
@@ -95,3 +94,4 @@ $this->registerCssFile("@web/css/login.css")
     </script>
   </body>
 </html>
+<link rel="stylesheet" href="../assets/css/Login.css" />

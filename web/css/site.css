@@ -52,20 +52,20 @@ body {
 
 }
 
-
-
-a,
-a:hover,
-a:active,
-a:focus {
-
-    display: inline-block;
-    text-decoration: none;
-    font-size: 13px;
-    padding: 0;
-    margin: 0;
-
+img {
+  height: auto;
+  width: 100px;
 }
+
+nav#w0 {
+  background: #008Dff !important;
+}
+
+a.nav-link {
+  color: #222222;
+}
+
+
 
 h1,
 h2,
@@ -151,6 +151,7 @@ body {
 .top-area {
     position: absolute;
     width: 100%;
+    z-index: 1;
 }
 
 .wrapper {
@@ -10034,13 +10035,6 @@ html {
     bottom: 0;
     margin-bottom: 0;
     border-width: 1px 0 0;
-  }
-  .navbar-brand {
-    float: left;
-    height: 50px;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
   }
   .navbar-brand:focus,
   .navbar-brand:hover {

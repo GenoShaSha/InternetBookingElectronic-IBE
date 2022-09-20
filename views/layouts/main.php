@@ -8,6 +8,8 @@ use app\assets\AppAsset;
 use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
+use yii\bootstrap5\Nav;
+use yii\bootstrap5\NavBar;
 
 
 AppAsset::register($this);
@@ -20,7 +22,6 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@web/favicon.ico']);
 
 ?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <?php $this->beginPage() ?>
 
@@ -44,44 +45,43 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body>
-	
-<?php $this->beginBody() ?>
-<section id="home" class="about-us">
-
 
 <!-- main-menu Start -->
-<header>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#">
-		<img src=" <?= \Yii::getAlias('@web/images/home/BigLogo.png') ?>" width="100" height="10" alt="">
-	</a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-		<li class="nav-item active">
-			<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#">Link</a>
-		</li>
-		<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-		
-		</ul>
-	</div>
-	</nav>
+<header class = "top-area">
+<?php
+    NavBar::begin([
+        'brandLabel' => Html::img('@web/images/home/BigLogo.png', ['alt'=>Yii::$app->name], ['class' => "logo"]),
+        'brandUrl' => Yii::$app->homeUrl,
+        'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
+    ]);
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav'],
+        'items' => [
+            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Manage Booking', 'url' => ['/site/about']],
+            ['label' => 'Check in', 'url' => ['/site/contact']],
+            Yii::$app->user->isGuest
+                ? ['label' => 'Login', 'url' => ['/signup/index']]
+                : '<li class="nav-item">'
+                    . Html::beginForm(['/site/logout'])
+                    . Html::submitButton(
+                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'nav-link btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
+        ]
+    ]);
+    NavBar::end();
+    ?>
 </header>
+<body>
+
+<?php $this->beginBody() ?>
+
+
+
+<section id="home" class="about-us">
 
         <?php if (!empty($this->params['breadcrumbs'])): ?>
             <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
@@ -170,8 +170,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
     
 
 		
-		
-
+	
 <?php $this->endBody() ?>
 </body>
 </html>
