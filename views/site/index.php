@@ -1,7 +1,6 @@
 
 		
 		<!--about-us start -->
-		<section id="home" class="about-us">
 		
 
 			
@@ -235,5 +234,4 @@
 				</div><!--/.statistics-counter-->	
 			</div><!--/.container-->
 
-		</section><!--/.service-->
 		<!--service end-->

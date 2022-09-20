@@ -47,6 +47,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 <body>
 	
 <?php $this->beginBody() ?>
+<section id="home" class="about-us">
+
 
 <!-- main-menu Start -->
 <header>
@@ -86,6 +88,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
         <?php endif ?>
         <?= Alert::widget() ?>
         <?= $content ?>
+		</section><!--/.service-->
+
 
 <footer  class="footer-copyright">
 			<div class="container">
@@ -110,7 +114,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 								<h2>link</h2>
 								<div class="single-footer-txt">
 									<p><a href="#">home</a></p>
-									<p><a href="../views/site/login.php">Manage booking</a></p>
+									<p><a href="../views/signup/index.php">Sign Up</a></p>
 									<p><a href="#">Check-in</a></p>
 									<p><a href="#">contact</a></p>
 								</div><!--/.single-footer-txt-->
