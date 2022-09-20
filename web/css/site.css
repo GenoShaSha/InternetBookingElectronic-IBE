@@ -355,6 +355,8 @@ body {
     max-width: 800px;
     font-weight: 600;
     line-height: 1.22;
+    margin-left: 50px;
+    max-height: 50px;
 }
 
 .about-us h2 span {
@@ -943,6 +945,7 @@ body {
     color: #aaa;
     font-size: 16px;
     margin-top: 28px;
+    margin: auto;
 }
 
 .foot-icons p a,
@@ -5797,6 +5800,8 @@ html {
   }
   img {
     border: 0;
+    margin-left: 200px;
+    margin-top: 0px;
   }
   svg:not(:root) {
     overflow: hidden;
@@ -6979,7 +6984,13 @@ html {
   }
   .h3,
   h3 {
-    font-size: 24px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #565a5c;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 17px;
+    margin-right: 100px;
   }
   .h4,
   h4 {
@@ -7289,24 +7300,24 @@ html {
     overflow-y: scroll;
   }
   .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    /* padding-right: 80px;
+    padding-left: 15px; */
     margin-right: auto;
     margin-left: auto;
   }
   @media (min-width: 768px) {
     .container {
-      width: 750px;
+      width: 700px;
     }
   }
   @media (min-width: 992px) {
     .container {
-      width: 970px;
+      width: 958px;
     }
   }
   @media (min-width: 1200px) {
     .container {
-      width: 1170px;
+      width: 1100px;
     }
   }
   .container-fluid {

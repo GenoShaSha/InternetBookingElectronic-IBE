@@ -18,31 +18,23 @@ $this->registerCssFile("@web/css/login.css")
 
 <html>
   <head>
-    <div class="banner">
     <div class="LoginForm">
     <title>Login page with jQuery and AJAX</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div class="container">
+    <div class="containerSignIn">
       <form method="post" ,action="Login.html">
         <div class="row">
           <h2 class="LoginTitle" style="text-align: left">
-            Sign In
+            Sign Up
           </h2>
-          <div class="vl">
-            <span class="vl-innertext">or</span>
-          </div>
 
-          <div class="col">
-            <a href="#" class="google btn"
-              ><i class="fa fa-google fa-fw"> </i> Login with Google+
-            </a>
-          </div>
+       
 
           <div class="col">
             <div class="hide-md-lg">
-              <p>Or sign in manually:</p>
+              <p>Sign Up manually:</p>
             </div>
             <h3>Email :</h3>
             <input
@@ -59,17 +51,23 @@ $this->registerCssFile("@web/css/login.css")
               id="password"
               placeholder="Password"
               required
-            />       
+            />   
+            <br></br>    
             <input type="button" value="Login" id="login" />
             <br>
-            <p class="links">Forgotten password? <a href="https://www.w3schools.com/">Reset password</a></p>
-            <p class="links">Not a member yet?<a href="https://www.w3schools.com/">Sign up here</a></p>
+            <div class = butns>
+            <p class="links">Already have an account? <a href="https://www.w3schools.com/">Sign In here</a></p>
+            <div class="foot-icons">
+          <ul class="footer-social-links list-inline list-unstyled">
+          <p class="links">Or Sign Up with Google :<a href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>	  
+		      </ul>
+</div>
+          </div>
           </div>
         </div>
       </form>
     </div>
 
-  </div>
 
   </div>
 

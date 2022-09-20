@@ -94,7 +94,7 @@ p.links {
   font-weight: 500;
   text-transform: capitalize;
   margin-bottom: 17px;
-  margin-left: 0px;
+  margin-right: 100px;
 }
 
 .twitter {
@@ -116,15 +116,18 @@ input[type="button"] {
 
 input[type="button"]:hover {
   background-color: #138599;
+
 }
 
 /* Two-column layout */
 .col {
-  float: left;
-  width: 50%;
+  /* float: left; */
+  width: 60%;
   margin: auto;
-  padding: 0 50px;
-  margin-top: 6px;
+  /* padding: 0 50px; */
+  /* padding-top: 50px; */
+  position: 100%;
+  /* padding-left: 250px; */
 }
 
 /* Clear floats after the columns */
@@ -134,25 +137,18 @@ input[type="button"]:hover {
   clear: both;
 }
 
-/* vertical line */
-.vl {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  border: 2px solid #ddd;
-  height: 175px;
+input#email {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
 }
 
-/* text inside the vertical line */
-.vl-innertext {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  padding: 8px 10px;
+input#password{
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
 }
+
+
+
 
 /* hide some text on medium and large screens */
 .hide-md-lg {
@@ -160,8 +156,31 @@ input[type="button"]:hover {
 }
 
 .LoginForm {
-  border-radius: 30px;
+  position: relative;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding-bottom: 100px;
+  /* padding: 30px;
+  margin: 250px; */
+  margin-right: auto;
+  margin-left: auto;
 }
+  @media (min-width: 768px) {
+    .containerSignIn {
+      width: 418px;
+    }
+  }
+  @media (min-width: 992px) {
+    .containerSignIn {
+      width: 642px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .containerSignIn {
+      width: 750px;
+      height: 450px;
+    }
+  }
 
 /* bottom container */
 .bottom-container {
@@ -177,15 +196,20 @@ input[type="button"]:hover {
     margin-top: 0;
   }
 
-  /* hide the vertical line */
+  /* hide the vertical line
   .vl {
     display: none;
-  }
+  } */
 
   /* show the hidden text on small screens */
   .hide-md-lg {
     display: block;
     text-align: center;
   }
+
+
+  
+ 
+  
 
 }

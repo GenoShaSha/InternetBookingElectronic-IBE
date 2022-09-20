@@ -50,9 +50,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 
 <!-- main-menu Start -->
 <header class="top-area">
-			
 	
-		</header><!-- /.top-area-->
+</header><!-- /.top-area-->
 
 
         <?php if (!empty($this->params['breadcrumbs'])): ?>
