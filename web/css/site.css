@@ -63,8 +63,20 @@ nav#w0 {
 
 a.nav-link {
   color: #222222;
+  border-radius: 15px;
 }
 
+a.nav-link:hover {
+  background-color: #023436 !important;
+}
+
+a.nav-link.active {
+  font-family: 'Poppins', sans-serif;
+}
+
+a.nav-link {
+  font-family: 'Poppins', sans-serif;
+}
 
 
 h1,
@@ -241,7 +253,7 @@ body {
 .main-menu .nav li.active a,
 .main-menu .nav li a:hover,
 .main-menu .nav li a:focus {
-    color: #222222;
+    color: red;
     background-color: transparent;
 }
 
@@ -261,12 +273,7 @@ body {
 
 }
 
-.main-menu .nav li.active a:before,
-.main-menu .nav a:hover:before {
-    /* background: #00d8ff; */
-    background: #ffffff;
-    width: 100%;
-}
+
 
 /*.main-menu*/
 
