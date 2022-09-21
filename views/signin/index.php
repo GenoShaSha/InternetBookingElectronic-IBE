@@ -53,7 +53,6 @@ $this->registerCssFile("@web/css/login.css")
             <input type="button" value="Login" id="login" />
             <br>
             <p class="links">Forgot Password? <a href="https://www.w3schools.com/">click here</a></p>
-            <br>
             <p class="links">Not a member yet? <a href="https://www.w3schools.com/">Register here</a></p>
             <div class="foot-icons">
           <ul class="footer-social-links list-inline list-unstyled">
@@ -75,9 +74,8 @@ $this->registerCssFile("@web/css/login.css")
         $("#login").on("click", function () {
           var email = $("#email").val();
           var password = $("#password").val();
-          var RepeatPassword = $("#repeatPassword").val();
           $.ajax({
-            url: '<?php echo Yii::$app->request->baseUrl.'/signup/save'?>',
+            url: '<?php echo Yii::$app->request->baseUrl.'/signin/login'?>',
             type:"POST",
             data: {
               email:$("#email").val(),

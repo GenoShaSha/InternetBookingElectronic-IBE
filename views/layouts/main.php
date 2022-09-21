@@ -69,14 +69,15 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 						 ['label' => 'Register', 'url' => ['signup/index']],
 					],
 				]
-                : '<li class="nav-item">'
-                    . Html::beginForm(['/site/logout'])
-                    . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'nav-link btn btn-link logout']
-                    )
-                    . Html::endForm()
-                    . '</li>'
+                : 
+				[
+					'label' => Yii::$app->user->identity->email,
+					'items' => [
+						['label' => 'My Profile', 'url' => ['signup/index']],
+						 ['label' => 'LogOut', 'url' => ['signin/logout']]
+					],
+				]
+				
         ]
     ]);
     NavBar::end();

@@ -82,6 +82,17 @@ class user extends \yii\db\ActiveRecord implements IdentityInterface
         return self::findOne(['username'=>$username]);
     }
 
+     /**
+     * Finds user by username
+     *
+     * @param string $email
+     * @return static|null
+     */
+    public static function findByEmail($email)
+    {
+        return self::findOne(['email'=>$email]);
+    }
+
     /**
      * {@inheritdoc}
      */

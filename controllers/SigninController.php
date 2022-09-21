@@ -12,4 +12,27 @@ class SigninController extends \yii\web\Controller
         return $this->render('index');
     }
 
+    public function actionLogin(){
+        $model = new user();
+        if(Yii::$app->request->isAjax){
+            $data = Yii::$app->request->post();
+            $newUser = $model->findByEmail($data['email']);
+            if($newUser->validatePassword($data['password'])){
+                Yii::$app->user->login($newUser);
+            }
+
+            return $this->redirect(['site/index']);
+        }
+        else {
+            return alert('error');
+        }
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
+    }
+
 }
