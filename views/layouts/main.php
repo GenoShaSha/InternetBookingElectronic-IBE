@@ -66,14 +66,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 					'label' => 'Profile',
 					'items' => [
 						 ['label' => 'Login', 'url' => ['signin/index']],
-						 ['label' => 'Register', 'url' => ['signup/index']],
+						//  ['label' => 'Register', 'url' => ['signup/index']],
 					],
 				]
                 : 
 				[
 					'label' => Yii::$app->user->identity->email,
 					'items' => [
-						['label' => 'My Profile', 'url' => ['signup/index']],
+						['label' => 'My Profile', 'url' => ['profile/index']],
 						 ['label' => 'LogOut', 'url' => ['signin/logout']]
 					],
 				]

@@ -24,7 +24,7 @@ class SigninController extends \yii\web\Controller
             return $this->redirect(['site/index']);
         }
         else {
-            return alert('error');
+            return 'error';
         }
     }
 
