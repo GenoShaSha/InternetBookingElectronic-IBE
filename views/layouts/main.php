@@ -65,7 +65,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 				[
 					'label' => 'Profile',
 					'items' => [
-						 ['label' => 'Login', 'url' => ['login/index']],
+						 ['label' => 'Login', 'url' => ['signin/index']],
 						 ['label' => 'Register', 'url' => ['signup/index']],
 					],
 				]
