@@ -5,6 +5,8 @@ protected/runtime/*
 protected/data/*.db
 themes/classic/views/
 
+config/db.php
+
 # phpstorm project files
 .idea
 
