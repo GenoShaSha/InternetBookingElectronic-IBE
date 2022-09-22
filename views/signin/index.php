@@ -53,7 +53,7 @@ $this->registerCssFile("@web/css/login.css")
             <input type="button" value="Login" id="login" />
             <br>
             <p class="links">Forgot Password? <a href="https://www.w3schools.com/">click here</a></p>
-            <p class="links">Not a member yet? <a href="https://www.w3schools.com/">Register here</a></p>
+            <p class="links">Not a member yet? <a href="<?= \Yii::getAlias('@web/signup/index') ?>">Register here</a></p>
             <div class="foot-icons">
           <ul class="footer-social-links list-inline list-unstyled">
           <p class="links">Or Sign In with Google :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>	  
