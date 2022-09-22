@@ -35,12 +35,10 @@ class Person extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['person_id', 'user_id', 'first_name', 'last_name', 'date_of_birth', 'gender', 'nationality', 'personal_doc_type', 'personal_doc_num'], 'required'],
-            [['person_id', 'user_id'], 'integer'],
-            [['date_of_birth'], 'safe'],
-            [['first_name', 'last_name'], 'string', 'max' => 255],
+            [['user_id', 'first_name', 'last_name', 'date_of_birth', 'gender', 'nationality', 'personal_doc_type', 'personal_doc_num'], 'required'],
+            [['user_id'], 'integer'],
+            [['first_name', 'last_name', 'date_of_birth'], 'string', 'max' => 255],
             [['gender', 'nationality', 'personal_doc_type', 'personal_doc_num'], 'string', 'max' => 50],
-            [['person_id'], 'unique'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'user_id']],
         ];
     }

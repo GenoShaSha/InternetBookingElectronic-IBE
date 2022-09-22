@@ -109,8 +109,8 @@ $this->registerCssFile("@web/css/profile.css")
                     <h3>Gender :</h3>
                     <select type="text" name="gender" id="gender" placeholder="Gender" required>
                         <option value="">---</option>
-                        <option value="parrot">Male</option>
-                        <option value="spider">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                     <h3>Nationality :</h3>
                     <select type="text" name="nationality" id="nationality" placeholder="Nationality" required>
@@ -311,8 +311,8 @@ $this->registerCssFile("@web/css/profile.css")
                     <h3>Document Type :</h3>
                     <select type="text" name="documentType" id="documentType" placeholder="Document Type" required>
                         <option value="">---</option>
-                        <option value="parrot">Passport</option>
-                        <option value="spider">Id Card</option>
+                        <option value="passport">Passport</option>
+                        <option value="IDCard">Id Card</option>
                     </select>
                     <h3>Document Number :</h3>
                     <input type="text" name="documentNumber" id="documentNumber" placeholder="Document Number" required />
@@ -330,19 +330,19 @@ $this->registerCssFile("@web/css/profile.css")
     <script>
         $(document).ready(function() {
             $("#Passanger").on("click", function() {
-            
+                var ss = <?php echo Yii::$app->user->identity->user_id ?>;
                 $.ajax({
                     url: '<?php echo Yii::$app->request->baseUrl . '/profile/save' ?>',
                     type: "POST",
                     data: {
-                        user_id: <?php echo Yii::$app->user->identity->user_id ?>,
+                        user_id: ss,
                         first_name: $("#firstName").val(),
                         last_name: $("#lastName").val(),
                         date_of_birth: $("#dateOfBirth").val(),
                         gender: $("#gender").val(),
                         nationality: $("#nationality").val(),
-                        personal_doc_type: $("#docType").val(),
-                        personal_doc_num: $("#docNumb").val()
+                        personal_doc_type: $("#documentType").val(),
+                        personal_doc_num: $("#documentNumber").val()
                     },
                     success: function(response) {
                         alert('Passanger added');
