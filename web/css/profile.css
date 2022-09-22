@@ -12,9 +12,13 @@ body {
   
   .LoginTitle {
     color: black !important;
-    font-size: 40px !important;
+    font-size: 25px !important;
+    text-align: left !important;
   }
   
+  .title {
+    text-align: center !important;
+  }
   .glink{
     margin-left: 200px;
     margin-top: 0px;
@@ -133,18 +137,39 @@ body {
   input#email {
     border: 1px solid rgb(120, 120, 120);
     font-family: 'Poppins', sans-serif;
-  }
-  
-  input#password{
+  }  
+  input#password {
     border: 1px solid rgb(120, 120, 120);
     font-family: 'Poppins', sans-serif;
   }
-  
-  input#repeatPassword{
+  input#firstName {
     border: 1px solid rgb(120, 120, 120);
     font-family: 'Poppins', sans-serif;
   }
-  
+  input#gender {
+    border: 1px solid rgb(120, 120, 120);
+    font-family: 'Poppins', sans-serif;
+  }
+  input#lastName{
+    border: 1px solid rgb(120, 120, 120);
+    font-family: 'Poppins', sans-serif;
+  }
+  input#dateOfBirth {
+    border: 1px solid rgb(120, 120, 120);
+    font-family: 'Poppins', sans-serif;
+  }
+  input#nationality{
+    border: 1px solid rgb(120, 120, 120);
+    font-family: 'Poppins', sans-serif;
+  }
+  input#documentType{
+    border: 1px solid rgb(120, 120, 120);
+    font-family: 'Poppins', sans-serif;
+  }
+  input#documentNumber{
+    border: 1px solid rgb(120, 120, 120);
+    font-family: 'Poppins', sans-serif;
+  }
   
   
   
@@ -173,7 +198,7 @@ body {
     position: relative;
     border-radius: 50px;
     background-color: #f2f2f2;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     /* padding: 30px;
     margin: 250px; */
     margin-right: auto;
@@ -185,14 +210,14 @@ body {
 
   @media only screen and (max-width: 1200px) {
     .LoginForm {
-        width: auto;
+        width: 300px;
         height: auto;
         display: flex !important;
         margin-bottom: 100px;
       }  
   }
 
-    
+
   
   /* bottom container */
   .bottom-container {
@@ -206,7 +231,7 @@ body {
     .col {
       width: 100%;
       margin-top: 0;
-      margin-left: 0;
+      margin-left: 15px;
     }
   
     /* hide the vertical line

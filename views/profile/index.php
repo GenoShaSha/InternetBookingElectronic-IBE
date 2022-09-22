@@ -26,24 +26,14 @@ $this->registerCssFile("@web/css/profile.css")
 
                     <div class="col">
                         <div class="hide-md-lg">
-                            <p>Sign Up manually:</p>
+                            <!-- <p>Sign Up manually:</p> -->
                         </div>
                         <h3>Email :</h3>
                         <input type="text" name="email" id="email" placeholder="Email" required />
-                        <h3>Password :</h3>
+                        <h3>Confirm Password :</h3>
                         <input type="password" name="password" id="password" placeholder="Password" required />
-                        <h3>Repeat Password :</h3>
-                        <input type="repeatPassword" name="repeatPassword" id="repeatPassword" placeholder="Reapeat Password" required />
                         <br></br>
-                        <input type="button" value="Login" id="login" />
-                        <br>
-                        <p class="links">Already have an account? <a href="https://www.w3schools.com/">Sign In here</a></p>
-                        <div class="foot-icons">
-                            <ul class="footer-social-links list-inline list-unstyled">
-                                <p class="links">Or Sign Up with Google :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>
-                            </ul>
-
-                        </div>
+                        <input type="button" value="Edit" id="login" />
                     </div>
                 </div>
             </form>
@@ -51,30 +41,33 @@ $this->registerCssFile("@web/css/profile.css")
         <div class="LoginForm">
             <form method="post" ,action="Login.html">
                 <div class="row">
-                    <h2 class="LoginTitle" style="text-align: left">
-                        My Profile
-                    </h2>
+                    <div class="title">
+                        <h2 class="LoginTitle" style="text-align: left">
+                            Add Passanger
+                        </h2>
+                    </div>
+                </div>
 
                     <div class="col">
                         <div class="hide-md-lg">
-                            <p>Sign Up manually:</p>
+                            <!-- <p>Sign Up manually:</p> -->
                         </div>
-                        <h3>Email :</h3>
-                        <input type="text" name="email" id="email" placeholder="Email" required />
-                        <h3>Password :</h3>
-                        <input type="password" name="password" id="password" placeholder="Password" required />
-                        <h3>Repeat Password :</h3>
-                        <input type="repeatPassword" name="repeatPassword" id="repeatPassword" placeholder="Reapeat Password" required />
+                        <h3>First Name :</h3>
+                        <input type="text" name="firstName" id="firstName" placeholder="First Name" required />
+                        <h3>Last Name :</h3>
+                        <input type="text" name="lastName" id="lastName" placeholder="Last Name" required />
+                        <h3>Date of Birth :</h3>
+                        <input type="datetime" name="dateOfBirth" id="dateOfBirth" placeholder="Date of Birth" required />
+                        <h3>Gender :</h3>
+                        <input type="text" name="gender" id="gender" placeholder="Gender" required />
+                        <h3>Nationality :</h3>
+                        <input type="text" name="nationality" id="nationality" placeholder="Nationality" required />
+                        <h3>Document Type :</h3>
+                        <input type="text" name="documentType" id="documentType" placeholder="Document Type" required />
+                        <h3>Document Number :</h3>
+                        <input type="text" name="documentNumber" id="documentNumber" placeholder="Document Number" required />
                         <br></br>
-                        <input type="button" value="Login" id="login" />
-                        <br>
-                        <p class="links">Already have an account? <a href="https://www.w3schools.com/">Sign In here</a></p>
-                        <div class="foot-icons">
-                            <ul class="footer-social-links list-inline list-unstyled">
-                                <p class="links">Or Sign Up with Google :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>
-                            </ul>
-
-                        </div>
+                        <input type="button" value="Add New Passanger" id="login" />
                     </div>
                 </div>
             </form>
