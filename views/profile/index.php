@@ -1,6 +1,7 @@
 <?php
 
 /** @var yii\web\View $this */
+
 use app\assets\AppAsset;
 use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;

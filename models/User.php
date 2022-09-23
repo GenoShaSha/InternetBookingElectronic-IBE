@@ -55,7 +55,7 @@ class user extends \yii\db\ActiveRecord implements IdentityInterface
         ];
     }
 
-        /**
+    /**
      * {@inheritdoc}
      */
     public static function findIdentity($id)
@@ -68,7 +68,7 @@ class user extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        return self::findOne(['access_token'=>$token]);
+        return self::findOne(['access_token' => $token]);
     }
 
     /**
@@ -79,10 +79,10 @@ class user extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return self::findOne(['username'=>$username]);
+        return self::findOne(['username' => $username]);
     }
 
-     /**
+    /**
      * Finds user by username
      *
      * @param string $email
@@ -90,7 +90,7 @@ class user extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function findByEmail($email)
     {
-        return self::findOne(['email'=>$email]);
+        return self::findOne(['email' => $email]);
     }
 
     /**

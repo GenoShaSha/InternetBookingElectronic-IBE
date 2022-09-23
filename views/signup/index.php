@@ -39,9 +39,9 @@ $this->registerCssFile("@web/css/login.css")
           <h3>Password :</h3>
           <input type="password" name="password" id="password" placeholder="Password" required />
           <h3>Repeat Password :</h3>
-          <input type="repeatPassword" name="repeatPassword" id="repeatPassword" placeholder="Reapeat Password" required />
+          <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Reapeat Password" required />
           <br></br>
-          <input type="button" value="Login" id="login" />
+          <input type="button" value="Register" id="login" />
           <br>
           <p class="links">Already have an account? <a href="https://www.w3schools.com/">Sign In here</a></p>
           <div class="foot-icons">
@@ -71,7 +71,7 @@ $this->registerCssFile("@web/css/login.css")
             password: $("#password").val()
           },
           success: function(response) {
-            console.log(response);
+            alert("Register sucessful")
           },
         });
       });
