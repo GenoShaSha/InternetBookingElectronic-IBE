@@ -58,6 +58,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
+			['label' => 'Flight Management', 'url' => ['/createflight/index']],
             ['label' => 'Manage Booking', 'url' => ['/site/about']],
             ['label' => 'Check in', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest
@@ -138,7 +139,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 									<p><a href="#">venezuela</a></p>
 									<p><a href="#">brazil</a></p>
 									<p><a href="#">australia</a></p>
-									<p><a href="#">london</a></p>
+									<p><a href="">london</a></p>
 								</div><!--/.single-footer-txt-->
 							</div><!--/.single-footer-item-->
 						</div>

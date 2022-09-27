@@ -35,7 +35,7 @@ $this->registerCssFile("@web/css/login.css")
             </div>
             <h3>Email :</h3>
             <input
-              type="text"
+              type="email"
               name="email"
               id="email"
               placeholder="Email"
