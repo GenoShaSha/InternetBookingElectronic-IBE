@@ -168,6 +168,16 @@ input#arrivalDate{
   font-family: 'Poppins', sans-serif;
 }
 
+input#economy_price{
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#business_price{
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
 /* hide some text on medium and large screens */
 .hide-md-lg {
   display: none;
@@ -175,13 +185,15 @@ input#arrivalDate{
 
 .LoginForm {
   position: relative;
+  height: 1100px;
   border-radius: 50px;
   background-color: #f2f2f2;
   padding-bottom: 100px;
-  margin-bottom: 20px;
+  margin-bottom: 70px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 200px;
+  
 }
   @media (min-width: 768px) {
     .containerSignIn {
