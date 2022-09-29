@@ -2,7 +2,7 @@
 
 /** @var yii\web\View $this */
 
-$this->registerCssFile("@web/css/createflight.css")
+$this->registerCssFile("@web/css/editflight.css")
 
 ?>
 
@@ -22,16 +22,22 @@ $this->registerCssFile("@web/css/createflight.css")
 
 <body>
     <div class="containerSignIn">
-        <form method="post" ,action="Login.html">
-        <h2 class="LoginTitle">
-                    Add Flight
-                </h2>
+            <h2 class="LoginTitle">
+                Update Flight
+            </h2>
             <div class="row">
-                
-
                 <div class="col">
                     <h3>Flight Number :</h3>
                     <input type="text" name="flightNumber" id="flightNumber" placeholder="Flight Number" required />
+                </div>
+            </div>
+
+    </div>
+    <div class="containerSignIn">
+            <div class="row">
+                <div class="col">
+                    <!-- <h3>Flight Number :</h3>
+                    <input type="text" name="flightNumber" id="flightNumber" placeholder="Flight Number" required /> -->
                     <h3>From :</h3>
                     <input type="from" name="from" id="from" placeholder="From" required />
                     <h3>To :</h3>
@@ -51,11 +57,10 @@ $this->registerCssFile("@web/css/createflight.css")
                     <h3>Price of 1 business seat :</h3>
                     <input type="number" name="business_price" id="business_price" placeholder="Business price" required />
                     <br></br>
-                    <input type="button" value="Add Flight" id="login" />
+                    <input type="button" value="Update Flight" id="login" />
                     <br>
                 </div>
             </div>
-        </form>
     </div>
 
 
@@ -66,19 +71,18 @@ $this->registerCssFile("@web/css/createflight.css")
         $(document).ready(function() {
             $("#login").on("click", function() {
                 $.ajax({
-                    url: '<?php echo Yii::$app->request->baseUrl . '/createflight/create' ?>',
-                    type: "POST",
+                    url: '<?php echo Yii::$app->request->baseUrl . '/editflight/RetrieveFlightList' ?>',
+                    type: "GET",
                     data: {
-                        flight_nr: $("#flightNumber").val(),
-                        from: $("#from").val(),
-                        to: $("#to").val(),
-                        arrival_terminal: $("#departTerminal").val(),
-                        arrival_date: $("#arrivalDate").val(),
-                        departure_terminal: $("#departTerminal").val(),
-                        departure_date: $("#departDate").val(),
-                        economy_price: $("#economy_price").val(),
-                        business_price: $("#business_price").val()
-
+                        // flight_nr: $("#flightNumber").val(),
+                        // from: $("#from").val(),
+                        // to: $("#to").val(),
+                        // arrival_terminal: $("#departTerminal").val(),
+                        // arrival_date: $("#arrivalDate").val(),
+                        // departure_terminal: $("#departTerminal").val(),
+                        // departure_date: $("#departDate").val(),
+                        // economy_price: $("#economy_price").val(),
+                        // business_price: $("#business_price").val()
                     },
                     success: function(response) {
                         alert('Flight created !!!')

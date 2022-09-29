@@ -18,7 +18,7 @@ html {
   margin-right: 50px;
 }
 
-.glink{
+.glink {
   margin-left: 200px;
   margin-top: 0px;
 }
@@ -126,10 +126,34 @@ input[type="button"]:hover {
   /* padding-left: 250px; */
 }
 
-.row{
+.row {
   display: flex !important;
-  padding-left: 90px !important;
+  padding-left: 50px !important;
+  margin-bottom: 80px;
 }
+
+
+@media (max-width: 450px) {
+  .row {
+    display: inline-block !important;
+  }
+
+  .LoginForm{
+    width: 300px !important;
+    margin-top: 600px !important;
+    display: inline-block !important;
+  }
+
+  .LoginTitle{
+    margin-bottom: 40px;
+  }
+
+  .containerSignIn{
+    margin-left: 0px !important;
+  }
+}
+
+
 
 /* Clear floats after the columns */
 .row:after {
@@ -143,42 +167,42 @@ input#flightNumber {
   font-family: 'Poppins', sans-serif;
 }
 
-input#from{
+input#from {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
 
-input#to{
+input#to {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
 
-input#departTerminal{
+input#departTerminal {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
 
-input#arrivalTerminal{
+input#arrivalTerminal {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
 
-input#departDate{
+input#departDate {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
 
-input#arrivalDate{
+input#arrivalDate {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
 
-input#economy_price{
+input#economy_price {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
 
-input#business_price{
+input#business_price {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
@@ -188,10 +212,14 @@ input#business_price{
   display: none;
 }
 
+.containerSignIn {
+  margin-left: 90px;
+}
+
 .LoginForm {
   display: inline-block;
-  position: relative;
-  height: 700px;
+  position: absolute;
+  /* height: 250px; */
   width: 850px;
   border-radius: 50px;
   background-color: #f2f2f2;
@@ -200,24 +228,31 @@ input#business_price{
   margin-right: auto;
   margin-left: auto;
   margin-top: 200px;
-  
 }
-  @media (min-width: 768px) {
-    .containerSignIn {
-      width: 418px;
-    }
+@media (max-width: 768px) {
+  .containerSignIn {
+    width: 200px !important;
   }
-  @media (min-width: 992px) {
-    .containerSignIn {
-      width: 642px;
-    }
+}
+
+@media (max-width: 768px) {
+  .containerSignIn {
+    width: 200px !important;
   }
-  @media (min-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+  .containerSignIn {
+    width: 200px !important;
+  }
+}
+
+/* @media (max-width: 1200px) {
     .containerSignIn {
       width: 750px;
       height: 800px;
     }
-  }
+  } */
 
 /* bottom container */
 .bottom-container {
@@ -245,46 +280,46 @@ input#business_price{
   }
 
 
-  
-/* The message box is shown when the user clicks on the password field */
-#message {
-  display:none;
-  background: #f1f1f1;
-  background-color: #f1f1f1;
-  color: #000;
-  position: relative;
-  padding: 20px;
-  margin-top: 10px;
-}
 
-#message p {
-  padding: 10px 35px;
-  font-size: 18px;
-}
+  /* The message box is shown when the user clicks on the password field */
+  #message {
+    display: none;
+    background: #f1f1f1;
+    background-color: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
 
-/* Add a green text color and a checkmark when the requirements are right */
-.valid {
-  color: green;
-}
+  #message p {
+    padding: 10px 35px;
+    font-size: 18px;
+  }
 
-.valid:before {
-  position: relative;
-  left: -35px;
-  content: "✔";
-}
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+    color: green;
+  }
 
-/* Add a red text color and an "x" when the requirements are wrong */
-.invalid {
-  color: red;
-}
+  .valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+  }
 
-.invalid:before {
-  position: relative;
-  left: -35px;
-  content: "✖";
-}
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
 
- 
-  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+  }
+
+
+
 
 }

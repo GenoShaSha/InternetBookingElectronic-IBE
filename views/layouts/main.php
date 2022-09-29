@@ -59,6 +59,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
 			['label' => 'Flight Management', 'url' => ['/createflight/index']],
+			['label' => 'Edit', 'url' => ['/editflight/index']],
+
             ['label' => 'Manage Booking', 'url' => ['/site/about']],
             ['label' => 'Check in', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest
