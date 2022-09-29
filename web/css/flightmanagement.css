@@ -1,0 +1,14 @@
+.AllFlights{
+    position: absolute !important;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    padding-bottom: 100px;
+    /* padding: 30px;
+    margin: 250px; */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+div#example_wrapper {
+    position:relative;
+}

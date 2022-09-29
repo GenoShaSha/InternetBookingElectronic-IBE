@@ -15,16 +15,7 @@ class EditflightController extends \yii\web\Controller
         return $this->render('index');
     }
 
-    public function actionGetall()
-    {
-        $model = new Flight();
-        if (Yii::$app->request->isAjax) {
-            
-            return $model->findAllFlights();
-        } else {
-            return 'error';
-        }
-    }
+
 
 
     public function actionEdit()
