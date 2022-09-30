@@ -26,6 +26,7 @@ class FlightAsset extends AssetBundle
         'https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js',
         'https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js',
         'https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js',
+
     ];
     public $depends = [
         'yii\web\YiiAsset',
