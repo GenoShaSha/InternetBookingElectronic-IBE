@@ -12,7 +12,7 @@ class FlightAsset extends AssetBundle
         'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css',
         'https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css',
         'https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css',
-        
+        'https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css',
     ];
     public $js = [
         'https://code.jquery.com/jquery-3.5.1.js',
@@ -26,6 +26,7 @@ class FlightAsset extends AssetBundle
         'https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js',
         'https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js',
         'https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js',
+        'https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
