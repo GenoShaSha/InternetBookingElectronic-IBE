@@ -34,25 +34,15 @@ $this->registerCssFile("@web/css/flightmanagement.css")
                 <th>Flight Number</th>
                 <th>From</th>
                 <th>To</th>
+                <th>Departure date</th>
                 <th>Departure time</th>
+                <th>Arrival date</th>
                 <th>Arrival time</th>
                 <th>Economy class price</th>
                 <th>Business class price</th>
 
             </tr>
-        </thead>
-      
-        <tfoot>
-            <tr>
-                <th>Flight Number</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Departure date</th>
-                <th>Arrival date</th>
-                <th>Economy class price</th>
-                <th>Business class price</th>
-            </tr>
-        </tfoot>
+</thead>
     </table>
 
 
@@ -77,7 +67,14 @@ $this->registerCssFile("@web/css/flightmanagement.css")
         for (let i = 0; i < data.length; i++) {
             const table = document.getElementById("example");
             var t = $('#example').DataTable();
-            t.row.add([data[i].flight_nr,data[i].from,data[i].to,data[i].departure_date ,data[i].arrival_date,data[i].economy_price,data[i].business_price]).draw(false);
+
+            departureDateSplit = data[i].departure_date
+            const departureDateArray = departureDateSplit.split(" ");
+
+            arrivalDateSplit = data[i].departure_date
+            const arrivalDateArray = arrivalDateSplit.split(" ");
+
+            t.row.add([data[i].flight_nr,data[i].from,data[i].to,departureDateArray[0] ,departureDateArray[1],arrivalDateArray[0],arrivalDateArray[1],data[i].economy_price,data[i].business_price]).draw(false);
         }
 
         table.buttons().container()
