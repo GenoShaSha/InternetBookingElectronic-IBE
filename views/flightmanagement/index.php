@@ -32,52 +32,21 @@ $this->registerCssFile("@web/css/flightmanagement.css")
         <thead>
             <tr>
                 <th>Flight Number</th>
-                <th>To</th>
                 <th>From</th>
-                <th>Departure date</th>
-                <th>Arrival date</th>
+                <th>To</th>
+                <th>Departure time</th>
+                <th>Arrival time</th>
                 <th>Economy class price</th>
                 <th>Business class price</th>
 
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>Sq583</td>
-                <td>Amsterdam</td>
-                <td>Edinburgh</td>
-                <td>2011-04-25</td>
-                <td>2009-01-12</td>
-                <td>1000</td>
-                <td>1000000</td>
-
-            </tr>
-            <tr>
-                <td>Sq583</td>
-                <td>Amsterdam</td>
-                <td>Edinburgh</td>
-                <td>2011-04-25</td>
-                <td>2009-01-12</td>
-                <td>1000</td>
-                <td>5</td>
-
-            </tr>
-            <tr>
-                <td>Sq583</td>
-                <td>Amsterdam</td>
-                <td>Edinburgh</td>
-                <td>2011-04-25</td>
-                <td>2009-01-12</td>
-                <td>1000</td>
-                <td>10</td>
-
-            </tr>
-        </tbody>
+      
         <tfoot>
             <tr>
                 <th>Flight Number</th>
-                <th>To</th>
                 <th>From</th>
+                <th>To</th>
                 <th>Departure date</th>
                 <th>Arrival date</th>
                 <th>Economy class price</th>
@@ -90,19 +59,26 @@ $this->registerCssFile("@web/css/flightmanagement.css")
 
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
     $(document).ready(function() {
-       
+
         var table = $('#example').DataTable({
             lengthChange: false,
             buttons: ['copy', 'excel', 'pdf', 'colvis']
         });
+
+        
+        var data = <?= $allFlights ?>;
+        for (let i = 0; i < data.length; i++) {
+            const table = document.getElementById("example");
+            var t = $('#example').DataTable();
+            t.row.add([data[i].flight_nr,data[i].from,data[i].to,data[i].departure_date ,data[i].arrival_date,data[i].economy_price,data[i].business_price]).draw(false);
+        }
 
         table.buttons().container()
             .appendTo('#example_wrapper .col-md-6:eq(0)');
