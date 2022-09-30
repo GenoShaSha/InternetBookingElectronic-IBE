@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Json;
 
 /**
  * This is the model class for table "flight".
@@ -77,6 +78,9 @@ class Flight extends \yii\db\ActiveRecord
     public static function findAllFlights()
     {
         $flights = Flight::find()->all();
-        return $flights;
+
+        $data=JSON::encode($flights);
+
+        return $data;
     }
 }

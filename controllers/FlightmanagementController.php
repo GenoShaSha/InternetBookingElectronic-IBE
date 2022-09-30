@@ -9,10 +9,16 @@ use Yii;
 class FlightmanagementController extends \yii\web\Controller
 {
     public function actionIndex()
+    {$model = new Flight();
+        $allFlights = $model->findAllFlights();
+
+        return $this->render('index', ['allFlights' => $allFlights]);
+    }
+
+    public function actionGetall()
     {
             $model = new Flight();
             $allFlights = $model->findAllFlights();
-
-            return $this->render('index', ['allFlights' => json_encode($allFlights)]);
+            return $allFlights;
     }
 }
