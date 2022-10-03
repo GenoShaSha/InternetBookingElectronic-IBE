@@ -85,7 +85,7 @@ $this->registerCssFile("@web/css/editflight.css")
                         // business_price: $("#business_price").val()
                     },
                     success: function(response) {
-                        alert('Flight created !!!')
+                        alert('Flight updated !!!')
                     },
                 });
             });
