@@ -86,3 +86,12 @@ $this->registerCssFile("@web/css/flightmanagement.css")
             .appendTo('#example_wrapper .col-md-6:eq(0)');
     });
 </script>
+<script>
+    $(document).ready(function() {
+        var data = <?= $allFlights ?>;
+        for (var i = 0; i < data.length; i++) {
+            html += '<tr><td>' + data[i].flight_nr + '</td><td>' + data[i].to + '</td></td>' + data[i].from + '</td></td>' + data[i].departure_date + '</td></td>' + data[i].arrival_date + '</td></td>' + data[i].economy_price + '</td></td>' + data[i].business_price + '</td></tr>';
+        }
+        $('#example tr:last').after(html);
+    });
+</script>
