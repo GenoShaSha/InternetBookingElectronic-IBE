@@ -12,3 +12,7 @@
 div#example_wrapper {
     position:relative;
 }
+
+tr:hover{
+    background-color: #008Dff !important;
+}

@@ -28,7 +28,6 @@ class CreateflightController extends \yii\web\Controller
             $model->departure_date = $data['departure_date'];
             $model->economy_price = $data['economy_price'];
             $model->business_price = $data['business_price'];
-
             $model->save();
             return "OK";
         } 
