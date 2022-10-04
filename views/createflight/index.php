@@ -9,9 +9,6 @@ $this->registerCssFile("@web/css/createflight.css")
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-
-
-
 <html>
 
 <head>
@@ -78,7 +75,6 @@ $this->registerCssFile("@web/css/createflight.css")
                         departure_date: $("#departDate").val(),
                         economy_price: $("#economy_price").val(),
                         business_price: $("#business_price").val()
-
                     },
                     success: function(response) {
                         alert('Flight created !!!')

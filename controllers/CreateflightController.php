@@ -16,8 +16,7 @@ class CreateflightController extends \yii\web\Controller
     public function actionCreate()
     {
         $model = new Flight();
-        if (Yii::$app->request->isAjax) 
-        {
+        if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
             $model->flight_nr = $data['flight_nr'];
             $model->from = $data['from'];
@@ -30,11 +29,8 @@ class CreateflightController extends \yii\web\Controller
             $model->business_price = $data['business_price'];
             $model->save();
             return "OK";
-        } 
-        else 
-        {
+        } else {
             return 'error';
         }
     }
-
 }
