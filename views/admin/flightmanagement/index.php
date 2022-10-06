@@ -40,7 +40,9 @@ $this->registerCssFile("@web/css/flightmanagement.css")
             </tr>
         </thead>
     </table>
+    <input type="button" value="Create New Flight" id="createFlight" />
     </div>
+
 </body>
 
 </html>
@@ -48,6 +50,10 @@ $this->registerCssFile("@web/css/flightmanagement.css")
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
     $(document).ready(function() {
+        $("#createFlight").on('click',function(){
+            window.location.href = '<?php echo Yii::$app->request->baseUrl.'admin/createflight/index'?>';
+});
+
         $('#example').on('click', 'tbody tr', function() {
             idenentity = table.row(this).data()[0]
             $.ajax({
