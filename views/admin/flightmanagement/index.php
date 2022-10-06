@@ -51,7 +51,7 @@ $this->registerCssFile("@web/css/flightmanagement.css")
 <script>
     $(document).ready(function() {
         $("#createFlight").on('click',function(){
-            window.location.href = '<?php echo Yii::$app->request->baseUrl.'admin/createflight/index'?>';
+            window.location.href = '<?php echo Yii::$app->request->baseUrl.'/admin/createflight/index'?>';
 });
 
         $('#example').on('click', 'tbody tr', function() {
@@ -64,7 +64,7 @@ $this->registerCssFile("@web/css/flightmanagement.css")
                     },
                     success: function(response) {
                         localStorage.setItem('flight',response)
-                        window.location.href = '<?php echo Yii::$app->request->baseUrl.'/editflight/index'?>';
+                        window.location.href = '<?php echo Yii::$app->request->baseUrl.'/admin/editflight/index'?>';
                     },
                 });
         })

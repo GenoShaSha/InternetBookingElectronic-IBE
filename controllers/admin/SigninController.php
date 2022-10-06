@@ -22,7 +22,7 @@ class SigninController extends \yii\web\Controller
             if ($newUser->validatePassword($data['password'])) {
                 Yii::$app->user->login($newUser);
             }
-            return $this->redirect(['site/index']);
+            return $this->redirect(['admin/site/index']);
         } 
         else 
         {

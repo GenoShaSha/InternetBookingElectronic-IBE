@@ -83,8 +83,8 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 					[
 						'label' => Yii::$app->user->identity->email,
 						'items' => [
-							['label' => 'My Profile', 'url' => ['admin/profile/index']],
-							['label' => 'LogOut', 'url' => ['admin/signin/logout']]
+							['label' => 'My Profile', 'url' => ['/admin/profile/index']],
+							['label' => 'LogOut', 'url' => ['/admin/signin/logout']]
 						],
 					],
 				],
