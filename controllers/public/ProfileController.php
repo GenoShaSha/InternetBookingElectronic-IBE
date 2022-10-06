@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\public;
 
 use Yii;
 use app\models\person;

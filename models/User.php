@@ -3,7 +3,6 @@
 namespace app\models;
 
 use Yii;
-use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "user".
@@ -14,11 +13,12 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $auth_key
  * @property string $access_token
+ * @property string $user_type
  *
  * @property Booking[] $bookings
  * @property Person[] $people
  */
-class user extends \yii\db\ActiveRecord implements IdentityInterface
+class User extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -34,9 +34,10 @@ class user extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'password', 'email', 'auth_key', 'access_token'], 'required'],
+            [['username', 'password', 'email', 'auth_key', 'access_token', 'user_type'], 'required'],
             [['username', 'password'], 'string', 'max' => 50],
             [['email', 'auth_key', 'access_token'], 'string', 'max' => 255],
+            [['user_type'], 'string', 'max' => 45],
         ];
     }
 
@@ -52,10 +53,11 @@ class user extends \yii\db\ActiveRecord implements IdentityInterface
             'email' => 'Email',
             'auth_key' => 'Auth Key',
             'access_token' => 'Access Token',
+            'user_type' => 'User Type',
         ];
     }
 
-    /**
+        /**
      * {@inheritdoc}
      */
     public static function findIdentity($id)
@@ -127,7 +129,6 @@ class user extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return $this->password === $password;
     }
-
 
     /**
      * Gets query for [[Bookings]].

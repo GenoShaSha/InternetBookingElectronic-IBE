@@ -1,9 +1,9 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\public;
 
 use Yii;
-use app\models\user;
+use app\models\User;
 
 class SignupController extends \yii\web\Controller
 {
@@ -23,6 +23,7 @@ class SignupController extends \yii\web\Controller
             $model->password = $data['password'];
             $model->auth_key = 'sss';
             $model->access_token = 'ssss';
+            $model->user_type = 'customer';
             $model->save();
             return "OK";
         } 

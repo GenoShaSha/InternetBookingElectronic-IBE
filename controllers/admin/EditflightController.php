@@ -1,23 +1,26 @@
 <?php
 
-namespace app\controllers;
+namespace app\controllers\admin;
 
 use Yii;
 use app\models\Flight;
 
 
-class CreateflightController extends \yii\web\Controller
+class EditflightController extends \yii\web\Controller
 {
+    
     public function actionIndex()
-    {
+    { 
         return $this->render('index');
     }
 
-    public function actionCreate()
+    
+    public function actionUpdate()
     {
         $model = new Flight();
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
+            $model = $model->findObjectByFlightId($data['flight_id']);
             $model->flight_nr = $data['flight_nr'];
             $model->from = $data['from'];
             $model->to = $data['to'];
@@ -27,10 +30,11 @@ class CreateflightController extends \yii\web\Controller
             $model->departure_date = $data['departure_date'];
             $model->economy_price = $data['economy_price'];
             $model->business_price = $data['business_price'];
-            $model->save();
+            $model->update();
             return "OK";
         } else {
             return 'error';
         }
     }
+
 }

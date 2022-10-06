@@ -49,12 +49,12 @@ $this->registerCssFile("@web/css/flightmanagement.css")
 <script>
     $(document).ready(function() {
         $('#example').on('click', 'tbody tr', function() {
-            iden = table.row(this).data()[0]
+            idenentity = table.row(this).data()[0]
             $.ajax({
                     url: '<?php echo Yii::$app->request->baseUrl . '/flightmanagement/search' ?>',
                     type: "POST",
                     data: {
-                        iden: iden,
+                        iden: idenentity,
                     },
                     success: function(response) {
                         localStorage.setItem('flight',response)

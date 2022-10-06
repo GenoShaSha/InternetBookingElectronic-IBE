@@ -49,7 +49,7 @@ $this->registerCssFile("@web/css/Register.css")
           <br>
 
          
-          <p class="links">Already have an account? <a href="<?= \Yii::getAlias('@web/signin/index') ?>">Sign In here</a></p>
+          <p class="links">Already have an account? <a href="<?= \Yii::getAlias('@web/public/signin/index') ?>">Sign In here</a></p>
           <div class="foot-icons">
             <ul class="footer-social-links list-inline list-unstyled">
               <p class="links">Or Sign Up with Google :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>
@@ -75,11 +75,11 @@ $this->registerCssFile("@web/css/Register.css")
         var RepeatPassword = $("#repeatPassword").val();
         if (ValidateEmail(email) && ValidatePassword(password, RepeatPassword)) {
           $.ajax({
-            url: '<?php echo Yii::$app->request->baseUrl . '/signup/save' ?>',
+            url: '<?php echo Yii::$app->request->baseUrl . '/public/signup/save' ?>',
             type: "POST",
             data: {
               email: $("#email").val(),
-              password: $("#password").val()
+              password: $("#password").val(),
             },
             success: function(response) {
               alert("Register sucessful")

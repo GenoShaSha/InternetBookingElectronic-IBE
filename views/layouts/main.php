@@ -58,10 +58,10 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-			['label' => 'Flight Management', 'url' => ['/createflight/index']],
-			['label' => 'All Flight', 'url' => ['/flightmanagement/index']],
-			['label' => 'Edit', 'url' => ['/editflight/index']],
+            ['label' => 'Home', 'url' => ['public/site/index']],
+			['label' => 'Flight Management', 'url' => ['admin/createflight/index']],
+			['label' => 'All Flight', 'url' => ['/admin/flightmanagement/index']],
+			['label' => 'Edit', 'url' => ['/admin/editflight/index']],
 
             ['label' => 'Manage Booking', 'url' => ['/site/about']],
             ['label' => 'Check in', 'url' => ['/site/contact']],
@@ -70,7 +70,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 				[
 					'label' => 'Profile',
 					'items' => [
-						 ['label' => 'Login', 'url' => ['signin/index']],
+						 ['label' => 'Login', 'url' => ['public/signin/index']],
 						//  ['label' => 'Register', 'url' => ['signup/index']],
 					],
 				]
@@ -78,8 +78,8 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 				[
 					'label' => Yii::$app->user->identity->email,
 					'items' => [
-						['label' => 'My Profile', 'url' => ['profile/index']],
-						 ['label' => 'LogOut', 'url' => ['signin/logout']]
+						['label' => 'My Profile', 'url' => ['public/profile/index']],
+						 ['label' => 'LogOut', 'url' => ['public/signin/logout']]
 					],
 				]
 				
