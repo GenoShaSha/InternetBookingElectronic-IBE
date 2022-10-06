@@ -93,7 +93,7 @@ $this->registerCssFile("@web/css/popup.css")
 
             $("#login").on("click", function() {
                 $.ajax({
-                    url: '<?php echo Yii::$app->request->baseUrl . '/editflight/update' ?>',
+                    url: '<?php echo Yii::$app->request->baseUrl . '/admin/editflight/update' ?>',
                     type: "POST",
                     data: {
                         flight_id: foundFlight.flight_id,

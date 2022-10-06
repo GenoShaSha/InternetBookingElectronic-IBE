@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+use yii\web\IdentityInterface;
 
 use Yii;
 
@@ -18,7 +19,7 @@ use Yii;
  * @property Booking[] $bookings
  * @property Person[] $people
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -90,10 +91,22 @@ class User extends \yii\db\ActiveRecord
      * @param string $email
      * @return static|null
      */
-    public static function findByEmail($email)
+    public static function findAdminByEmail($email)
     {
-        return self::findOne(['email' => $email]);
+        return self::findOne(['email' => $email, 'user_type' => 'admin']);
     }
+
+        /**
+     * Finds user by username
+     *
+     * @param string $email
+     * @return static|null
+     */
+    public static function findCustomerByEmail($email)
+    {
+        return self::findOne(['email' => $email, 'user_type' => 'customer']);
+    }
+
 
     /**
      * {@inheritdoc}

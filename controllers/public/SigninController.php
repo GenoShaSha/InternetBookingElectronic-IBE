@@ -3,7 +3,7 @@
 namespace app\controllers\public;
 
 use Yii;
-use app\models\user;
+use app\models\User;
 
 class SigninController extends \yii\web\Controller
 {
@@ -18,11 +18,11 @@ class SigninController extends \yii\web\Controller
         if (Yii::$app->request->isAjax) 
         {
             $data = Yii::$app->request->post();
-            $newUser = $model->findByEmail($data['email']);
+            $newUser = $model-> findCustomerByEmail($data['email']);
             if ($newUser->validatePassword($data['password'])) {
                 Yii::$app->user->login($newUser);
             }
-            return $this->redirect(['site/index']);
+            return $this->redirect(['public/site/index']);
         } 
         else 
         {

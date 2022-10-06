@@ -63,7 +63,7 @@ $this->registerCssFile("@web/css/createflight.css")
         $(document).ready(function() {
             $("#login").on("click", function() {
                 $.ajax({
-                    url: '<?php echo Yii::$app->request->baseUrl . '/createflight/create' ?>',
+                    url: '<?php echo Yii::$app->request->baseUrl . '/admin/createflight/create' ?>',
                     type: "POST",
                     data: {
                         flight_nr: $("#flightNumber").val(),

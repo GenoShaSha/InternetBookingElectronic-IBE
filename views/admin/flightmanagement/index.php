@@ -51,7 +51,7 @@ $this->registerCssFile("@web/css/flightmanagement.css")
         $('#example').on('click', 'tbody tr', function() {
             idenentity = table.row(this).data()[0]
             $.ajax({
-                    url: '<?php echo Yii::$app->request->baseUrl . '/flightmanagement/search' ?>',
+                    url: '<?php echo Yii::$app->request->baseUrl . '/admin/flightmanagement/search' ?>',
                     type: "POST",
                     data: {
                         iden: idenentity,

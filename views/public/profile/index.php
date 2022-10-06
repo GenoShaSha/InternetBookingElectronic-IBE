@@ -333,7 +333,7 @@ $this->registerCssFile("@web/css/profile.css")
             $("#Passanger").on("click", function() {
                 var ss = <?php echo Yii::$app->user->identity->user_id ?>;
                 $.ajax({
-                    url: '<?php echo Yii::$app->request->baseUrl . '/profile/save' ?>',
+                    url: '<?php echo Yii::$app->request->baseUrl . '/public/profile/save' ?>',
                     type: "POST",
                     data: {
                         user_id: ss,

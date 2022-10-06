@@ -75,7 +75,7 @@ $this->registerCssFile("@web/css/login.css")
           var email = $("#email").val();
           var password = $("#password").val();
           $.ajax({
-            url: '<?php echo Yii::$app->request->baseUrl.'/signin/login'?>',
+            url: '<?php echo Yii::$app->request->baseUrl.'/public/signin/login'?>',
             type:"POST",
             data: {
               email:$("#email").val(),

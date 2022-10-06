@@ -18,7 +18,7 @@ class SigninController extends \yii\web\Controller
         if (Yii::$app->request->isAjax) 
         {
             $data = Yii::$app->request->post();
-            $newUser = $model->findByEmail($data['email']);
+            $newUser = $model->findAdminByEmail($data['email']);
             if ($newUser->validatePassword($data['password'])) {
                 Yii::$app->user->login($newUser);
             }
