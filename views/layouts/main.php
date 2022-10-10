@@ -79,6 +79,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 				'items' => [
 					['label' => 'Home', 'url' => ['public/site/index']],
 					['label' => 'Flight Management', 'url' => ['/admin/flightmanagement/index']],
+					['label' => 'Plane Management', 'url' => ['/admin/planemanagement/index']],
 					['label' => 'Control Panel', 'url' => ['/site/contact']],
 					[
 						'label' => Yii::$app->user->identity->email,

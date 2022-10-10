@@ -28,8 +28,8 @@ $this->registerCssFile("@web/css/popup.css")
         </h2>
         <div class="row">
             <div class="col">
-                <h3>Flight Number :</h3>
-                <input type="text" name="flightNumber" id="flightNumber" placeholder="Flight Number" required />
+                <h3>Plane Number :</h3>
+                <input type="text" name="planeNumber" id="planeNumber" placeholder="Plane Number" required />
             </div>
         </div>
 
@@ -37,8 +37,6 @@ $this->registerCssFile("@web/css/popup.css")
     <div class="containerSignIn">
         <div class="row">
             <div class="col">
-                <!-- <h3>Flight Number :</h3>
-                    <input type="text" name="flightNumber" id="flightNumber" placeholder="Flight Number" required /> -->
                 <h3>From :</h3>
                 <input type="from" name="from" id="from" placeholder="From" required />
                 <h3>To :</h3>
@@ -80,7 +78,7 @@ $this->registerCssFile("@web/css/popup.css")
             foundFlight = localStorage.getItem('flight')
             foundFlight = JSON.parse(foundFlight)
 
-            document.getElementById("flightNumber").value = foundFlight.flight_nr;
+            document.getElementById("planeNumber").value = foundFlight.plane_nr;
             document.getElementById("to").value = foundFlight.to;
             document.getElementById("from").value = foundFlight.from;
             document.getElementById("departTerminal").value = foundFlight.departure_terminal;
@@ -97,7 +95,7 @@ $this->registerCssFile("@web/css/popup.css")
                     type: "POST",
                     data: {
                         flight_id: foundFlight.flight_id,
-                        flight_nr: $("#flightNumber").val(),
+                        plane_nr: $("#planeNumber").val(),
                         from: $("#from").val(),
                         to: $("#to").val(),
                         arrival_terminal: $("#departTerminal").val(),

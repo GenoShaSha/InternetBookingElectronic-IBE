@@ -16,13 +16,6 @@ class FlightmanagementController extends \yii\web\Controller
         return $this->render('index', ['allFlights' => $allFlights]);
     }
 
-    public function actionGetall()
-    {
-            $model = new Flight();
-            $allFlights = $model->findAllFlights();
-            return $allFlights;
-    }
-
     
     public function actionSearch()
     { 

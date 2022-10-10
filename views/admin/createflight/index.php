@@ -2,8 +2,12 @@
 
 /** @var yii\web\View $this */
 
-$this->registerCssFile("@web/css/createflight.css")
+$this->registerCssFile("@web/css/createflight.css");
 
+
+use app\assets\DropdownAsset;
+
+DropdownAsset::register($this);
 ?>
 
 <!DOCTYPE html>
@@ -20,15 +24,16 @@ $this->registerCssFile("@web/css/createflight.css")
 <body>
     <div class="containerSignIn">
         <form method="post" ,action="Login.html">
-        <h2 class="LoginTitle">
-                    Add Flight
-                </h2>
+            <h2 class="LoginTitle">
+                Add Flight
+            </h2>
             <div class="row">
-                
+
 
                 <div class="col">
-                    <h3>Flight Number :</h3>
-                    <input type="text" name="flightNumber" id="flightNumber" placeholder="Flight Number" required />
+                    <h3>Plane Number :</h3>
+                    <select class="js-example-basic-single" id='dropdown'>
+                    </select>
                     <h3>From :</h3>
                     <input type="from" name="from" id="from" placeholder="From" required />
                     <h3>To :</h3>
@@ -57,16 +62,29 @@ $this->registerCssFile("@web/css/createflight.css")
 
 
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
         $(document).ready(function() {
+
+            var data = <?= $allPlaneNrs ?>;
+            select = document.getElementById('dropdown');
+            for (let i = 0; i < data.length; i++) {
+                var opt = document.createElement('option');
+                opt.value = data[i];
+                opt.innerHTML = data[i];
+                select.appendChild(opt);
+
+            }
+
+            $('.js-example-basic-single').select2();
+
             $("#login").on("click", function() {
                 $.ajax({
                     url: '<?php echo Yii::$app->request->baseUrl . '/admin/createflight/create' ?>',
                     type: "POST",
                     data: {
-                        flight_nr: $("#flightNumber").val(),
+                        plane_nr: $("#dropdown").val(),
                         from: $("#from").val(),
                         to: $("#to").val(),
                         arrival_terminal: $("#departTerminal").val(),

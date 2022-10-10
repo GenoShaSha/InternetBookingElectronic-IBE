@@ -21,7 +21,7 @@ class EditflightController extends \yii\web\Controller
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
             $model = $model->findObjectByFlightId($data['flight_id']);
-            $model->flight_nr = $data['flight_nr'];
+            $model->plane_nr = $data['plane_nr'];
             $model->from = $data['from'];
             $model->to = $data['to'];
             $model->arrival_terminal = $data['arrival_terminal'];

@@ -1,15 +1,15 @@
 <?php
 
 namespace app\models;
+use yii\helpers\Json;
 
 use Yii;
-use yii\helpers\Json;
 
 /**
  * This is the model class for table "flight".
  *
  * @property int $flight_id
- * @property string $flight_nr
+ * @property string $plane_nr
  * @property string $from
  * @property string $to
  * @property string $arrival_terminal
@@ -20,6 +20,7 @@ use yii\helpers\Json;
  * @property float $business_price
  *
  * @property BookingFlight[] $bookingFlights
+ * @property Plane $planeNr
  */
 class Flight extends \yii\db\ActiveRecord
 {
@@ -37,12 +38,13 @@ class Flight extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['flight_nr', 'from', 'to', 'arrival_terminal', 'arrival_date', 'departure_terminal', 'departure_date', 'economy_price', 'business_price'], 'required'],
+            [['plane_nr', 'from', 'to', 'arrival_terminal', 'arrival_date', 'departure_terminal', 'departure_date', 'economy_price', 'business_price'], 'required'],
             [['arrival_date', 'departure_date'], 'safe'],
             [['economy_price', 'business_price'], 'number'],
-            [['flight_nr'], 'string', 'max' => 45],
+            [['plane_nr'], 'string', 'max' => 45],
             [['from', 'to'], 'string', 'max' => 255],
             [['arrival_terminal', 'departure_terminal'], 'string', 'max' => 50],
+            [['plane_nr'], 'exist', 'skipOnError' => true, 'targetClass' => Plane::class, 'targetAttribute' => ['plane_nr' => 'plane_nr']],
         ];
     }
 
@@ -53,7 +55,7 @@ class Flight extends \yii\db\ActiveRecord
     {
         return [
             'flight_id' => 'Flight ID',
-            'flight_nr' => 'Flight Nr',
+            'plane_nr' => 'Plane Nr',
             'from' => 'From',
             'to' => 'To',
             'arrival_terminal' => 'Arrival Terminal',
@@ -63,16 +65,6 @@ class Flight extends \yii\db\ActiveRecord
             'economy_price' => 'Economy Price',
             'business_price' => 'Business Price',
         ];
-    }
-
-    /**
-     * Gets query for [[BookingFlights]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBookingFlights()
-    {
-        return $this->hasMany(BookingFlight::class, ['flight_id' => 'flight_id']);
     }
 
     public static function findAllFlights()
@@ -95,18 +87,24 @@ class Flight extends \yii\db\ActiveRecord
         $flight = Flight::findOne(['flight_id' => $flight_id]);
         return $flight;
     }
-    
-    public static function findByFlightNr($flight_nr)
+
+    /**
+     * Gets query for [[BookingFlights]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBookingFlights()
     {
-        $flight = Flight::findOne(['flight_nr' => $flight_nr]);
-        $data = JSON::encode($flight);
-        return $data;
-    }
-    public static function findFlightByDepartureDate($departure_date)
-    {
-        $flight = Flight::findOne(['departure_date' => $departure_date]);
-        $data = JSON::encode($flight);
-        return $data;
+        return $this->hasMany(BookingFlight::class, ['flight_id' => 'flight_id']);
     }
 
+    /**
+     * Gets query for [[PlaneNr]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPlaneNr()
+    {
+        return $this->hasOne(Plane::class, ['plane_nr' => 'plane_nr']);
+    }
 }

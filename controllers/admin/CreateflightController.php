@@ -4,13 +4,16 @@ namespace app\controllers\admin;
 
 use Yii;
 use app\models\Flight;
+use app\models\Plane;
 
 
 class CreateflightController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new Plane();
+        $allPlaneNrs = $model->findAllPlaneNumbers();
+        return $this->render('index', ['allPlaneNrs' => $allPlaneNrs]);
     }
 
     public function actionCreate()
@@ -18,7 +21,7 @@ class CreateflightController extends \yii\web\Controller
         $model = new Flight();
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
-            $model->flight_nr = $data['flight_nr'];
+            $model->plane_nr = $data['plane_nr'];
             $model->from = $data['from'];
             $model->to = $data['to'];
             $model->arrival_terminal = $data['arrival_terminal'];
@@ -32,5 +35,14 @@ class CreateflightController extends \yii\web\Controller
         } else {
             return 'error';
         }
+    }
+  
+    public function actionSearchPlaneNr()
+    { 
+        $model = new Plane();
+        $data = Yii::$app->request->post();
+        $param = $data['iden'];
+        $foundPlane = $model->findByPlaneNr($param);
+        return $foundPlane;
     }
 }

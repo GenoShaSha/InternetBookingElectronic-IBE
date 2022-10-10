@@ -2,9 +2,9 @@
 
 /** @var yii\web\View $this */
 
-use app\assets\FlightAsset;
+use app\assets\TableAsset;
 
-FlightAsset::register($this);
+TableAsset::register($this);
 
 use yii\bootstrap5\Html;
 
@@ -73,6 +73,7 @@ $this->registerCssFile("@web/css/flightmanagement.css")
             lengthChange: false,
             buttons: ['copy', 'excel', 'pdf', 'colvis']
         });
+
         var data = <?= $allFlights ?>;
         for (let i = 0; i < data.length; i++) {
             const table = document.getElementById("example");
@@ -83,7 +84,7 @@ $this->registerCssFile("@web/css/flightmanagement.css")
             arrivalDateSplit = data[i].departure_date
             const arrivalDateArray = arrivalDateSplit.split(" ");
 
-            t.row.add([data[i].flight_id,data[i].flight_nr, data[i].from, data[i].to,
+            t.row.add([data[i].flight_id,data[i].plane_nr, data[i].from, data[i].to,
                 departureDateArray[0], departureDateArray[1], arrivalDateArray[0],
                 arrivalDateArray[1], data[i].economy_price, data[i].business_price,
             ]).draw(false);

@@ -4,7 +4,7 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-class FlightAsset extends AssetBundle
+class TableAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
