@@ -24,10 +24,12 @@ $this->registerCssFile("@web/css/flightmanagement.css")
 </head>
 
 <body>
+    <input type="button" value="Create New Flight" id="createFlight" />
+    <br></br>
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-            <th>ID</th>
+                <th>ID</th>
                 <th>Flight Number</th>
                 <th>From</th>
                 <th>To</th>
@@ -40,7 +42,6 @@ $this->registerCssFile("@web/css/flightmanagement.css")
             </tr>
         </thead>
     </table>
-    <input type="button" value="Create New Flight" id="createFlight" />
     </div>
 
 </body>
@@ -50,23 +51,23 @@ $this->registerCssFile("@web/css/flightmanagement.css")
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
     $(document).ready(function() {
-        $("#createFlight").on('click',function(){
-            window.location.href = '<?php echo Yii::$app->request->baseUrl.'/admin/createflight/index'?>';
-});
+        $("#createFlight").on('click', function() {
+            window.location.href = '<?php echo Yii::$app->request->baseUrl . '/admin/createflight/index' ?>';
+        });
 
         $('#example').on('click', 'tbody tr', function() {
             idenentity = table.row(this).data()[0]
             $.ajax({
-                    url: '<?php echo Yii::$app->request->baseUrl . '/admin/flightmanagement/search' ?>',
-                    type: "POST",
-                    data: {
-                        iden: idenentity,
-                    },
-                    success: function(response) {
-                        localStorage.setItem('flight',response)
-                        window.location.href = '<?php echo Yii::$app->request->baseUrl.'/admin/editflight/index'?>';
-                    },
-                });
+                url: '<?php echo Yii::$app->request->baseUrl . '/admin/flightmanagement/search' ?>',
+                type: "POST",
+                data: {
+                    iden: idenentity,
+                },
+                success: function(response) {
+                    localStorage.setItem('flight', response)
+                    window.location.href = '<?php echo Yii::$app->request->baseUrl . '/admin/editflight/index' ?>';
+                },
+            });
         })
 
         var table = $('#example').DataTable({
@@ -84,7 +85,7 @@ $this->registerCssFile("@web/css/flightmanagement.css")
             arrivalDateSplit = data[i].departure_date
             const arrivalDateArray = arrivalDateSplit.split(" ");
 
-            t.row.add([data[i].flight_id,data[i].plane_nr, data[i].from, data[i].to,
+            t.row.add([data[i].flight_id, data[i].plane_nr, data[i].from, data[i].to,
                 departureDateArray[0], departureDateArray[1], arrivalDateArray[0],
                 arrivalDateArray[1], data[i].economy_price, data[i].business_price,
             ]).draw(false);
