@@ -66,7 +66,7 @@ $this->registerCssFile("@web/css/search.css")
 								<div class="col-lg-2 col-md-3 col-sm-4">
 									<div class="single-tab-select-box">
 										<h2>Departure Date</h2>
-										<input type="date" class="datepicker" name="datetime" id="datetime" />
+										<input type="date" class="datepicker" name="datetime" id="datetime1" />
 									</div>
 									<!--/.single-tab-select-box-->
 								</div>
@@ -75,7 +75,7 @@ $this->registerCssFile("@web/css/search.css")
 								<div class="col-lg-2 col-md-3 col-sm-4">
 									<div class="single-tab-select-box">
 										<h2>Return Date</h2>
-										<input type="date" class="datepicker" name="datetime" id="datetime" />
+										<input type="date" class="datepicker" name="datetime" id="datetime2" />
 
 									</div>
 									<!--/.single-tab-select-box-->
@@ -85,12 +85,23 @@ $this->registerCssFile("@web/css/search.css")
 								<div class="col-lg-2 col-md-1 col-sm-4">
 									<div class="single-tab-select-box">
 										<h2 class="searchTitle">Passangers</h2>
-										<select class="js-example-basic-single" id='dropdownPassangers'>
-											<option value="placeholder" disabled>Choose Passanger</option>
-											<option value="adult">Adults (12+ years)</option>
-											<option value="child">Child (2-11 years)</option>
-											<option value="infant">Infant (Under 2 years)</option>
-										</select>
+										<div class="qty mt-5">
+											<p class='passangerSelectText'>Adults (12+ years)</p>
+											<span class="minus bg-dark">-</span>
+											<input type="number" class="count" name="qty" value="1">
+											<span class="plus bg-dark">+</span>
+
+											<p class='passangerSelectText'>Child (2-11 years)</p>
+											<span class="minus1 bg-dark">-</span>
+											<input type="number" class="count1" name="qty" value="0">
+											<span class="plus1 bg-dark">+</span>
+
+											<p class='passangerSelectText'>Infant (Under 2 years)</p>
+											<span class="minus2 bg-dark">-</span>
+											<input type="number" class="count2" name="qty" value="0">
+											<span class="plus2 bg-dark">+</span>
+										</div>
+
 										<!-- <h2>Passangers :</h2>
 										<div class="travel-select-icon">
 											<select class="form-control ">
@@ -156,8 +167,8 @@ $this->registerCssFile("@web/css/search.css")
 										<h2 class="searchTitle">Class :</h2>
 										<select class="js-example-basic-single" id='dropdownTo'>
 											<option value="placeholder" disabled>Choose Seat Type</option>
-											<option value="economy">Economy Class</option>
-											<option value="business">Business Class</option>
+											<option value="economy">Economy</option>
+											<option value="business">Business</option>
 										</select>
 									</div>
 									<!--/.single-tab-select-box-->
@@ -281,6 +292,8 @@ $this->registerCssFile("@web/css/search.css")
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
 		$(document).ready(function() {
+
+
 			var data = <?= $allFrom ?>;
 			select = document.getElementById('dropdownFrom');
 			for (let i = 0; i < data.length; i++) {
@@ -290,7 +303,12 @@ $this->registerCssFile("@web/css/search.css")
 				select.appendChild(opt);
 			}
 
-
+			$("#radio02").click(function() {
+				$("#datetime2").prop("disabled", true);
+			});
+			$("#radio01").click(function() {
+				$("#datetime2").prop("disabled", false);
+			});
 
 
 			var data1 = <?= $allTo ?>;
@@ -304,8 +322,40 @@ $this->registerCssFile("@web/css/search.css")
 
 			$('.js-example-basic-single').select2();
 
-		});
+			$('.count').prop('disabled', true);
+			$(document).on('click', '.plus', function() {
+				$('.count').val(parseInt($('.count').val()) + 1);
+			});
+			$(document).on('click', '.minus', function() {
+				$('.count').val(parseInt($('.count').val()) - 1);
+				if ($('.count').val() == 0) {
+					$('.count').val(1);
+				}
+			});
 
+			$('.count1').prop('disabled', true);
+			$(document).on('click', '.plus1', function() {
+				$('.count1').val(parseInt($('.count1').val()) + 1);
+			});
+			$(document).on('click', '.minus1', function() {
+				$('.count1').val(parseInt($('.count1').val()) - 1);
+				if ($('.count1').val() == -1) {
+					$('.count1').val(0);
+				}
+			});
+
+			$('.count2').prop('disabled', true);
+			$(document).on('click', '.plus2', function() {
+				$('.count2').val(parseInt($('.count2').val()) + 1);
+			});
+			$(document).on('click', '.minus2', function() {
+				$('.count2').val(parseInt($('.count2').val()) - 1);
+				if ($('.count2').val() == -1) {
+					$('.count2').val(0);
+				}
+			});
+
+		});
 	</script>
 	</body>
 
