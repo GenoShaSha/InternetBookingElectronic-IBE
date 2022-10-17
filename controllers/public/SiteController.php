@@ -7,6 +7,8 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use app\models\Flight;
+
 
 class SiteController extends Controller
 {
@@ -59,9 +61,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
-    }
+        $model = new Flight();
+        $allFrom = $model->findAllFrom();
+        $allTo = $model->findAllTo();
+        return $this->render('index', ['allFrom' => $allFrom,'allTo' => $allTo]);
 
+    }
 
     /**
      * Logout action.

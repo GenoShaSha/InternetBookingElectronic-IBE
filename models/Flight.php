@@ -74,6 +74,18 @@ class Flight extends \yii\db\ActiveRecord
         return $data;
     }
 
+    public static function findAllFrom()
+    {
+        $from = Flight::find()->select('from')->distinct()->column();
+        $data = JSON::encode($from);
+        return $data;
+    }
+    public static function findAllTo()
+    {
+        $to = Flight::find()->select('to')->distinct()->column();
+        $data = JSON::encode($to);
+        return $data;
+    }
     public static function findByFlightId($flight_id)
     {
         $flight = Flight::findOne(['flight_id' => $flight_id]);
