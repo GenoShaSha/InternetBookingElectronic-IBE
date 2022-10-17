@@ -74,6 +74,20 @@ class Flight extends \yii\db\ActiveRecord
         return $data;
     }
 
+    public static function findSpecificFlights($from, $to, $departure_date,$seatClass,$passengers)
+    {
+        $flights = Flight::find()
+        ->innerJoinWith('seat', 'Flight.plane_nr = Seat.plane_nr')
+        ->where(['Flight.from' => $from])
+        ->andWhere(['Flight.to' => $to])
+        ->andWhere(['Flight.departure_date'=> $departure_date])
+        ->andHaving("Seat.seat_type = " .$seatClass)
+        ->andHaving("count(Seat.is_taken = 0) >" .$passengers)
+        ->all();
+        $data = JSON::encode($flights);
+        return $data;
+    }
+
     public static function findAllFrom()
     {
         $from = Flight::find()->select('from')->distinct()->column();

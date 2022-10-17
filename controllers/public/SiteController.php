@@ -68,6 +68,17 @@ class SiteController extends Controller
 
     }
 
+    public function actionSearch()
+    {
+        $model = new Flight();
+        $data = Yii::$app->request->post();
+        $from = $data['from'];
+        $to = $data['to'];
+        $departure_date = $data['departure_date'];
+        $foundSpecificFlights = $model->findSpecificFlights($from, $to, $departure_date);
+        return $foundSpecificFlights;
+    }
+
     /**
      * Logout action.
      *
