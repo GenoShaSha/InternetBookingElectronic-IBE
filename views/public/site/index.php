@@ -176,7 +176,7 @@ $this->registerCssFile("@web/css/search.css")
 								<!--/.col-->
 								<div class="clo-sm-5">
 									<div class="about-btn pull-right">
-										<button class="about-view travel-btn">
+										<button class="about-view travel-btn" id= 'submitBtn'>
 											search
 										</button>
 										<!--/.travel-btn-->
@@ -292,7 +292,32 @@ $this->registerCssFile("@web/css/search.css")
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
 		$(document).ready(function() {
-
+			$('#submitBtn').on('click', function() {
+				origin = $("#dropdownFrom").val();
+				destination = $("#dropdownWhere").val();
+				depart_date = $("#datetime1").val();
+				return_date = $("#datetime2").val();
+				seat_class = $("#dropdownTo").val();
+				adult = $("#count").val();
+				child =$("#count1").val();
+				infant =$("#count2").val();
+				passanger = $("#count1").val() + $("#count").val();
+ 
+				$.ajax({
+					url: '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/search' ?>',
+					type: "POST",
+					data: {
+						from: origin,
+						to: destination,
+						departure_date: depart_date,
+						seat_class: seat_class,
+						passengers: 4,
+					},
+					success: function(response) {
+						console.log(response);
+					},
+				});
+			})
 
 			var data = <?= $allFrom ?>;
 			select = document.getElementById('dropdownFrom');

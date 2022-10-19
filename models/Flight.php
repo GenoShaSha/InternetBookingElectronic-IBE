@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+
 use yii\helpers\Json;
 
 use Yii;
@@ -74,16 +75,13 @@ class Flight extends \yii\db\ActiveRecord
         return $data;
     }
 
-    public static function findSpecificFlights($from, $to, $departure_date,$seatClass,$passengers)
+    public static function findSpecificFlights($from, $to, $departure_date, $seatClass, $passengers)
     {
         $flights = Flight::find()
-        ->innerJoinWith('seat', 'Flight.plane_nr = Seat.plane_nr')
-        ->where(['Flight.from' => $from])
-        ->andWhere(['Flight.to' => $to])
-        ->andWhere(['Flight.departure_date'=> $departure_date])
-        ->andHaving("Seat.seat_type = " .$seatClass)
-        ->andHaving("count(Seat.is_taken = 0) >" .$passengers)
-        ->all();
+            ->where(['from' => $from])
+            ->andWhere(['to' => $to])
+            ->andWhere(['like', 'departure_date', '%' . $departure_date . '%', false])
+            ->all();
         $data = JSON::encode($flights);
         return $data;
     }
@@ -107,7 +105,7 @@ class Flight extends \yii\db\ActiveRecord
         return $data;
     }
 
-    
+
     public static function findObjectByFlightId($flight_id)
     {
         $flight = Flight::findOne(['flight_id' => $flight_id]);
