@@ -183,6 +183,16 @@ img {
   background-clip: padding-box;
 }
 
+.count{
+  width:2%;
+}
+.count1{
+  width:2%;
+}
+.count2{
+  width:2%;
+}
+
 .minus2:hover{
   background-color: #717fe0 !important;
 }
@@ -197,7 +207,6 @@ span{
 }
 input{  
   border: 0;
-  width: 2%;
 }
 nput::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
