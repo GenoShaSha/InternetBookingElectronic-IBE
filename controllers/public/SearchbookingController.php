@@ -21,9 +21,7 @@ class SearchbookingController extends \yii\web\Controller
         $departure_date = $data['departure_date'];
         $seat_class = $data['seat_class'];
         $passengers = $data['passengers'];
-        $foundSpecificFlights = $model->findSpecificFlights($from, $to, $departure_date,$seat_class,$passengers);
-        return $this->redirect(['index', 'specificFlights' => $foundSpecificFlights]);
+        $specificFlights = $model->findSpecificFlights($from, $to, $departure_date,$seat_class,$passengers);
+        return $specificFlights;
     }
-
-  
 }

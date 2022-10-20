@@ -314,7 +314,8 @@ $this->registerCssFile("@web/css/search.css")
 						passengers: 4,
 					},
 					success: function(response) {
-						console.log(response);
+						localStorage.setItem('filteredFlights',response);
+						window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/index' ?>';
 					},
 				});
 			})
