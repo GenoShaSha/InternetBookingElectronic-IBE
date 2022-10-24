@@ -13,15 +13,15 @@ $this->registerCssFile("@web/css/card.css")
 <html>
 
 <head>
-        
-        <!-- <title>Login page with jQuery and AJAX</title> -->
-        <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- <title>Login page with jQuery and AJAX</title> -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<main class="cards">
-    <div id="AllFlights"></div>
-</main>
+    <main class="cards">
+        <div id="AllFlights"></div>
+    </main>
 </body>
 
 </html>
@@ -33,8 +33,26 @@ $this->registerCssFile("@web/css/card.css")
         data = JSON.parse(data)
 
         for (let i = 0; i < data.length; i++) {
-            var templateString = '<div class="card"><img src="img_avatar.png" alt="Shanessa has the best pussy in the world" style="width:100%"><div class="container"><h4><b>' + data[i].plane_nr +'</b></h4>  <p>'+data[i].departure_date +'</p></div></div><br>';
+            var templateString = '<div class="card"  id="pls' + i + '"><img src="img_avatar.png" alt="the picture is broken" style="width:100%"><div class="container"><h4><b>' + data[i].plane_nr + '</b></h4> <h3><b>' + data[i].from + '</b></h3> <h3><b>' + data[i].to + '</b></h3> <p>' + data[i].departure_date + '</p> <p>Arrival</p> <p>' + data[i].arrival_date + '</p></div></div><br>';
+
+            let btn = document.createElement("button");
+            btn.innerHTML = "SELECT";
             $("#AllFlights").append(templateString);
+            btn.onclick = function() {
+                localStorage.setItem('selectedBooking', JSON.stringify(data[i]));
+                window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/signin/index' ?>';
+            };
+
+            document.getElementById('pls' + i).appendChild(btn);
+
+
+
+
+
+
+
+
+
 
         }
 

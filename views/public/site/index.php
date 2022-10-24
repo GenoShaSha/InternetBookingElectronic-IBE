@@ -298,10 +298,10 @@ $this->registerCssFile("@web/css/search.css")
 				depart_date = $("#datetime1").val();
 				return_date = $("#datetime2").val();
 				seat_class = $("#dropdownTo").val();
-				adult = $("#count").val();
-				child =$("#count1").val();
-				infant =$("#count2").val();
-				passanger = $("#count1").val() + $("#count").val();
+				adult = $(".count").val();
+				child =$(".count1").val();
+				infant =$(".count2").val();
+				passanger = parseInt($(".count1").val()) + parseInt($(".count").val());
  
 				$.ajax({
 					url: '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/search' ?>',
@@ -315,6 +315,7 @@ $this->registerCssFile("@web/css/search.css")
 					},
 					success: function(response) {
 						localStorage.setItem('filteredFlights',response);
+						localStorage.setItem('passengers',passanger);
 						window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/index' ?>';
 					},
 				});
