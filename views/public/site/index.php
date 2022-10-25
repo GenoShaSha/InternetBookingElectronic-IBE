@@ -302,6 +302,7 @@ $this->registerCssFile("@web/css/search.css")
 				child =$(".count1").val();
 				infant =$(".count2").val();
 				passanger = parseInt($(".count1").val()) + parseInt($(".count").val());
+				localStorage.setItem('seatTypeWanted',seat_class);
  
 				$.ajax({
 					url: '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/search' ?>',
@@ -315,7 +316,10 @@ $this->registerCssFile("@web/css/search.css")
 					},
 					success: function(response) {
 						localStorage.setItem('filteredFlights',response);
-						localStorage.setItem('passengers',passanger);
+						localStorage.setItem('adultPassengers',adult);
+						localStorage.setItem('childPassengers',child);
+						localStorage.setItem('infantPassengers',infant);
+
 						window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/index' ?>';
 					},
 				});
@@ -336,6 +340,9 @@ $this->registerCssFile("@web/css/search.css")
 			$("#radio01").click(function() {
 				$("#datetime2").prop("disabled", false);
 			});
+			$("#radio01").prop("checked", true);
+
+
 
 
 			var data1 = <?= $allTo ?>;

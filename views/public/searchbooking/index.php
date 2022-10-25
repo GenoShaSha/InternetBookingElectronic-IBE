@@ -40,22 +40,10 @@ $this->registerCssFile("@web/css/card.css")
             $("#AllFlights").append(templateString);
             btn.onclick = function() {
                 localStorage.setItem('selectedBooking', JSON.stringify(data[i]));
-                window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/signin/index' ?>';
+                window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/bookingcreation/index' ?>';
             };
 
             document.getElementById('pls' + i).appendChild(btn);
-
-
-
-
-
-
-
-
-
-
         }
-
-
     });
 </script>
