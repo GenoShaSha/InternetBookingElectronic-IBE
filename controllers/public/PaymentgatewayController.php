@@ -2,6 +2,16 @@
 
 namespace app\controllers\public;
 
+use app\models\Person;
+use app\models\Booking;
+use app\models\Bookingflight;
+use app\models\Bookingperson;
+
+
+
+use Yii;
+
+
 class PaymentgatewayController extends \yii\web\Controller
 {
     public function actionIndex()
@@ -9,4 +19,40 @@ class PaymentgatewayController extends \yii\web\Controller
         return $this->render('index');
     }
 
+    public function actionSave()
+    {
+        if (Yii::$app->request->isAjax) {
+            $data = Yii::$app->request->post();
+            $booking = new Booking();
+            $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            $generatedNr = substr(str_shuffle($str_result), 0, 10);
+            $booking->email = $data['email'];
+            $booking->booking_nr = $generatedNr;
+            $booking->user_id = $data['user'];
+            $booking->save();
+
+            for ($i = 0; $i < count($data['passengers']); $i++) {
+                $data2 = $data['passengers'][$i];
+                $person = new person();
+                $person->first_name = $data2['first_name'];
+                $person->last_name = $data2['last_name'];
+                $person->date_of_birth = $data2['date_of_birth'];
+                $person->gender = $data2['gender'];
+                $person->nationality = $data2['nationality'];
+                $person->personal_doc_type = $data2['personal_doc_type'];
+                $person->personal_doc_num = $data2['personal_doc_num'];
+                $person->save();
+
+                $bookingPerson = new Bookingperson();
+                $bookingPerson->person_id = $person->person_id;
+                $bookingPerson->booking_id = $booking->booking_id;
+                $bookingPerson->save();
+            }
+
+            $bookingFlight = new Bookingflight();
+            $bookingFlight->booking_id = $booking->booking_id;
+            $bookingFlight->flight_id = $data['flightNr'];
+            $bookingFlight->save();
+        }
+    }
 }

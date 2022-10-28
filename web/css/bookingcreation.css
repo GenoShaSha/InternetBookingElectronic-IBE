@@ -242,6 +242,30 @@ body {
         margin-bottom: 100px;
       }  
   }
+
+  .LoginForm2 {
+    position: relative;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    padding-bottom: 50px;
+    /* padding: 30px;
+    margin: 250px; */
+    margin-right: auto;
+    margin-left: auto;
+    width: 700px;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  @media only screen and (max-width: 1200px) {
+    .LoginForm2{
+        width: 300px;
+        height: auto;
+        display: flex !important;
+        margin-bottom: 100px;
+      }  
+  }
+
   
   /* bottom container */
   .bottom-container {

@@ -8,7 +8,6 @@ use Yii;
  * This is the model class for table "person".
  *
  * @property int $person_id
- * @property int $user_id
  * @property string $first_name
  * @property string $last_name
  * @property string $date_of_birth
@@ -17,7 +16,7 @@ use Yii;
  * @property string $personal_doc_type
  * @property string $personal_doc_num
  *
- * @property User $user
+ * @property BookingPerson[] $bookingPeople
  */
 class Person extends \yii\db\ActiveRecord
 {
@@ -35,11 +34,9 @@ class Person extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'first_name', 'last_name', 'date_of_birth', 'gender', 'nationality', 'personal_doc_type', 'personal_doc_num'], 'required'],
-            [['user_id'], 'integer'],
+            [['first_name', 'last_name', 'date_of_birth', 'gender', 'nationality', 'personal_doc_type', 'personal_doc_num'], 'required'],
             [['first_name', 'last_name', 'date_of_birth'], 'string', 'max' => 255],
             [['gender', 'nationality', 'personal_doc_type', 'personal_doc_num'], 'string', 'max' => 50],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'user_id']],
         ];
     }
 
@@ -50,7 +47,6 @@ class Person extends \yii\db\ActiveRecord
     {
         return [
             'person_id' => 'Person ID',
-            'user_id' => 'User ID',
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
             'date_of_birth' => 'Date Of Birth',
@@ -62,12 +58,12 @@ class Person extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[User]].
+     * Gets query for [[BookingPeople]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getBookingPeople()
     {
-        return $this->hasOne(User::class, ['user_id' => 'user_id']);
+        return $this->hasMany(BookingPerson::class, ['person_id' => 'person_id']);
     }
 }

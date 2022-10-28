@@ -55,27 +55,4 @@ class PlaneController extends \yii\web\Controller
             return 'OK';
         }
     }
-
-    public function GenerateSeats($planeNr, $rows, $columns, $businessRows)
-    {
-        $letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
-        $model = new Seat();
-        $seatNr = '';
-        if ($rows > 0 && $columns > 0) {
-            if ($businessRows > 0) {
-                for ($i = 0; $i < $rows; $i++) {
-                    $seatNr = $letters[$i];
-                    for ($i = 1; $i < $columns + 1; $i++) {
-                        $seatNr = $seatNr . '' . strval($i);
-                        $model->plane_nr = $planeNr;
-                        $model->seat_type = 'Economy';
-                        $model->seat_nr = $seatNr;
-                        $model->is_taken = false;
-                        $model->save();
-                    }
-                }
-            }
-        }
-    }
 }
