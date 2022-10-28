@@ -5,6 +5,7 @@ namespace app\controllers\admin;
 use Yii;
 use app\models\Flight;
 use app\models\Plane;
+use app\models\SeatAvailabilityFlight;
 
 
 class CreateflightController extends \yii\web\Controller
@@ -19,6 +20,9 @@ class CreateflightController extends \yii\web\Controller
     public function actionCreate()
     {
         $model = new Flight();
+        $model2 = new SeatAvailabilityFlight();
+        $model3 = new Plane();
+
         if (Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
             $model->plane_nr = $data['plane_nr'];
@@ -31,6 +35,15 @@ class CreateflightController extends \yii\web\Controller
             $model->economy_price = $data['economy_price'];
             $model->business_price = $data['business_price'];
             $model->save();
+
+            $foundPlane = $model3->findObjectByPlaneNr($data['plane_nr']);
+            $allSeats = $foundPlane->seat_columns * $foundPlane->seat_rows;
+            $businessSeats = $foundPlane->seat_columns * $foundPlane->seat_rows_business;
+            $economySeats = $allSeats - $businessSeats;
+            $model2->flight_id = $model->flight_id;
+            $model2->available_economy_seats = $economySeats;
+            $model2->available_business_seats =$businessSeats;
+            $model2->save();
             return "OK";
         } else {
             return 'error';

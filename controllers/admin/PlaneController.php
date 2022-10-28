@@ -48,7 +48,6 @@ class PlaneController extends \yii\web\Controller
                         $model1->seat_type = 'Economy';
                     }
                     $model1->seat_nr = $seatNr;
-                    $model1->is_taken = 0;
                     $model1->save();
                 }
             }

@@ -13,8 +13,6 @@ use Yii;
  * @property int $seat_columns
  * @property int $seat_rows
  * @property int $seat_rows_business
- * @property int $available_economy_seats
- * @property int $available_business_seats
  *
  * @property Flight[] $flights
  * @property Seat[] $seats
@@ -35,8 +33,8 @@ class Plane extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['plane_nr', 'plane_name', 'seat_columns', 'seat_rows', 'seat_rows_business', 'available_economy_seats', 'available_business_seats'], 'required'],
-            [['seat_columns', 'seat_rows', 'seat_rows_business', 'available_economy_seats', 'available_business_seats'], 'integer'],
+            [['plane_nr', 'plane_name', 'seat_columns', 'seat_rows', 'seat_rows_business'], 'required'],
+            [['seat_columns', 'seat_rows', 'seat_rows_business'], 'integer'],
             [['plane_nr'], 'string', 'max' => 50],
             [['plane_name'], 'string', 'max' => 100],
             [['plane_nr'], 'unique'],
@@ -54,8 +52,6 @@ class Plane extends \yii\db\ActiveRecord
             'seat_columns' => 'Seat Columns',
             'seat_rows' => 'Seat Rows',
             'seat_rows_business' => 'Seat Rows Business',
-            'available_economy_seats' => 'Available Economy Seats',
-            'available_business_seats' => 'Available Business Seats',
         ];
     }
 
@@ -79,7 +75,6 @@ class Plane extends \yii\db\ActiveRecord
         return $this->hasMany(Seat::class, ['plane_nr' => 'plane_nr']);
     }
 
-    
     public static function findAllPlaneNumbers()
     {
         $planeNrs = Plane::find()->select('plane_nr')->column();

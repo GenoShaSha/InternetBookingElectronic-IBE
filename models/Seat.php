@@ -11,7 +11,6 @@ use Yii;
  * @property string $plane_nr
  * @property string $seat_type
  * @property string $seat_nr
- * @property int $is_taken
  *
  * @property Plane $planeNr
  */
@@ -31,8 +30,7 @@ class Seat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['plane_nr', 'seat_type', 'seat_nr', 'is_taken'], 'required'],
-            [['is_taken'], 'integer'],
+            [['plane_nr', 'seat_type', 'seat_nr'], 'required'],
             [['plane_nr', 'seat_type', 'seat_nr'], 'string', 'max' => 50],
             [['plane_nr'], 'exist', 'skipOnError' => true, 'targetClass' => Plane::class, 'targetAttribute' => ['plane_nr' => 'plane_nr']],
         ];
@@ -48,7 +46,6 @@ class Seat extends \yii\db\ActiveRecord
             'plane_nr' => 'Plane Nr',
             'seat_type' => 'Seat Type',
             'seat_nr' => 'Seat Nr',
-            'is_taken' => 'Is Taken',
         ];
     }
 
