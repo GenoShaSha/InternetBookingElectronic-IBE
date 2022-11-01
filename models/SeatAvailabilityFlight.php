@@ -58,4 +58,12 @@ class SeatAvailabilityFlight extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Flight::class, ['flight_id' => 'flight_id']);
     }
+
+    
+    public static function getByFlightID($id)
+    {
+        $seatAvailability = SeatAvailabilityFlight::findOne(['flight_id' => $id]);
+        return $seatAvailability;
+    }
+
 }

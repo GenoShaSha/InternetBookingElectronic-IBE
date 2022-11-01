@@ -66,4 +66,10 @@ class Person extends \yii\db\ActiveRecord
     {
         return $this->hasMany(BookingPerson::class, ['person_id' => 'person_id']);
     }
+
+    public static function getPassengerByID($id)
+    {
+        $passenger = Person::findOne(['person_id' => $id]);
+        return $passenger;
+    }
 }

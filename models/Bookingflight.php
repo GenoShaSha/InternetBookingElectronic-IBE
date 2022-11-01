@@ -68,4 +68,10 @@ class Bookingflight extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Flight::class, ['flight_id' => 'flight_id']);
     }
+
+    public static function getByBookingId($booking_id)
+    {
+        $bookingFlight = Bookingflight::findAll(['booking_id' => $booking_id]);
+        return $bookingFlight;
+    }
 }

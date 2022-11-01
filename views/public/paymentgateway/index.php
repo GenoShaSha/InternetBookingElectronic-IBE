@@ -88,15 +88,7 @@ $this->registerCssFile("@web/css/payment.css")
 
         for (let i = 0; i < 1; i++) {
             var templateString = '<div class="Price"  id="payment' + i + '"><div class="container"><h1>Price:<h1><h3><b>' + "Adult : " + singleTicketPrice + "x" + adult + '</b></h3><h3><b>' + "Child : " + singleTicketPrice + "x" + child + '</b></h3><h3><b>' + "Infant : " + iftPrice + "x" + infant + '</b></h3><h3><b>' + "Total Price : " + price + '</b></h3></div></div><br>';
-            let btn = document.createElement("button");
-            btn.innerHTML = "PAYMENT";
             $("#Bla").append(templateString);
-            btn.onclick = function() {
-                // localStorage.setItem('selectedBooking', JSON.stringify(data[i]));
-                window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/paymentPage/index' ?>';
-            };
-
-            document.getElementById('payment' + i).appendChild(btn);
         }
 
         // Adding the passanger to the database
@@ -118,6 +110,7 @@ $this->registerCssFile("@web/css/payment.css")
                     passengers: passengerObj,
                     email: contactObj.email,
                     flightNr: flightObj.flight_id,
+                    seatType: localStorage.getItem('seatTypeWanted'),
                     user: <?php echo Yii::$app->user->identity->user_id ?>,
                 },
                 success: function(response) {

@@ -46,4 +46,17 @@ class Booking extends \yii\db\ActiveRecord
             'email' => 'Email',
         ];
     }
+
+         /**
+     * Finds user by username
+     *
+     * @param string $email
+     * @param string $bookingNr
+     * @return static|null
+     */
+    public static function findBookingByNrAndEmail($email,$bookingNr)
+    {
+        return self::findOne(['email' => $email, 'booking_nr' => $bookingNr]);
+    }
+
 }

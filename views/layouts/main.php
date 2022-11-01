@@ -61,7 +61,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			'options' => ['class' => 'navbar-nav'],
 			'items' => [
 				['label' => 'Home', 'url' => ['public/site/index']],
-				['label' => 'My-Trip', 'url' => ['/site/about']],
+				['label' => 'My-Trip', 'url' => ['/public/gettrips/index']],
 				['label' => 'Check-In', 'url' => ['/site/contact']],
 				[
 					'label' => 'Profile',
@@ -95,7 +95,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 				'options' => ['class' => 'navbar-nav'],
 				'items' => [
 					['label' => 'Home', 'url' => ['public/site/index']],
-					['label' => 'My-Trip', 'url' => ['/site/about']],
+					['label' => 'My-Trip', 'url' => ['/public/gettrips/index']],
 					['label' => 'Check-In', 'url' => ['/site/contact']],
 					[
 						'label' => Yii::$app->user->identity->email,

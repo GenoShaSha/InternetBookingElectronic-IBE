@@ -6,6 +6,8 @@ use app\models\Person;
 use app\models\Booking;
 use app\models\Bookingflight;
 use app\models\Bookingperson;
+use app\models\SeatAvailabilityFlight;
+
 
 
 
@@ -53,6 +55,19 @@ class PaymentgatewayController extends \yii\web\Controller
             $bookingFlight->booking_id = $booking->booking_id;
             $bookingFlight->flight_id = $data['flightNr'];
             $bookingFlight->save();
+
+
+            $seatAvailability = new SeatAvailabilityFlight();
+            $flightSeats = $seatAvailability->getByFlightID($data['flightNr']);
+
+            if($data['seatType'] == 'economy'){
+                $flightSeats->available_economy_seats = $flightSeats->available_economy_seats - count($data['passengers']);
+            }
+            else {
+                $flightSeats->available_business_seats = $flightSeats->available_business_seats - count($data['passengers']);
+            }
+            $flightSeats->save();
+            
         }
     }
 }
