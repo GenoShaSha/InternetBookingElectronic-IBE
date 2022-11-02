@@ -10,10 +10,11 @@ use Yii;
  * @property int $id
  * @property int|null $person_id
  * @property int|null $booking_id
+ * @property int $check_in
  *
  * @property Person $person
  */
-class Bookingperson extends \yii\db\ActiveRecord
+class BookingPerson extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -29,7 +30,8 @@ class Bookingperson extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['person_id', 'booking_id'], 'integer'],
+            [['person_id', 'booking_id', 'check_in'], 'integer'],
+            [['check_in'], 'required'],
             [['person_id'], 'exist', 'skipOnError' => true, 'targetClass' => Person::class, 'targetAttribute' => ['person_id' => 'person_id']],
         ];
     }
@@ -43,6 +45,7 @@ class Bookingperson extends \yii\db\ActiveRecord
             'id' => 'ID',
             'person_id' => 'Person ID',
             'booking_id' => 'Booking ID',
+            'check_in' => 'Check In',
         ];
     }
 
@@ -55,9 +58,11 @@ class Bookingperson extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Person::class, ['person_id' => 'person_id']);
     }
+
     public static function getByBookingId($booking_id)
     {
         $bookingFlight = Bookingperson::findAll(['booking_id' => $booking_id]);
         return $bookingFlight;
     }
+
 }

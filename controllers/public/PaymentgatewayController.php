@@ -30,7 +30,9 @@ class PaymentgatewayController extends \yii\web\Controller
             $generatedNr = substr(str_shuffle($str_result), 0, 10);
             $booking->email = $data['email'];
             $booking->booking_nr = $generatedNr;
+            if($data['user'] != -1){
             $booking->user_id = $data['user'];
+            }
             $booking->save();
 
             for ($i = 0; $i < count($data['passengers']); $i++) {
@@ -48,6 +50,8 @@ class PaymentgatewayController extends \yii\web\Controller
                 $bookingPerson = new Bookingperson();
                 $bookingPerson->person_id = $person->person_id;
                 $bookingPerson->booking_id = $booking->booking_id;
+                $bookingPerson->check_in = 0;
+
                 $bookingPerson->save();
             }
 
