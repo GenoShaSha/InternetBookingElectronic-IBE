@@ -62,7 +62,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			'items' => [
 				['label' => 'Home', 'url' => ['public/site/index']],
 				['label' => 'My-Trip', 'url' => ['/public/gettrips/index']],
-				['label' => 'Check-In', 'url' => ['/site/contact']],
+				['label' => 'Check-In', 'url' => ['/public/gocheckin/index']],
 				[
 					'label' => 'Profile',
 					'items' => [
@@ -80,7 +80,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 					['label' => 'Home', 'url' => ['public/site/index']],
 					['label' => 'Flight Management', 'url' => ['/admin/flightmanagement/index']],
 					['label' => 'Plane Management', 'url' => ['/admin/planemanagement/index']],
-					['label' => 'Control Panel', 'url' => ['/site/contact']],
+					['label' => 'Control Panel', 'url' => ['/idk']],
 					[
 						'label' => Yii::$app->user->identity->email,
 						'items' => [
@@ -96,7 +96,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 				'items' => [
 					['label' => 'Home', 'url' => ['public/site/index']],
 					['label' => 'My-Trip', 'url' => ['/public/gettrips/index']],
-					['label' => 'Check-In', 'url' => ['/site/contact']],
+					['label' => 'Check-In', 'url' => ['/public/gocheckin/index']],
 					[
 						'label' => Yii::$app->user->identity->email,
 						'items' => [

@@ -44,18 +44,32 @@ SeatAsset::register($this);
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
     $(document).ready(function() {
-        let s = 0;
 
-        for (let columns = 0; columns < 5; columns++) {
+        var booking = JSON.parse(localStorage.getItem('retrieveBooking'));
+
+        var seats = booking[3];
+        var plane =booking[4];
+
+        var firstFlight = seats[0];
+        var firstPlane = plane[0];
+
+        var Prows =firstPlane.seat_rows
+        var Pcolumns =  firstPlane.seat_columns
+        let index = 0;
+
+
+        
+
+        for (let columns = 0; columns < Prows; columns++) {
             var templateString = '<div class="seatRow" id = "seatR'+ columns+'"></div>';
             $("#seatCon").append(templateString);
 
-            for (let rows = 0; rows < 6; rows++) {
-                var templateString = '<div class="seat" id = "'+s+'"></div>';
+            for (let rows = 0; rows < Pcolumns; rows++) {
+                var templateString = '<div class="seat" id = "'+index+'"></div>';
                 $("#seatR" + columns).append(templateString);
-                var elem = document.getElementById(s);
-                elem.innerText= 'A'+s;
-                s++;
+                var elem = document.getElementById(index);
+                elem.innerText= firstFlight[index].seat_nr;
+                index++;
             }
         }
 

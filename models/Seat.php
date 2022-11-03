@@ -58,4 +58,10 @@ class Seat extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Plane::class, ['plane_nr' => 'plane_nr']);
     }
+
+    public function getByPlaneNr($planeNr)
+    {
+        $seats = Seat::findAll(['plane_nr' => $planeNr]);
+        return $seats;
+    }
 }

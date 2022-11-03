@@ -1,0 +1,108 @@
+
+@media (min-width: 1400px){
+  .AllFlights{
+    position: absolute !important;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    padding-bottom: 50px;
+    /* padding: 30px;
+    margin: 250px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1000px;
+    height: auto;  
+}
+}
+@media (min-width: 768px){
+  .AllFlights{
+    position: absolute !important;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    padding-bottom: 50px;
+    /* padding: 30px;
+    margin: 250px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: auto;
+    height: auto;  
+}
+}
+
+div#example_wrapper {
+    position:relative;
+}
+
+
+input#createFlight {
+  width: 30%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  background-color: #008Dff;
+  color: black;
+  /* remove underline from anchors */
+}
+
+.createFlight:hover {
+  opacity: 1;
+}
+
+.CheckInbtn {
+  background-color: #00d8ff;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button.CheckInbtn:hover {
+  background-color: #0c6f81;
+}
+
+input.form-control.form-control-sm {
+  display: none !important;
+}
+
+div#example_length {
+  display: none !important;
+}
+
+div#example_filter {
+  display: none !important;
+}
+
+@media (min-width: 768px){
+  .col-sm-12 {
+    width: 100%;
+    padding-top: 10px;
+  }
+}

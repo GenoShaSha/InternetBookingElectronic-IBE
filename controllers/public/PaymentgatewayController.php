@@ -8,9 +8,6 @@ use app\models\Bookingflight;
 use app\models\Bookingperson;
 use app\models\SeatAvailabilityFlight;
 
-
-
-
 use Yii;
 
 
