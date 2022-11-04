@@ -11,6 +11,9 @@ use Yii;
  * @property int|null $user_id
  * @property string $booking_nr
  * @property string $email
+ * @property string $seat_types
+ *
+ * @property BookingFlight[] $bookingFlights
  */
 class Booking extends \yii\db\ActiveRecord
 {
@@ -29,8 +32,9 @@ class Booking extends \yii\db\ActiveRecord
     {
         return [
             [['user_id'], 'integer'],
-            [['booking_nr', 'email'], 'required'],
+            [['booking_nr', 'email', 'seat_types'], 'required'],
             [['booking_nr', 'email'], 'string', 'max' => 50],
+            [['seat_types'], 'string', 'max' => 45],
         ];
     }
 
@@ -44,10 +48,21 @@ class Booking extends \yii\db\ActiveRecord
             'user_id' => 'User ID',
             'booking_nr' => 'Booking Nr',
             'email' => 'Email',
+            'seat_types' => 'Seat Types',
         ];
     }
 
-         /**
+    /**
+     * Gets query for [[BookingFlights]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBookingFlights()
+    {
+        return $this->hasMany(BookingFlight::class, ['booking_id' => 'booking_id']);
+    }
+
+             /**
      * Finds user by username
      *
      * @param string $email

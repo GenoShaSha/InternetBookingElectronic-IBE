@@ -104,7 +104,6 @@ $this->registerCssFile("@web/css/payment.css")
 
             var usr = <?php if(Yii::$app->user->identity != null){echo Yii::$app->user->identity->user_id;} else {echo -1;};?>    
             
-            console.log(usr)
             $.ajax({
                 url: '<?php echo Yii::$app->request->baseUrl . '/public/paymentgateway/save' ?>',
                 type: "POST",
@@ -119,11 +118,6 @@ $this->registerCssFile("@web/css/payment.css")
                     console.log(response);
                 },
             })
-
-
-
-
-
         });
     });
 </script>

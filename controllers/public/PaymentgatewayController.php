@@ -30,6 +30,7 @@ class PaymentgatewayController extends \yii\web\Controller
             if($data['user'] != -1){
             $booking->user_id = $data['user'];
             }
+            $booking->seat_types = $data['seatType'];
             $booking->save();
 
             for ($i = 0; $i < count($data['passengers']); $i++) {

@@ -18,11 +18,15 @@ let ticketPrice = +price;
 // update total and count
 function updateSelectedCount() {
   const selectedSeats = document.querySelectorAll('.seatRow .seat.selected');
+
   const seats=[];
+
   // const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
+
   for (let i = 0; i < selectedSeats.length; i++) {
     seats.push(selectedSeats[i].innerHTML);
   }
+
   localStorage.setItem('selectedSeats', JSON.stringify(seats));
 
   //copy selected seats into arr
@@ -49,11 +53,36 @@ function populateUI() {
 
 // Seat click event
 container.addEventListener('click', (e) => {
-  if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
-    e.target.classList.toggle('selected');
-
-    updateSelectedCount();
+  if(JSON.parse(localStorage.getItem('retrieveBooking'))[0].seat_types=='economy' && e.target.style.cssText == 'background-color: orange;')
+  {
+    alert('Your booking is for economy seats, please select economy seats only')
   }
+  else if (JSON.parse(localStorage.getItem('retrieveBooking'))[0].seat_types=='business' && e.target.style.backgroundColor == ""){
+    alert('Your booking is for business seats, please select business seats only you rich fuck')
+  }
+  else{
+      if(document.querySelectorAll('.seatRow .seat.selected').length < 1){
+        if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
+          if(JSON.parse(localStorage.getItem('retrieveBooking'))[0].seat_types=='business'){
+            e.target.style.backgroundColor = 'purple';
+          }
+          e.target.classList.toggle('selected');
+          updateSelectedCount();
+        }
+      }
+      else{
+        if (e.target.classList.contains('seat') && e.target.classList.contains('selected')) {
+          if(JSON.parse(localStorage.getItem('retrieveBooking'))[0].seat_types=='business'){
+            e.target.style.backgroundColor = 'orange';
+          }
+          e.target.classList.toggle('selected');
+          updateSelectedCount();
+        }
+        else{
+          alert('Please select only 1 seat!')
+        }
+      }
+    }
 });
 
 // intial count and total
