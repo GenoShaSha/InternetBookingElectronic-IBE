@@ -70,4 +70,6 @@ class SeatPerson extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Seat::class, ['seat_id' => 'seat_id']);
     }
+
+
 }

@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\BookingPerson as ModelsBookingPerson;
 use Yii;
 
 /**
@@ -64,5 +65,12 @@ class BookingPerson extends \yii\db\ActiveRecord
         $bookingFlight = Bookingperson::findAll(['booking_id' => $booking_id]);
         return $bookingFlight;
     }
+
+    public static function getByPersonID($id)
+    {
+        $isCheckedIn = Bookingperson::findOne(['person_id' => $id]);
+        return $isCheckedIn;
+    }
+
 
 }

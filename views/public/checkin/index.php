@@ -84,7 +84,10 @@ SeatAsset::register($this);
             var flightIdObj = JSON.parse(localStorage.getItem('selectedBooking'));
             var flightId = flightIdObj.flight_id;
 
-            console.log(flightId);
+            var check_in = 1;
+            var checkInObj = JSON.parse(check_in)
+
+            // console.log(checkInObj);
 
             var booking = JSON.parse(localStorage.getItem('retrieveBooking'));
             var seats = booking[3];
@@ -92,7 +95,6 @@ SeatAsset::register($this);
             for (i = 0; i < seats.length; i++) {
                 if (JSON.parse(localStorage.getItem('selectedSeats'))[0] == seats[i].seat_nr) {
                     var selectedSeat = seats[i].seat_id;
-                    alert(selectedSeat);
                 }
             }
             $.ajax({

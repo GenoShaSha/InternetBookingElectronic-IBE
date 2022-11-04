@@ -102,8 +102,12 @@ $this->registerCssFile("@web/css/payment.css")
             var flight = localStorage.getItem('selectedBooking');
             var flightObj = JSON.parse(flight)
 
-            var usr = <?php if(Yii::$app->user->identity != null){echo Yii::$app->user->identity->user_id;} else {echo -1;};?>    
-            
+            var usr = <?php if (Yii::$app->user->identity != null) {
+                            echo Yii::$app->user->identity->user_id;
+                        } else {
+                            echo -1;
+                        }; ?>
+
             $.ajax({
                 url: '<?php echo Yii::$app->request->baseUrl . '/public/paymentgateway/save' ?>',
                 type: "POST",
