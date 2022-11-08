@@ -13,6 +13,7 @@ use Yii;
  * @property string $seat_nr
  *
  * @property Plane $planeNr
+ * @property PlaneSeat[] $planeSeats
  */
 class Seat extends \yii\db\ActiveRecord
 {
@@ -30,7 +31,7 @@ class Seat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['plane_nr', 'seat_type', 'seat_nr'], 'required'],
+            [['plane_nr', 'seat_type', 'seat_nr', 'is_taken'], 'required'],
             [['plane_nr', 'seat_type', 'seat_nr'], 'string', 'max' => 50],
             [['plane_nr'], 'exist', 'skipOnError' => true, 'targetClass' => Plane::class, 'targetAttribute' => ['plane_nr' => 'plane_nr']],
         ];
@@ -57,6 +58,16 @@ class Seat extends \yii\db\ActiveRecord
     public function getPlaneNr()
     {
         return $this->hasOne(Plane::class, ['plane_nr' => 'plane_nr']);
+    }
+
+    /**
+     * Gets query for [[PlaneSeats]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPlaneSeats()
+    {
+        return $this->hasMany(PlaneSeat::class, ['seat_id' => 'seat_id']);
     }
 
     public function getByPlaneNr($planeNr)

@@ -51,7 +51,10 @@ SeatAsset::register($this);
             document.getElementById("Seat").style.backgroundColor = 'orange';
         }
         var seats = booking[3];
+        var firstSeats = seats[0];
         var plane = booking[4];
+        var takenSeats = booking[5];
+        var takenSeats = takenSeats[0];
         var firstFlight = seats[0];
         var firstPlane = plane[0];
         var Prows = firstPlane.seat_rows
@@ -75,6 +78,15 @@ SeatAsset::register($this);
         }
         for (let rows = 0; rows < BusinessSeats; rows++) {
             document.getElementById(rows).style.backgroundColor = 'orange';
+        }
+
+        for (let index = 0; index < firstSeats.length; index++) {
+            for (let i = 0; i < takenSeats.length; i++) {
+                var seatId = takenSeats[i].seat_id;
+                if(seatId == firstSeats[index].seat_id){
+                    document.getElementById(index).style.backgroundColor = 'red';
+                }
+            }
         }
 
         $(".selectBtn").on("click", function() {

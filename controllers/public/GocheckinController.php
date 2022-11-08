@@ -9,6 +9,7 @@ use app\models\Bookingperson;
 use app\models\Seat;
 use app\models\Person;
 use app\models\Plane;
+use app\models\PlaneSeat;
 use Yii;
 use yii\helpers\Json;
 
@@ -35,15 +36,19 @@ class GocheckinController extends \yii\web\Controller
         $FlightsArray = [];
         $SeatsArray = [];
         $PlaneArray = [];
+        $TakenSeatArray = [];
         for ($i = 0; $i < count($foundConnectionFlightBookingList); $i++) {
             $flight = new Flight();
             $seat = new Seat();
+            $takenSeat = new PlaneSeat();
             $plane = new Plane();
 
             $foundFlight = $flight->findObjectByFlightId($foundConnectionFlightBookingList[$i]->flight_id);
             $seats = $seat->getByPlaneNr($foundFlight->plane_nr);
             $planes = $plane->findObjectByPlaneNr($foundFlight->plane_nr);
+            $takenSeats = $takenSeat->findAllByFlightId($foundFlight->flight_id);
             array_push($FlightsArray, $foundFlight);
+            array_push($TakenSeatArray, $takenSeats);
             array_push($SeatsArray, $seats);
             array_push($PlaneArray, $planes);
         }
@@ -60,7 +65,7 @@ class GocheckinController extends \yii\web\Controller
         }
 
         $AllBookingInformation = [];
-        array_push($AllBookingInformation, $foundTrip, $FlightsArray, $PassangersArray,$SeatsArray,$PlaneArray);
+        array_push($AllBookingInformation, $foundTrip, $FlightsArray, $PassangersArray,$SeatsArray,$PlaneArray,$TakenSeatArray);
         $data = JSON::encode($AllBookingInformation);
         return $data;
     }

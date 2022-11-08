@@ -53,12 +53,16 @@ function populateUI() {
 
 // Seat click event
 container.addEventListener('click', (e) => {
+  console.log(e.target.style.backgroundColor)
   if(JSON.parse(localStorage.getItem('retrieveBooking'))[0].seat_types=='economy' && e.target.style.cssText == 'background-color: orange;')
   {
     alert('Your booking is for economy seats, please select economy seats only')
   }
   else if (JSON.parse(localStorage.getItem('retrieveBooking'))[0].seat_types=='business' && e.target.style.backgroundColor == ""){
     alert('Your booking is for business seats, please select business seats only you rich fuck')
+  }
+  else if(e.target.style.backgroundColor == "red"){
+    alert('You cannot select an occupied seat, please choose another seat')
   }
   else{
       if(document.querySelectorAll('.seatRow .seat.selected').length < 1){

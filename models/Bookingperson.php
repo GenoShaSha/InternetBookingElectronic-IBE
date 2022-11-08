@@ -71,6 +71,4 @@ class BookingPerson extends \yii\db\ActiveRecord
         $isCheckedIn = Bookingperson::findOne(['person_id' => $id]);
         return $isCheckedIn;
     }
-
-
 }

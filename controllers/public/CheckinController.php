@@ -3,6 +3,8 @@
 namespace app\controllers\public;
 use app\models\SeatPerson;
 use app\models\BookingPerson;
+use app\models\Seat;
+
 
 use Yii;
 
@@ -23,16 +25,7 @@ class CheckinController extends \yii\web\Controller
             $seat->person_id = $data['personID'];
             $seat->flight_id = $data['flightID'];
             $seat->save();
-
-
-            
-            // $booking = new BookingPerson();
-            // if( $seat->person_id == $booking->person_id)
-            // {
-            //     $booking->check_in = $data['checkIN'];
-            // }
-            // $booking->save();    
-            
+                        
             $isCheckedIn = new BookingPerson();
             $checkedIn = $isCheckedIn->getByPersonID($data['personID']);
             $checkedIn->check_in = $checkedIn->check_in + 1;
