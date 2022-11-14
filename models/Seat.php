@@ -31,7 +31,7 @@ class Seat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['plane_nr', 'seat_type', 'seat_nr', 'is_taken'], 'required'],
+            [['plane_nr', 'seat_type', 'seat_nr'], 'required'],
             [['plane_nr', 'seat_type', 'seat_nr'], 'string', 'max' => 50],
             [['plane_nr'], 'exist', 'skipOnError' => true, 'targetClass' => Plane::class, 'targetAttribute' => ['plane_nr' => 'plane_nr']],
         ];
@@ -70,6 +70,7 @@ class Seat extends \yii\db\ActiveRecord
         return $this->hasMany(PlaneSeat::class, ['seat_id' => 'seat_id']);
     }
 
+    
     public function getByPlaneNr($planeNr)
     {
         $seats = Seat::findAll(['plane_nr' => $planeNr]);

@@ -326,6 +326,23 @@ body {
         outline: none;
         appearance: none;
         font-size: 14px;
-      }
-      
+      } 
+  }
+
+  @media (min-width: 200px) {
+    .container1 {
+      padding-top: 0px !important;
+      padding-left: 25px !important;
+      padding-right: 0px !important;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container1 {
+      padding-top: 50px;
+      padding-left: 50px;
+      display: grid !important;
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
   }

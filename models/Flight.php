@@ -82,8 +82,7 @@ class Flight extends \yii\db\ActiveRecord
             ->andWhere(['to' => $to])
             ->andWhere(['like', 'departure_date', '%' . $departure_date . '%', false])
             ->all();
-        $data = JSON::encode($flights);
-        return $data;
+        return $flights;
     }
 
     public static function findAllFrom()

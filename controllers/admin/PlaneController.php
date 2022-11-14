@@ -35,16 +35,24 @@ class PlaneController extends \yii\web\Controller
             $seatNr = '';
 
             for ($i = 0; $i < $rows; $i++) {
-                $seatNr = $letters[$i];
+                if($i > 50){
+                    $temp = $i - 51;
+                    $seatNr = "$letters[$temp]$letters[$temp]$letters[$temp]";
+                }
+                else if ($i > 25) {
+                    $temp = $i - 26;
+                    $seatNr = "$letters[$temp]$letters[$temp]";
+                }
+                else {
+                    $seatNr = $letters[$i];
+                }
                 for ($y = 1; $y < $columns + 1; $y++) {
                     $model1 = new Seat();
-                    $seatNr = $letters[$i];
                     $seatNr = $seatNr . '' . strval($y);
                     $model1->plane_nr = $planeNr;
-                    if($i < $businessRows){
+                    if ($i < $businessRows) {
                         $model1->seat_type = 'Business';
-                    }
-                    else{
+                    } else {
                         $model1->seat_type = 'Economy';
                     }
                     $model1->seat_nr = $seatNr;

@@ -28,7 +28,7 @@ $this->registerCssFile("@web/css/gettrips.css")
         <form method="post" ,action="Login.html">
             <div class="row">
                 <h2 class="LoginTitle" style="text-align: left">
-                    My Profile
+                    My-Trip
                 </h2>
 
                 <div class="col">

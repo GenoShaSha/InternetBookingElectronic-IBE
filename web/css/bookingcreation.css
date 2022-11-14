@@ -1,307 +1,468 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  html {
-    background: #3786CE;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  .LoginTitle {
-    color: black !important;
-    font-size: 25px !important;
-    text-align: left !important;
-  }
-  
-  .title {
-    text-align: center !important;
-  }
-  .glink{
-    margin-left: 200px;
-    margin-top: 0px;
-  }
-  
-  
-  
-  /* style inputs and link buttons */
-  input,
-  .btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    margin: 5px 0;
-    opacity: 0.85;
-    display: inline-block;
-    font-size: 17px;
-    line-height: 20px;
-    text-decoration: none;
-    /* remove underline from anchors */
-  }
-  
-  input:hover,
-  .btn:hover {
-    opacity: 1;
-  }
-  
-  * {
-    padding: 0;
-    margin: 0;
-  }
-  
-  * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-  
-  }
-  
-  .banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background: url(../../assets/images/home/banner.jpg)no-repeat;
-    background-size: cover;
-    background-position: center;
-    min-height: 1000px;
-  }
-  
-  /* add appropriate colors to fb, twitter and google buttons */
-  .fb {
-    background-color: #3b5998;
-    color: white;
-  }
-  
-  
-  a.google.btn {
-    margin-top: 58px;
-  }
-  
-  
-  p.links {
-    font-family: 'Poppins', sans-serif;
-    color: #565a5c;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: capitalize;
-    margin-bottom: 17px;
-    margin-right: 100px;
-  }
-  
-  .twitter {
-    background-color: #55acee;
-    color: white;
-  }
-  
-  .google {
-    background-color: #dd4b39;
-    color: white;
-  }
-  
-  /* style the submit button */
-  input[type="button"] {
-    background-color: #00d8ff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  input[type="button"]:hover {
-    background-color: #138599;
-  
-  }
-  
-  /* Two-column layout */
-  .col {
-    /* float: left; */
-    width: 60%;
-    margin: auto;
-    /* padding: 0 50px; */
-    /* padding-top: 50px; */
-    position: 100%;
-    /* padding-left: 250px; */
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  input#email {
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }  
-  input#password {
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }
-  input#firstName {
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }
-  input#gender {
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }
-  input#lastName{
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }
-  input#dateOfBirth {
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }
-  input#nationality{
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }
-  input#documentType{
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }
-  input#documentNumber{
-    border: 1px solid rgb(120, 120, 120);
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  
-  
-  /* hide some text on medium and large screens */
-  .hide-md-lg {
-    display: none;
-  }
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  .Background{
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-gap: 20px; 
-    width: 100%;   
+html {
+  background: #3786CE;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.LoginTitle {
+  color: black !important;
+  font-size: 25px !important;
+  text-align: left !important;
+}
+
+.title {
+  text-align: center !important;
+}
+
+.glink {
+  margin-left: 200px;
+  margin-top: 0px;
+}
+
+
+
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: url(../../assets/images/home/banner.jpg)no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 1000px;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3b5998;
+  color: white;
+}
+
+
+a.google.btn {
+  margin-top: 58px;
+}
+
+
+p.links {
+  font-family: 'Poppins', sans-serif;
+  color: #565a5c;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 17px;
+  margin-right: 100px;
+}
+
+.twitter {
+  background-color: #55acee;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+/* style the submit button */
+input[type="button"] {
+  background-color: #00d8ff;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #138599;
+
+}
+
+/* Two-column layout */
+.col {
+  /* float: left; */
+  width: 60%;
+  margin: auto;
+  /* padding: 0 50px; */
+  /* padding-top: 50px; */
+  position: 100%;
+  /* padding-left: 250px; */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input#email {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#password {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#firstName {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#gender {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#lastName {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#dateOfBirth {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#nationality {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#documentType {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+input#documentNumber {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+.Background {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
-    
-  .Background{
-    display: grid; 
-    grid-template-columns: 1fr; 
-    grid-gap: 20px; 
-    width: 100%;   
-}
-  }
-  .LoginForm {
-    position: relative;
-    border-radius: 50px;
-    background-color: #f2f2f2;
-    padding-bottom: 50px;
-    /* padding: 30px;
-    margin: 250px; */
-    margin-right: auto;
-    margin-left: auto;
-    width: 700px;
-    margin-top: 100px;
-  }
 
+  .Background {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    width: 100%;
+  }
+}
+
+.LoginForm {
+  position: relative;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 700px;
+  margin-top: 100px;
+}
+
+main.LoginForm {
+  width: 400px;
+  height: 400px;
+  position: sticky;
+}
+@media only screen and (max-width: 1200px) {
   main.LoginForm {
-    height: 300px;
-    position: sticky;
+    width: 300px;
+    height: auto;
+    display: flex !important;
+  }
 }
 
-  @media only screen and (max-width: 1200px) {
-    .LoginForm {
-        width: 300px;
-        height: auto;
-        display: flex !important;
-        margin-bottom: 100px;
-      }  
-  }
-
-  .LoginForm1 {
-    position: relative;
-    border-radius: 50px;
-    background-color: #f2f2f2;
-    padding-bottom: 50px;
-    /* padding: 30px;
+.LoginForm3 {
+  position: relative;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding-bottom: 50px;
+  /* padding: 30px;
     margin: 250px; */
-    margin-right: auto;
-    margin-left: auto;
-    width: 700px;
-    height: 400px;
-    margin-top: 100px;
-  }
-  @media only screen and (max-width: 1200px) {
-    .LoginForm1 {
-        width: 300px;
-        height: auto;
-        display: flex !important;
-        margin-bottom: 100px;
-      }  
-  }
-
-  .LoginForm2 {
-    position: relative;
-    border-radius: 50px;
-    background-color: #f2f2f2;
-    padding-bottom: 50px;
-    /* padding: 30px;
-    margin: 250px; */
-    margin-right: auto;
-    margin-left: auto;
-    width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 700px;
+  margin-top: 400px;
+}
+@media only screen and (max-width: 1200px) {
+  main.LoginForm3 {
+    width: 300px;
     height: auto;
-    margin-top: 100px;
+    display: flex !important;
+  }
+}
+
+
+/* .LoginForm {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 700px;
+  height: 200px;
+  margin-top: 100px;
+} */
+
+@media only screen and (max-width: 1200px) {
+  .LoginForm {
+    width: 300px;
+    height: auto;
+    display: flex !important;
+  }
+}
+
+.LoginForm1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 700px;
+  height: 200px;
+  margin-top: 100px;
+}
+
+ @media only screen and (max-width: 1200px) {
+  .LoginForm1 {
+    width: 300px;
+    height: auto;
+    display: flex !important;
+  }
+} 
+
+
+
+.LoginForm2 {
+  position: relative;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding-bottom: 50px;
+  /* padding: 30px;
+    margin: 250px; */
+  margin-right: auto;
+  margin-left: auto;
+  width: 700px;
+  height: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .LoginForm2 {
+    width: 300px;
+    height: auto;
+    display: flex !important;
     margin-bottom: 100px;
   }
-  @media only screen and (max-width: 1200px) {
-    .LoginForm2{
-        width: 300px;
-        height: auto;
-        display: flex !important;
-        margin-bottom: 100px;
-      }  
+}
+
+
+@media (min-width: 200px) {
+  .container1 {
+    padding-top: 0px !important;
+    padding-left: 25px !important;
+    padding-right: 0px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container1 {
+    padding-top: 50px;
+    padding-left: 50px;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+
+@media (min-width: 200px) {
+  .container2 {
+    padding-top: 0px !important;
+    padding-left: 25px !important;
+    padding-right: 0px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container2 {
+    padding-top: 50px;
+    padding-left: 50px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+  }
+}
+
+
+.Flight {
+  margin-top: 250px;
+  padding-top: 5px;
+}
+
+/* style the submit button */
+/* button {
+  background-color: #00d8ff;
+  color: white;
+  padding: 12px;
+  border: 50px;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 50px !important;
+}
+
+button:hover {
+  background-color: #138599;
+
+} */
+
+@media (min-width: 200px) {
+  button {
+    position: center !important;
+  }
+}
+
+
+button {
+  background-color: #00d8ff;
+  border-radius: 8px !important;
+  border-style: none !important;
+  box-sizing: border-box !important;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  /* margin: 0; */
+  margin-top: 20px !important;
+  width: auto !important;
+  outline: none;
+  padding: 10px 20px !important;
+  position: relative !important;
+  margin-left: 160px !important;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background-color: #0c6f81;
+}
+
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+    margin-left: 15px;
   }
 
-  
-  /* bottom container */
-  .bottom-container {
-    text-align: center;
-    background-color: #666;
-    border-radius: 0px 0px 4px 4px;
-  }
-  
-  /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 650px) {
-    .col {
-      width: 100%;
-      margin-top: 0;
-      margin-left: 15px;
-    }
-  
-    /* hide the vertical line
+  /* hide the vertical line
     .vl {
       display: none;
     } */
-  
-    /* show the hidden text on small screens */
-    .hide-md-lg {
-      display: block;
-      text-align: center;
-    }
-  
-    #bootstrap-overrides table.table {
-        margin-top: 20px !important;
-    }
-    .tableStructure {
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: 20px;
-        margin-top: 50px !important;
-      }
-  
-      
+
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
   }
+
+  #bootstrap-overrides table.table {
+    margin-top: 20px !important;
+  }
+
+  .tableStructure {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-top: 50px !important;
+  }
+}

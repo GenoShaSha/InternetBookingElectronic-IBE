@@ -176,7 +176,7 @@ $this->registerCssFile("@web/css/search.css")
 								<!--/.col-->
 								<div class="clo-sm-5">
 									<div class="about-btn pull-right">
-										<button class="about-view travel-btn" id= 'submitBtn'>
+										<button class="about-view travel-btn" id='submitBtn'>
 											search
 										</button>
 										<!--/.travel-btn-->
@@ -299,28 +299,63 @@ $this->registerCssFile("@web/css/search.css")
 				return_date = $("#datetime2").val();
 				seat_class = $("#dropdownTo").val();
 				adult = $(".count").val();
-				child =$(".count1").val();
-				infant =$(".count2").val();
+				child = $(".count1").val();
+				infant = $(".count2").val();
 				passanger = parseInt($(".count1").val()) + parseInt($(".count").val());
-				localStorage.setItem('seatTypeWanted',seat_class);
- 
+				localStorage.setItem('seatTypeWanted', seat_class);
+				roundTrip=$("#radio01").prop("checked")
+
+				if (depart_date == '') {
+					alert('Please fill in all fields ! ')
+					return
+				} else if (document.getElementById('radio01').checked) {
+					if (depart_date == '' || return_date == '') {
+						alert('Please fill in all fields ! ')
+						return
+					}
+
+				}
+
+				switchUrl = null;
+
+				if(roundTrip){
+					switchUrl = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/searchreturn' ?>'
+				}
+				else{
+					switchUrl = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/search' ?>'
+				}
+
+
 				$.ajax({
-					url: '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/search' ?>',
+
+					url: switchUrl,
 					type: "POST",
 					data: {
 						from: origin,
 						to: destination,
 						departure_date: depart_date,
+						return_date: return_date,
 						seat_class: seat_class,
 						passengers: 4,
 					},
 					success: function(response) {
-						localStorage.setItem('filteredFlights',response);
-						localStorage.setItem('adultPassengers',adult);
-						localStorage.setItem('childPassengers',child);
-						localStorage.setItem('infantPassengers',infant);
+						console.log(JSON.parse(response))
+						if (JSON.parse(response).length == 0) {
+							window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/error/index' ?>';
+						} else if (roundTrip && JSON.parse(response)[0].length == 0){
+							window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/error/index' ?>';
+						}
+						else {
+							localStorage.setItem('filteredFlights', response);
+							localStorage.setItem('roundTrip', roundTrip);
+							localStorage.setItem('tripSelection', 0);
+							localStorage.setItem('adultPassengers', adult);
+							localStorage.setItem('childPassengers', child);
+							localStorage.setItem('infantPassengers', infant);
 
-						window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/index' ?>';
+							window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/index' ?>';
+						}
+
 					},
 				});
 			})
@@ -389,6 +424,8 @@ $this->registerCssFile("@web/css/search.css")
 				}
 			});
 
+			document.getElementById('radio02').checked = true;
+			document.getElementById('datetime2').disabled = true;
 		});
 	</script>
 	</body>

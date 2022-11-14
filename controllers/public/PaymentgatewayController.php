@@ -27,8 +27,8 @@ class PaymentgatewayController extends \yii\web\Controller
             $generatedNr = substr(str_shuffle($str_result), 0, 10);
             $booking->email = $data['email'];
             $booking->booking_nr = $generatedNr;
-            if($data['user'] != -1){
-            $booking->user_id = $data['user'];
+            if ($data['user'] != -1) {
+                $booking->user_id = $data['user'];
             }
             $booking->seat_types = $data['seatType'];
             $booking->save();
@@ -53,23 +53,24 @@ class PaymentgatewayController extends \yii\web\Controller
                 $bookingPerson->save();
             }
 
-            $bookingFlight = new Bookingflight();
-            $bookingFlight->booking_id = $booking->booking_id;
-            $bookingFlight->flight_id = $data['flightNr'];
-            $bookingFlight->save();
+
+            for ($i = 0; $i < count($data['flightNr']); $i++) {
+                $bookingFlight = new Bookingflight();
+                $bookingFlight->booking_id = $booking->booking_id;
+                $bookingFlight->flight_id = $data['flightNr'][$i]['plane_nr'];
+                $bookingFlight->save();
 
 
-            $seatAvailability = new SeatAvailabilityFlight();
-            $flightSeats = $seatAvailability->getByFlightID($data['flightNr']);
+                $seatAvailability = new SeatAvailabilityFlight();
+                $flightSeats = $seatAvailability->getByFlightID($data['flightNr'][$i]['flight_id']);
 
-            if($data['seatType'] == 'economy'){
-                $flightSeats->available_economy_seats = $flightSeats->available_economy_seats - count($data['passengers']);
+                if ($data['seatType'] == 'economy') {
+                    $flightSeats->available_economy_seats = $flightSeats->available_economy_seats - count($data['passengers']);
+                } else {
+                    $flightSeats->available_business_seats = $flightSeats->available_business_seats - count($data['passengers']);
+                }
+                $flightSeats->save();
             }
-            else {
-                $flightSeats->available_business_seats = $flightSeats->available_business_seats - count($data['passengers']);
-            }
-            $flightSeats->save();
-            
         }
     }
 }

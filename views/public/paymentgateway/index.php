@@ -75,11 +75,14 @@ $this->registerCssFile("@web/css/payment.css")
 
         data = JSON.parse(data)
         var singleTicketPrice = 0
-        if (localStorage.getItem('seatTypeWanted') == 'economy') {
-            singleTicketPrice = data.economy_price
-        } else {
-            singleTicketPrice = data.business_price
+        for (let i = 0; i < data.length; i++) {
+            if (localStorage.getItem('seatTypeWanted') == 'economy') {
+                singleTicketPrice = singleTicketPrice + parseInt(data[i].economy_price)
+            } else {
+                singleTicketPrice = singleTicketPrice + parseInt(data[i].business_price)
+            }
         }
+
         adultPrice = parseInt(localStorage.getItem('adultPassengers')) * singleTicketPrice
         childPrice = parseInt(localStorage.getItem('childPassengers')) * singleTicketPrice
         iftPrice = singleTicketPrice * 0.5
@@ -87,7 +90,7 @@ $this->registerCssFile("@web/css/payment.css")
         price = adultPrice + childPrice + infantPrice
 
         for (let i = 0; i < 1; i++) {
-            var templateString = '<div class="Price"  id="payment' + i + '"><div class="container"><h1>Price:<h1><h3><b>' + "Adult : " + singleTicketPrice + "x" + adult + '</b></h3><h3><b>' + "Child : " + singleTicketPrice + "x" + child + '</b></h3><h3><b>' + "Infant : " + iftPrice + "x" + infant + '</b></h3><h3><b>' + "Total Price : " + price + '</b></h3></div></div><br>';
+            var templateString = '<div class="Price"  id="payment' + i + '"><div class="container1"><h1>Price:<h1><h3>' + "Adult : " + singleTicketPrice + "x" + adult + '</h3><h3>' + "Child : " + singleTicketPrice + "x" + child + '</h3><h3>' + "Infant : " + iftPrice + "x" + infant + '</h3><h3>' + "Total Price : " + price + '</h3></div></div><br>';
             $("#Bla").append(templateString);
         }
 
@@ -114,12 +117,12 @@ $this->registerCssFile("@web/css/payment.css")
                 data: {
                     passengers: passengerObj,
                     email: contactObj.email,
-                    flightNr: flightObj.flight_id,
+                    flightNr: flightObj,
                     seatType: localStorage.getItem('seatTypeWanted'),
                     user: usr,
                 },
                 success: function(response) {
-                    console.log(response);
+                    window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/success/index' ?>';
                 },
             })
         });

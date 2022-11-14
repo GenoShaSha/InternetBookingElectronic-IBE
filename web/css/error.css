@@ -1,0 +1,46 @@
+.Background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.LoginForm {
+    position: relative;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    /* padding: 30px;
+    margin: 250px; */
+    margin-right: auto;
+    margin-left: auto;
+  }
+    @media (min-width: 768px) {
+      .Container {
+        width: 418px;
+      }
+    }
+    @media (min-width: 992px) {
+      .Container {
+        width: 642px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .Container{
+        width: auto;
+        height: auto;
+      }
+    }
+  
+  /* bottom container */
+  .bottom-container {
+    text-align: center;
+    background-color: #666;
+    border-radius: 0px 0px 4px 4px;
+  }
+
+  h3{
+    padding-left: 100px;
+  }
+  

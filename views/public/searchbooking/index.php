@@ -30,20 +30,47 @@ $this->registerCssFile("@web/css/card.css")
 <script>
     $(document).ready(function() {
         var data = localStorage.getItem('filteredFlights')
-        data = JSON.parse(data)
+        if(JSON.parse(localStorage.getItem('roundTrip'))){
+            data = JSON.parse(data)[localStorage.getItem('tripSelection')]
+        }
+        else{
+            data = JSON.parse(data)
+        }
 
         for (let i = 0; i < data.length; i++) {
-            var templateString = '<div class="card"  id="pls' + i + '"><img src="img_avatar.png" alt="the picture is broken" style="width:100%"><div class="container"><h4><b>' + data[i].plane_nr + '</b></h4> <h3><b>' + data[i].from + '</b></h3> <h3><b>' + data[i].to + '</b></h3> <p>' + data[i].departure_date + '</p> <p>Arrival</p> <p>' + data[i].arrival_date + '</p></div></div><br>';
-
+            // var templateString = '<div class="card"  id="pls' + i + '"><img src="img_avatar.png" alt="the picture is broken" style="width:100%"><div class="container"><h4><b>' + data[i].plane_nr + '</b></h4> <h3><b>' + data[i].from + '</b></h3> <h3><b>' + data[i].to + '</b></h3> <p>' + data[i].departure_date + '</p> <p>Arrival</p> <p>' + data[i].arrival_date + '</p></div></div><br>';
+            var templateString = '<div class="LoginForm2"  id="pls' + i + '"><div class="container2" id="' + i + '"><h3>' + data[i].plane_nr + '</h3> <h3><b>' + "From :" + "  " + data[i].from + '</b></h3> <h3><b>' + "To :" + "  " + data[i].to + '</b></h3> <h3><b>' + "Departure :" + "  " + data[i].departure_date + '</b></h3> <h3><b>' + "Arrival :" + "  " + data[i].arrival_date + '</b></h3></div><br>';
             let btn = document.createElement("button");
             btn.innerHTML = "SELECT";
             $("#AllFlights").append(templateString);
             btn.onclick = function() {
-                localStorage.setItem('selectedBooking', JSON.stringify(data[i]));
-                window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/bookingcreation/index' ?>';
+                if (JSON.parse(localStorage.getItem('roundTrip'))) {
+                    if (localStorage.getItem('tripSelection') == 0) {
+                        localStorage.setItem('tripSelection',1)
+                        localStorage.setItem('selectedBooking', JSON.stringify(data[i]));
+                        if(JSON.parse(localStorage.getItem('filteredFlights'))[1].length == 0){
+                            window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/error/index' ?>';
+                            return
+                        }
+                        window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/index' ?>';
+                    } else {
+                        var booking = JSON.parse(localStorage.getItem('selectedBooking'));
+                        var items = data[i]
+                        var info = [booking,items]
+                        var booking = JSON.stringify(info)
+                        localStorage.setItem('selectedBooking', booking);
+                        window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/bookingcreation/index' ?>';
+                    }
+                } else {
+                    localStorage.setItem('selectedBooking', JSON.stringify(data[i]));
+                    window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/bookingcreation/index' ?>';
+                }
             };
 
-            document.getElementById('pls' + i).appendChild(btn);
+            document.getElementById(i).appendChild(btn);
+
+
+
         }
     });
 </script>

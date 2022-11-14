@@ -62,6 +62,7 @@ SeatAsset::register($this);
         var PBusinessRows = firstPlane.seat_rows_business
         var PEconomyRows = Prows - PBusinessRows
         var BusinessSeats = PBusinessRows * Pcolumns
+        console.log(BusinessSeats)
         let index = 0;
 
         for (let rows = 0; rows < Prows; rows++) {
@@ -76,8 +77,9 @@ SeatAsset::register($this);
                 index++;
             }
         }
-        for (let rows = 0; rows < BusinessSeats; rows++) {
-            document.getElementById(rows).style.backgroundColor = 'orange';
+        for (let b = 0; b < BusinessSeats; b++) {
+            console.log(b)
+            document.getElementById(b).style.backgroundColor = 'orange';
         }
 
         for (let index = 0; index < firstSeats.length; index++) {
