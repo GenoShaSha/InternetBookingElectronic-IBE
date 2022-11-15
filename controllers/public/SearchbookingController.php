@@ -38,7 +38,7 @@ class SearchbookingController extends \yii\web\Controller
         $seat_class = $data['seat_class'];
         $passengers = $data['passengers'];
         $specificFlights = $model->findSpecificFlights($from, $to, $departure_date,$seat_class,$passengers);
-        $specificReturnFlights = $model->findSpecificFlights($from, $to, $return_date,$seat_class,$passengers);
+        $specificReturnFlights = $model->findSpecificFlights($to, $from, $return_date,$seat_class,$passengers);
 
         $data = [$specificFlights,$specificReturnFlights];
         $data = JSON::encode($data);

@@ -52,7 +52,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 
 	<?php
 	NavBar::begin([
-		'brandLabel' => Html::img('@web/images/home/BigLogo.png', ['alt' => Yii::$app->name], ['class' => "logo"]),
+		'brandLabel' => Html::img('@web/images/home/BigLogo.png', ['id' => 'logo']),
 		'brandUrl' => Yii::$app->homeUrl,
 		'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
 	]);
@@ -80,7 +80,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 					['label' => 'Home', 'url' => ['public/site/index']],
 					['label' => 'Flight Management', 'url' => ['/admin/flightmanagement/index']],
 					['label' => 'Plane Management', 'url' => ['/admin/planemanagement/index']],
-					['label' => 'Control Panel', 'url' => ['/idk']],
+					['label' => 'Control Panel', 'url' => ['/admin/controlpanel/index']],
 					[
 						'label' => Yii::$app->user->identity->email,
 						'items' => [
@@ -228,3 +228,11 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 
 </html>
 <?php $this->endPage() ?>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+		console.log('ss')
+    });
+</script>

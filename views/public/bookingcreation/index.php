@@ -31,7 +31,7 @@ $this->registerCssFile("@web/css/bookingcreation.css")
 
         <div class='ProfileForms' id='ProfileForms'>
 
-            <main class="LoginForm1">
+            <main class="LoginForm10">
                 <div class="Flight"></div>
             </main>
         </div>

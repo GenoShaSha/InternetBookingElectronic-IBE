@@ -12,24 +12,44 @@ html {
 
 .LoginTitle {
   color: black !important;
-  font-size: 40px !important;
-  font-family: 'Poppins', sans-serif !important;
-  text-align: center !important;
-  margin-right: 50px;
+  font-size: 25px !important;
+  text-align: left !important;
 }
 
-.glink{
+.title {
+  text-align: center !important;
+}
+
+.glink {
   margin-left: 200px;
   margin-top: 0px;
 }
 
+.exp-wrapper {
+  position: relative;
+  border: 1px solid #aaa;
+  display: flex;
+  width: flex;
+  border-radius: 4px;
+  justify-content: space-around;
+  height: 45px;
+  line-height: 36px;
+}
+
+.exp-wrapper:after {
+  content: '/';
+  position: absolute;
+  left: 50%;
+  margin-left: -4px;
+  color: #aaa;
+}
 
 
 /* style inputs and link buttons */
 input,
 .btn {
   width: 100%;
-  padding: 5px;
+  padding: 12px;
   border: none;
   border-radius: 4px;
   margin: 5px 0;
@@ -126,11 +146,6 @@ input[type="button"]:hover {
   /* padding-left: 250px; */
 }
 
-.row{
-  display: flex !important;
-  padding-left: 90px !important;
-}
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -138,86 +153,64 @@ input[type="button"]:hover {
   clear: both;
 }
 
-input#flightNumber {
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#from{
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#to{
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#departTerminal{
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#arrivalTerminal{
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#departDate{
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#arrivalDate{
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#economy_price{
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#business_price{
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
 
 /* hide some text on medium and large screens */
 .hide-md-lg {
   display: none;
 }
 
-.LoginForm {
-  display: inline-block;
+.Background {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .Background {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    width: 100%;
+  }
+}
+
+
+.InnerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .InnerContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    width: 100%;
+  }
+}
+
+.LoginForm1 {
   position: relative;
-  height: 700px;
-  width: 850px;
   border-radius: 50px;
   background-color: #f2f2f2;
-  padding-bottom: 100px;
-  margin-bottom: 70px;
+  padding-bottom: 50px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 200px;
-  
+  width: 700px;
+  height: auto;
 }
-  @media (min-width: 768px) {
-    .containerSignIn {
-      width: 418px;
-    }
+
+@media only screen and (max-width: 1200px) {
+  .LoginForm1 {
+    width: 300px;
+    height: auto;
+    display: flex !important;
+    margin-bottom: 100px;
   }
-  @media (min-width: 992px) {
-    .containerSignIn {
-      width: 642px;
-    }
-  }
-  @media (min-width: 1200px) {
-    .containerSignIn {
-      width: 750px;
-      height: 800px;
-    }
-  }
+}
 
 /* bottom container */
 .bottom-container {
@@ -231,6 +224,7 @@ input#business_price{
   .col {
     width: 100%;
     margin-top: 0;
+    margin-left: 15px;
   }
 
   /* hide the vertical line
@@ -244,47 +238,70 @@ input#business_price{
     text-align: center;
   }
 
+  #bootstrap-overrides table.table {
+    margin-top: 20px !important;
+  }
 
-  
-/* The message box is shown when the user clicks on the password field */
-#message {
-  display:none;
-  background: #f1f1f1;
-  background-color: #f1f1f1;
-  color: #000;
-  position: relative;
-  padding: 20px;
-  margin-top: 10px;
+  .tableStructure {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-top: 50px !important;
+  }
+
+  input.exp {
+    float: left;
+    font-family: monospace;
+    border: 0;
+    width: 18px;
+    outline: none;
+    appearance: none;
+    font-size: 14px;
+  }
 }
 
-#message p {
-  padding: 10px 35px;
-  font-size: 18px;
+@media (min-width: 200px) {
+  .container1 {
+    padding-top: 0px !important;
+    padding-left: 25px !important;
+    padding-right: 0px !important;
+  }
 }
 
-/* Add a green text color and a checkmark when the requirements are right */
-.valid {
-  color: green;
+@media (min-width: 1200px) {
+  .container1 {
+    padding-top: 50px;
+    padding-left: 50px;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 }
 
-.valid:before {
-  position: relative;
-  left: -35px;
-  content: "✔";
+input#logoImg {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Add a red text color and an "x" when the requirements are wrong */
-.invalid {
-  color: red;
+input#backgroundColorNvbr {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+#backgroundColorNvbr{
+  height: 40px;
 }
 
-.invalid:before {
-  position: relative;
-  left: -35px;
-  content: "✖";
+input#backgroundColorBdy {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
 }
 
- 
-  
+input#backgroundImg {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
 
+input#fontColor {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
 }

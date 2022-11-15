@@ -205,7 +205,7 @@ input#documentNumber {
   }
 }
 
-.LoginForm {
+/* .LoginForm {
   position: relative;
   border-radius: 50px;
   background-color: #f2f2f2;
@@ -214,12 +214,18 @@ input#documentNumber {
   margin-left: auto;
   width: 700px;
   margin-top: 100px;
-}
+} */
 
 main.LoginForm {
   width: 400px;
   height: 400px;
   position: sticky;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
 }
 @media only screen and (max-width: 1200px) {
   main.LoginForm {
@@ -239,7 +245,7 @@ main.LoginForm {
   margin-right: auto;
   margin-left: auto;
   width: 700px;
-  margin-top: 400px;
+  margin-top: 100px;
 }
 @media only screen and (max-width: 1200px) {
   main.LoginForm3 {
@@ -250,7 +256,7 @@ main.LoginForm {
 }
 
 
-/* .LoginForm {
+.LoginForm {
   position: relative;
   display: flex;
   align-items: center;
@@ -262,7 +268,7 @@ main.LoginForm {
   width: 700px;
   height: 200px;
   margin-top: 100px;
-} */
+}
 
 @media only screen and (max-width: 1200px) {
   .LoginForm {
@@ -293,8 +299,6 @@ main.LoginForm {
     display: flex !important;
   }
 } 
-
-
 
 .LoginForm2 {
   position: relative;
@@ -361,8 +365,8 @@ main.LoginForm {
 
 
 .Flight {
-  margin-top: 250px;
   padding-top: 5px;
+
 }
 
 /* style the submit button */
