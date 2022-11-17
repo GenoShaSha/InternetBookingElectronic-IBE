@@ -9,9 +9,9 @@ use Yii;
  *
  * @property int $id
  * @property string $icon_img
- * @property string $primary_background_color
  * @property string $navbar_color
  * @property string $background_img
+ * @property string $font_color
  */
 class ControlPanel extends \yii\db\ActiveRecord
 {
@@ -29,8 +29,8 @@ class ControlPanel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['icon_img', 'primary_background_color', 'navbar_color', 'background_img'], 'required'],
-            [['icon_img', 'primary_background_color', 'navbar_color', 'background_img'], 'string', 'max' => 255],
+            [['icon_img', 'navbar_color', 'background_img', 'font_color'], 'required'],
+            [['icon_img', 'navbar_color', 'background_img', 'font_color'], 'string', 'max' => 255],
         ];
     }
 
@@ -42,15 +42,16 @@ class ControlPanel extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'icon_img' => 'Icon Img',
-            'primary_background_color' => 'Primary Background Color',
             'navbar_color' => 'Navbar Color',
             'background_img' => 'Background Img',
+            'font_color' => 'Font Color',
         ];
     }
-    
+
     public static function findObjectById($id)
     {
         $data = ControlPanel::findOne(['id' => $id]);
         return $data;
     }
+
 }

@@ -67,7 +67,6 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 					'label' => 'Profile',
 					'items' => [
 						['label' => 'Login', 'url' => ['public/signin/index']],
-						//  ['label' => 'Register', 'url' => ['signup/index']],
 					]
 				],
 			],
@@ -229,10 +228,20 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 </html>
 <?php $this->endPage() ?>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    $(document).ready(function() {
-		console.log('ss')
-    });
+	$(document).ready(function() {
+		$.ajax({
+			url: '<?php echo Yii::$app->request->baseUrl . '/admin/controlpanel/getcolors' ?>',
+			type: "GET",
+			success: function(response) {
+				response = JSON.parse(response)
+				document.getElementById('w0').style.cssText = 'background: ' + response.navbar_color + ' !important;'
+				document.getElementById('home').style.backgroundImage= 'url('+response.background_img+')'
+				document.getElementById('logo').src=response.icon_img
+				document.querySelectorAll('.nav-link').forEach(function(el) {
+					el.style.color = response.font_color
+				});
+			},
+		});
+	});
 </script>
