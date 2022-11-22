@@ -25,7 +25,7 @@ html {
 /* style inputs and link buttons */
 input,
 .btn {
-    width: 100%;
+    width: 90%;
     padding: 12px;
     border: none;
     border-radius: 4px;
@@ -75,6 +75,21 @@ input:hover,
 }
 
 
+
+@media (min-width: 1000px) {
+    img {
+        align-items: center !important;
+        margin-left: 70px  !important;
+        margin-right: 100px !important;
+    }
+}
+@media (min-width: 375px) {
+    img {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+
 a.google.btn {
     margin-top: 58px;
 }
@@ -112,14 +127,20 @@ input[type="button"]:hover {
 
 }
 
+.row {
+    display: flex;
+    width: 85%;
+    padding-left: 40px;
+}
+
 /* Two-column layout */
 .col {
     /* float: left; */
-    width: 60%;
+    width: 100% !important;
     margin: auto;
     /* padding: 0 50px; */
     /* padding-top: 50px; */
-    position: 100%;
+    position: 100% !important;
     /* padding-left: 250px; */
 }
 
@@ -170,12 +191,15 @@ input#repeatPassword {
         width: 750px;
     }
 }
+
 @media (min-width: 1200px) {
     .LoginForm {
         padding-bottom: 300px;
         width: 750px;
     }
-}.Warning{
+}
+
+.Warning {
     font-family: 'Poppins', sans-serif;
     font-size: 12px !important;
     padding-left: 10px;

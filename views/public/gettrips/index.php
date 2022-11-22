@@ -27,24 +27,25 @@ $this->registerCssFile("@web/css/gettrips.css")
     <div class="LoginForm1">
         <form method="post" ,action="Login.html">
             <div class="row">
-                <h2 class="LoginTitle" style="text-align: left">
-                    My-Trip
-                </h2>
+
 
                 <div class="col">
+                    <h2 class="LoginTitle" style="text-align: left">
+                        <?php echo Yii::t('app','My-Trip')?>
+                    </h2>
                     <div class='InnerContainer'>
                         <div class='exp'>
-                            <h3>Email:</h3>
+                            <h3><?php echo Yii::t('app','Email')?> :</h3>
                             <input type="text" name="email" id="email" placeholder="Email" required />
                         </div>
                         <div class='exp'>
-                            <h3>Booking Number:</h3>
+                            <h3><?php echo Yii::t('app','Booking Number')?> :</h3>
                             <input type="text" name="bookNumber" id="bookNumber" placeholder="Booking Number" required />
                         </div>
                     </div>
                     <br></br>
                     <br>
-                    <input type="button" value="SEARCH" id="search" />
+                    <input type="button" value=<?php echo Yii::t('app','Search')?> id="search" />
 
                 </div>
             </div>
@@ -55,22 +56,22 @@ $this->registerCssFile("@web/css/gettrips.css")
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        $("#search").on("click", function () {
-          $.ajax({
-            url: '<?php echo Yii::$app->request->baseUrl.'/public/gettrips/search'?>',
-            type:"POST",
-            data: {
-              email:$("#email").val(),
-              bookingNr:$("#bookNumber").val()
-            },
-            success: function (response) {
-                localStorage.setItem('retrieveBooking',response)
-                response = JSON.parse(response)
-                console.log(response);
-                window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/trips/index' ?>';
+        $("#search").on("click", function() {
+            $.ajax({
+                url: '<?php echo Yii::$app->request->baseUrl . '/public/gettrips/search' ?>',
+                type: "POST",
+                data: {
+                    email: $("#email").val(),
+                    bookingNr: $("#bookNumber").val()
+                },
+                success: function(response) {
+                    localStorage.setItem('retrieveBooking', response)
+                    response = JSON.parse(response)
+                    console.log(response);
+                    window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/trips/index' ?>';
 
-            },
-          });
+                },
+            });
         });
     });
 </script>

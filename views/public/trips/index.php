@@ -43,7 +43,7 @@ $this->registerCssFile("@web/css/trips.css")
 
         // Showing the selected plane
         for (let i = 0; i < 1; i++) {
-            var templateString = '<div class="LoginForm"  id="pls' + i + '"><div class="container"><h3>Booking Number: ' + data[0].booking_nr + '</h3> <h3><b>Email: ' + data[0].email + '</b></h3> </div><br></div><br>';
+            var templateString = '<div class="LoginForm"  id="pls' + i + '"><div class="container"><h3><?php echo Yii::t('app','Booking Number')?>: ' + data[0].booking_nr + '</h3> <h3><b><?php echo Yii::t('app','Email')?>: ' + data[0].email + '</b></h3> </div><br></div><br>';
             $("#BookingInfo").append(templateString);
         }
 
@@ -52,7 +52,7 @@ $this->registerCssFile("@web/css/trips.css")
             $("#Passengers").append(passengerString);
 
             for (let y = 0; y < flights.length; y++) {
-                var flightsString = '<div class="container2"><h3>' + flights[y].plane_nr + '</h3> <h3><b>' + "From :"+"  " +flights[y].from + '</b></h3> <h3><b>' + "To :" +"  "+ flights[y].to + '</b></h3> <h3><b>' + "Departure :" +"  "+ flights[y].departure_date + '</b></h3> <h3><b>' + "Arrival :" +"  "+ flights[y].arrival_date + '</b></h3></div>';
+                var flightsString = '<div class="container2"><h3>' + flights[y].plane_nr + '</h3> <h3><b><?php echo Yii::t('app','From')?>' + " :"+"  " +flights[y].from + '</b></h3> <h3><b> <?php echo Yii::t('app','To')?>' + " :" +"  "+ flights[y].to + '</b></h3> <h3><b><?php echo Yii::t('app','Departure Date')?>' + " :" +"  "+ flights[y].departure_date + '</b></h3> <h3><b><?php echo Yii::t('app','Arrival Date')?>' + " :" +"  "+ flights[y].arrival_date + '</b></h3></div>';
                 $('#bps' + i).append(flightsString);
             }
 

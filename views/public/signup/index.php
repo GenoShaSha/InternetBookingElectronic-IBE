@@ -24,10 +24,11 @@ $this->registerCssFile("@web/css/Register.css")
   <div class="containerSignIn">
     <form method="post" ,action="Login.html">
       <div class="row">
+        
+        <div class="col">
         <h2 class="LoginTitle" style="text-align: left">
           Register
         </h2>
-        <div class="col">
           <div class="hide-md-lg">
             <p>Sign Up manually:</p>
           </div>

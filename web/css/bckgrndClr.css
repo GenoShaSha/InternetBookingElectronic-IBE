@@ -140,10 +140,10 @@ input[type="button"]:hover {
   /* float: left; */
   width: 60%;
   margin: auto;
-  /* padding: 0 50px; */
   /* padding-top: 50px; */
-  position: 100%;
-  /* padding-left: 250px; */
+  position: relative;
+
+  padding-right: 30px !important;
 }
 
 /* Clear floats after the columns */
@@ -152,6 +152,7 @@ input[type="button"]:hover {
   display: table;
   clear: both;
 }
+
 
 
 /* hide some text on medium and large screens */
@@ -198,6 +199,7 @@ input[type="button"]:hover {
   background-color: #f2f2f2;
   padding-bottom: 50px;
   margin-right: auto;
+  margin-top: 150px;
   margin-left: auto;
   width: 700px;
   height: auto;
@@ -278,20 +280,9 @@ input[type="button"]:hover {
   }
 }
 
+
+
 input#logoImg {
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-
-input#backgroundColorNvbr {
-  border: 1px solid rgb(120, 120, 120);
-  font-family: 'Poppins', sans-serif;
-}
-#backgroundColorNvbr{
-  height: 40px;
-}
-
-input#backgroundColorBdy {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
 }
@@ -301,7 +292,20 @@ input#backgroundImg {
   font-family: 'Poppins', sans-serif;
 }
 
+input#backgroundColorNvbr {
+  border: 1px solid rgb(120, 120, 120);
+  font-family: 'Poppins', sans-serif;
+}
+
+#backgroundColorNvbr {
+  height: 40px;
+}
+
 input#fontColor {
   border: 1px solid rgb(120, 120, 120);
   font-family: 'Poppins', sans-serif;
+}
+
+#fontColor {
+  height: 40px;
 }

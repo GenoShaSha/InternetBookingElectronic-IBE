@@ -36,7 +36,7 @@ $this->registerCssFile("@web/css/search.css")
 									<label for="radio01">
 										<span class="round-boarder">
 											<span class="round-boarder1"></span>
-										</span>Round Trip
+										</span><?php echo Yii::t('app','Round Trip')?>
 									</label>
 								</div>
 								<!--/.single-trip-circle-->
@@ -45,7 +45,7 @@ $this->registerCssFile("@web/css/search.css")
 									<label for="radio02">
 										<span class="round-boarder">
 											<span class="round-boarder1"></span>
-										</span>One-Way
+										</span><?php echo Yii::t('app','One-Way')?>
 									</label>
 								</div>
 								<!--/.single-trip-circle-->
@@ -54,7 +54,7 @@ $this->registerCssFile("@web/css/search.css")
 							<div class="row">
 								<div class="col-lg-4 col-md-4 col-sm-12">
 									<div class="single-tab-select-box">
-										<h2 class="searchTitle">From :</h2>
+										<h2 class="searchTitle"><?php echo Yii::t('app','From')?> :</h2>
 										<select class="js-example-basic-single" id='dropdownFrom'>
 											<option value="placeholder" disabled>Choose Origin</option>
 										</select>
@@ -65,7 +65,7 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-2 col-md-3 col-sm-4">
 									<div class="single-tab-select-box">
-										<h2>Departure Date</h2>
+										<h2><?php echo Yii::t('app','Departure Date')?> :</h2>
 										<input type="date" class="datepicker" name="datetime" id="datetime1" />
 									</div>
 									<!--/.single-tab-select-box-->
@@ -74,7 +74,7 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-2 col-md-3 col-sm-4">
 									<div class="single-tab-select-box">
-										<h2>Return Date</h2>
+										<h2><?php echo Yii::t('app','Return Date')?> :</h2>
 										<input type="date" class="datepicker" name="datetime" id="datetime2" />
 
 									</div>
@@ -84,19 +84,19 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-2 col-md-1 col-sm-4">
 									<div class="single-tab-select-box">
-										<h2 class="searchTitle">Passangers</h2>
+										<h2 class="searchTitle"><?php echo Yii::t('app','Passangers')?>:</h2>
 										<div class="qty mt-5">
-											<p class='passangerSelectText'>Adults (12+ years)</p>
+											<p class='passangerSelectText'><?php echo Yii::t('app','Adults (12+ years)')?></p>
 											<span class="minus bg-dark">-</span>
 											<input type="number" class="count" name="qty" value="1">
 											<span class="plus bg-dark">+</span>
 
-											<p class='passangerSelectText'>Child (2-11 years)</p>
+											<p class='passangerSelectText'><?php echo Yii::t('app','Child (2-11 years)')?></p>
 											<span class="minus1 bg-dark">-</span>
 											<input type="number" class="count1" name="qty" value="0">
 											<span class="plus1 bg-dark">+</span>
 
-											<p class='passangerSelectText'>Infant (Under 2 years)</p>
+											<p class='passangerSelectText'><?php echo Yii::t('app','Infant (Under 2 years)')?></p>
 											<span class="minus2 bg-dark">-</span>
 											<input type="number" class="count2" name="qty" value="0">
 											<span class="plus2 bg-dark">+</span>
@@ -154,7 +154,7 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-4 col-md-4 col-sm-12">
 									<div class="single-tab-select-box">
-										<h2 class="searchTitle">To :</h2>
+										<h2 class="searchTitle"><?php echo Yii::t('app','To')?> :</h2>
 										<select class="js-example-basic-single" id='dropdownWhere'>
 											<option value="placeholder" disabled>Choose Origin</option>
 										</select>
@@ -164,7 +164,7 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-3 col-md-3 col-sm-4">
 									<div class="single-tab-select-box">
-										<h2 class="searchTitle">Class :</h2>
+										<h2 class="searchTitle"><?php echo Yii::t('app','Class')?> :</h2>
 										<select class="js-example-basic-single" id='dropdownTo'>
 											<option value="placeholder" disabled>Choose Seat Type</option>
 											<option value="economy">Economy</option>
@@ -177,7 +177,7 @@ $this->registerCssFile("@web/css/search.css")
 								<div class="clo-sm-5">
 									<div class="about-btn pull-right">
 										<button class="about-view travel-btn" id='submitBtn'>
-											search
+										<?php echo Yii::t('app','Search')?>
 										</button>
 										<!--/.travel-btn-->
 									</div>

@@ -7,6 +7,7 @@ use app\assets\SeatAsset;
 
 AppAsset::register($this);
 SeatAsset::register($this);
+
 ?>
 
 <!DOCTYPE html>
@@ -17,15 +18,15 @@ SeatAsset::register($this);
         <ul class="showcase">
             <li>
                 <div class="seat" id='Seat'></div>
-                <small>Available</small>
+                <small><?php echo Yii::t('app','Available')?></small>
             </li>
             <li>
                 <div class="seat selected" id='seatSelect'></div>
-                <small>Selected</small>
+                <small><?php echo Yii::t('app','Selected')?></small>
             </li>
             <li>
                 <div class="seat occupied"></div>
-                <small>Occupied</small>
+                <small><?php echo Yii::t('app','Occupied')?></small>
             </li>
         </ul>
 
@@ -34,11 +35,12 @@ SeatAsset::register($this);
     </div>
     <div class="secondGrid">
         <p class="text">
-            You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
+        <?php echo Yii::t('app','Check-in Note')?>
+
+            <!-- You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span> -->
         </p>
         <br>
-        <button class="selectBtn" role="button" id="selectedBtn">SELECT</button>
-        <!-- <input type="button" value="SELECT" id="selectBtn" /> -->
+        <button class="selectBtn" role="button" id="selectedBtn"><?php echo Yii::t('app','Select')?></button>
     </div>
 </div>
 

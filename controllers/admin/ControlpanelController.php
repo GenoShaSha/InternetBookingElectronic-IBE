@@ -46,6 +46,19 @@ class ControlpanelController extends \yii\web\Controller
         }
     }
 
+    public function actionUpdatebuttoncolor()
+    {
+        $model = new ControlPanel();
+        if (Yii::$app->request->isAjax) {
+            $data = Yii::$app->request->post();
+            $model = $model->findObjectById(1);
+            $model->button_color = $data['button_color'];
+            $model->button_font_color = $data['button_font_color'];
+            $model->update();
+            return JSON::encode($model);
+        }
+    }
+
     public function actionUpdatebgimg()
     {
         $model = new ControlPanel();

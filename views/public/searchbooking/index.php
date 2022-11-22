@@ -41,7 +41,12 @@ $this->registerCssFile("@web/css/card.css")
             // var templateString = '<div class="card"  id="pls' + i + '"><img src="img_avatar.png" alt="the picture is broken" style="width:100%"><div class="container"><h4><b>' + data[i].plane_nr + '</b></h4> <h3><b>' + data[i].from + '</b></h3> <h3><b>' + data[i].to + '</b></h3> <p>' + data[i].departure_date + '</p> <p>Arrival</p> <p>' + data[i].arrival_date + '</p></div></div><br>';
             var templateString = '<div class="LoginForm2"  id="pls' + i + '"><div class="container2" id="' + i + '"><h3>' + data[i].plane_nr + '</h3> <h3><b>' + "From :" + "  " + data[i].from + '</b></h3> <h3><b>' + "To :" + "  " + data[i].to + '</b></h3> <h3><b>' + "Departure :" + "  " + data[i].departure_date + '</b></h3> <h3><b>' + "Arrival :" + "  " + data[i].arrival_date + '</b></h3></div><br>';
             let btn = document.createElement("button");
-            btn.innerHTML = "SELECT";
+            if(localStorage.getItem('seatTypeWanted') == "economy"){
+                btn.innerHTML = "€" + " " + data[i].economy_price;
+            }
+            else{
+                btn.innerHTML = "€" + " " + data[i].business_price;
+            }
             $("#AllFlights").append(templateString);
             btn.onclick = function() {
                 if (JSON.parse(localStorage.getItem('roundTrip'))) {

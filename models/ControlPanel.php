@@ -12,6 +12,8 @@ use Yii;
  * @property string $navbar_color
  * @property string $background_img
  * @property string $font_color
+ * @property string $button_color
+ * @property string $button_font_color
  */
 class ControlPanel extends \yii\db\ActiveRecord
 {
@@ -29,8 +31,8 @@ class ControlPanel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['icon_img', 'navbar_color', 'background_img', 'font_color'], 'required'],
-            [['icon_img', 'navbar_color', 'background_img', 'font_color'], 'string', 'max' => 255],
+            [['icon_img', 'navbar_color', 'background_img', 'font_color', 'button_color', 'button_font_color'], 'required'],
+            [['icon_img', 'navbar_color', 'background_img', 'font_color', 'button_color', 'button_font_color'], 'string', 'max' => 255],
         ];
     }
 
@@ -45,6 +47,8 @@ class ControlPanel extends \yii\db\ActiveRecord
             'navbar_color' => 'Navbar Color',
             'background_img' => 'Background Img',
             'font_color' => 'Font Color',
+            'button_color' => 'Button Color',
+            'button_font_color' => 'Button Font Color',
         ];
     }
 
@@ -53,5 +57,4 @@ class ControlPanel extends \yii\db\ActiveRecord
         $data = ControlPanel::findOne(['id' => $id]);
         return $data;
     }
-
 }

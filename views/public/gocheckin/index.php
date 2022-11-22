@@ -19,24 +19,25 @@ $this->registerCssFile("@web/css/gettrips.css")
     <div class="LoginForm1">
         <form method="post" ,action="Login.html">
             <div class="row">
-                <h2 class="LoginTitle" style="text-align: left">
-                    Check-In
-                </h2>
+
 
                 <div class="col">
+                    <h2 class="LoginTitle" style="text-align: left">
+                        <?php echo Yii::t('app','Check-In')?>
+                    </h2>
                     <div class='InnerContainer'>
                         <div class='exp'>
-                            <h3>Email:</h3>
+                            <h3><?php echo Yii::t('app','Email')?> :</h3>
                             <input type="text" name="email" id="email" placeholder="Email" required />
                         </div>
                         <div class='exp'>
-                            <h3>Booking Number:</h3>
+                            <h3><?php echo Yii::t('app','Booking Number')?> :</h3>
                             <input type="text" name="bookNumber" id="bookNumber" placeholder="Booking Number" required />
                         </div>
                     </div>
                     <br></br>
                     <br>
-                    <input type="button" value="SEARCH" id="search" />
+                    <input type="button" value=<?php echo Yii::t('app','Search')?> id="search" />
 
                 </div>
             </div>

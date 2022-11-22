@@ -27,9 +27,9 @@ $this->registerCssFile("@web/css/passangerListCheckIn.css")
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Passanger Name</th>
-                <th>Check-In</th>
+                <th><?php echo Yii::t('app','ID')?></th>
+                <th><?php echo Yii::t('app','Passanger Name')?></th>
+                <th><?php echo Yii::t('app','Check-In')?></th>
             </tr>
         </thead>
     </table>
@@ -47,7 +47,7 @@ $this->registerCssFile("@web/css/passangerListCheckIn.css")
             columnDefs: [{
                 targets: -1,
                 data: null,
-                defaultContent: '<button class="CheckInbtn" role="button">SELECT</button>',
+                defaultContent: '<button class="CheckInbtn" role="button"><?php echo Yii::t('app','Select')?></button>',
             }, ],
         });
 
@@ -56,7 +56,7 @@ $this->registerCssFile("@web/css/passangerListCheckIn.css")
         var passengers = data[2]
         for (let i = 0; i < passengers.length; i++) {
             const table = document.getElementById("example");
-            mergeName = passengers[i].first_name + passengers[i].last_name;
+            mergeName = passengers[i].first_name + " " + passengers[i].last_name;
 
             t.row.add([passengers[i].person_id, mergeName, ]).draw(false);
         }

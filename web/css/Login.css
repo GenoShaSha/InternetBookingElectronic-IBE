@@ -123,6 +123,10 @@ input[type="button"]:hover {
   /* padding-left: 250px; */
 }
 
+.row{
+  display: inline !important;
+}
+
 /* Clear floats after the columns */
 .row:after {
   content: "";

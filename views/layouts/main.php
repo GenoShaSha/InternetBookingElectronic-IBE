@@ -5,6 +5,7 @@
 /** @var string $content */
 
 use app\assets\AppAsset;
+use app\assets\LoadScreenAsset;
 use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
@@ -13,19 +14,20 @@ use yii\bootstrap5\NavBar;
 
 
 AppAsset::register($this);
+LoadScreenAsset::register($this);
 
 $this->registerCsrfMetaTags();
 $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no']);
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
-
 ?>
 
 <?php $this->beginPage() ?>
 
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="no-js">
+
 
 <head>
 	<title>IBE</title>
@@ -47,6 +49,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 
 </head>
 
+
 <!-- main-menu Start -->
 <header class="top-area">
 
@@ -60,13 +63,13 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 		echo Nav::widget([
 			'options' => ['class' => 'navbar-nav'],
 			'items' => [
-				['label' => 'Home', 'url' => ['public/site/index']],
-				['label' => 'My-Trip', 'url' => ['/public/gettrips/index']],
-				['label' => 'Check-In', 'url' => ['/public/gocheckin/index']],
+				['label' => Yii::t('app','Home'), 'url' => ['public/site/index']],
+				['label' => Yii::t('app','My-Trip'), 'url' => ['/public/gettrips/index']],
+				['label' => Yii::t('app','Check-in'), 'url' => ['/public/gocheckin/index']],
 				[
-					'label' => 'Profile',
+					'label' => Yii::t('app','Profile'),
 					'items' => [
-						['label' => 'Login', 'url' => ['public/signin/index']],
+						['label' => Yii::t('app','Login'), 'url' => ['public/signin/index']],
 					]
 				],
 			],
@@ -76,14 +79,14 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			echo Nav::widget([
 				'options' => ['class' => 'navbar-nav'],
 				'items' => [
-					['label' => 'Home', 'url' => ['public/site/index']],
+					['label' => Yii::t('app','Home'), 'url' => ['public/site/index']],
 					['label' => 'Flight Management', 'url' => ['/admin/flightmanagement/index']],
 					['label' => 'Plane Management', 'url' => ['/admin/planemanagement/index']],
 					['label' => 'Control Panel', 'url' => ['/admin/controlpanel/index']],
 					[
 						'label' => Yii::$app->user->identity->email,
 						'items' => [
-							['label' => 'My Profile', 'url' => ['/admin/profile/index']],
+							['label' => Yii::t('app','My-Profile'), 'url' => ['/admin/profile/index']],
 							['label' => 'LogOut', 'url' => ['/admin/signin/logout']]
 						],
 					],
@@ -112,6 +115,9 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 </header>
 
 <body>
+
+
+
 
 	<?php $this->beginBody() ?>
 
@@ -215,6 +221,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			<!--/.scroll-Top-->
 		</div><!-- /.container-->
 
+		<div id="loading"></div>
 	</footer><!-- /.footer-copyright-->
 	<!-- footer-copyright end -->
 
@@ -236,11 +243,28 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			success: function(response) {
 				response = JSON.parse(response)
 				document.getElementById('w0').style.cssText = 'background: ' + response.navbar_color + ' !important;'
-				document.getElementById('home').style.backgroundImage= 'url('+response.background_img+')'
-				document.getElementById('logo').src=response.icon_img
+				document.getElementById('home').style.backgroundImage = 'url(' + response.background_img + ')'
+				document.getElementById('logo').src = response.icon_img
 				document.querySelectorAll('.nav-link').forEach(function(el) {
 					el.style.color = response.font_color
 				});
+				document.querySelectorAll('button').forEach(function(el) {
+					el.style.backgroundColor = response.button_color
+				});
+				$(":button").css(
+					"background-color", response.button_color);
+				document.querySelectorAll('button').forEach(function(el) {
+					el.style.fontColor = response.button_font_color
+				});
+				$(":button").css(
+					"color", response.button_font_color);
+
+				$(document).on("pagecontainerbeforechange", function(e, data) {
+					if (data.options.direction == "back" || data.options.direction == "forward") {
+						data.options.transition = "none";
+					}
+				});
+
 			},
 		});
 	});

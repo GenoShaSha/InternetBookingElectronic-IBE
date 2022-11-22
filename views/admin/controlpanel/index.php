@@ -36,6 +36,15 @@ $this->registerCssFile("@web/css/bckgrndClr.css");
                     <input type="color" name="fontColor" id="fontColor" />
                     <br></br>
                     <input type="button" value="SUBMIT - FONT" id="fontChange" />
+                    <h3>Button Color :</h3>
+                    <input type="text" name="buttonColorTxt" id="buttonColorTxt" disabled />
+                    <input type="color" name="buttonColor" id="buttonColor" />
+                    <h3>Font Button Color :</h3>
+                    <input type="text" name="fontbuttonColorTxt" id="fontbuttonColorTxt" disabled />
+                    <input type="color" name="fontbuttonColor" id="fontbuttonColor" />
+                    <br></br>
+                    <input type="button" value="SUBMIT - BUTTON" id="buttonChange" />
+
                     <br>
                 </div>
             </div>
@@ -112,6 +121,36 @@ $this->registerCssFile("@web/css/bckgrndClr.css");
                     document.querySelectorAll('.nav-link').forEach(function(el) {
                         el.style.color = response.font_color
                     });
+                },
+            });
+        })
+
+        $("#buttonChange").on("click", function() {
+            let color = document.getElementById('buttonColor').value
+            let color_val = document.getElementById('buttonColorTxt').value = color
+            let fontColor = document.getElementById('fontbuttonColor').value
+            let fontColor_val = document.getElementById('fontbuttonColorTxt').value = fontColor
+
+            $.ajax({
+                url: '<?php echo Yii::$app->request->baseUrl . '/admin/controlpanel/updatebuttoncolor' ?>',
+                type: "POST",
+                data: {
+                    button_color: color_val,
+                    button_font_color: fontColor_val,
+                },
+                success: function(response) {
+                    console.log(response)
+                    response = JSON.parse(response)
+                    document.querySelectorAll('button').forEach(function(el) {
+                        el.style.backgroundColor = response.button_color
+                    });
+                    $(":button").css(
+                        "background-color", response.button_color);
+                    document.querySelectorAll('button').forEach(function(el) {
+                        el.style.fontColor = response.button_font_color
+                    });
+                    $(":button").css(
+                        "color", response.button_font_color);
                 },
             });
         })
