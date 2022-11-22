@@ -27,33 +27,33 @@ $this->registerCssFile("@web/css/Register.css")
         
         <div class="col">
         <h2 class="LoginTitle" style="text-align: left">
-          Register
+          <?php echo Yii::t('app','Register')?>
         </h2>
           <div class="hide-md-lg">
             <p>Sign Up manually:</p>
           </div>
-          <h3>Email :</h3>
+          <h3><?php echo Yii::t('app','Email')?> :</h3>
           <input type="text" name="email" id="email" placeholder="Email" required />
-          <h3>Password :</h3>
+          <h3><?php echo Yii::t('app','Password')?> :</h3>
           <input type="password" name="password" id="password" placeholder="Password" required />
             <div class="Warning">
-              <h3 class="Warning">Password must contain the following:</h3>
-              <p id="letter" class="Warning">A <b>lowercase</b> letter</p>
-              <p id="capital" class="Warning">A <b>capital (uppercase)</b> letter</p>
-              <p id="number" class="Warning">A <b>number</b></p>
-              <p id="length" class="Warning">Minimum <b>8 characters</b></p>
+              <h3 class="Warning"><?php echo Yii::t('app','Password must contain the following')?>:</h3>
+              <p id="letter" class="Warning"><?php echo Yii::t('app','A <b>lowercase</b> letter')?></p>
+              <p id="capital" class="Warning"><?php echo Yii::t('app','A <b>capital (uppercase)</b> letter')?></p>
+              <p id="number" class="Warning"><?php echo Yii::t('app','A <b>number</b>')?></p>
+              <p id="length" class="Warning"><?php echo Yii::t('app','Minimum <b>8 characters</b>')?></p>
             </div>
-          <h3>Repeat Password :</h3>
-          <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Reapeat Password" required />
+          <h3><?php echo Yii::t('app','Repeat Password')?>:</h3>
+          <input type="password" name="repeatPassword" id="repeatPassword" placeholder="Repeat Password" required />
           <br></br>
-          <input type="button" value="Register" id="login" />
+          <input type="button" value="<?php echo Yii::t('app','Register')?>" id="login" />
           <br>
 
          
-          <p class="links">Already have an account? <a href="<?= \Yii::getAlias('@web/public/signin/index') ?>">Sign In here</a></p>
+          <p class="links"><?php echo Yii::t('app','Already Have an Account')?>? <a href="<?= \Yii::getAlias('@web/public/signin/index') ?>"><?php echo Yii::t('app','Sign In here')?></a></p>
           <div class="foot-icons">
             <ul class="footer-social-links list-inline list-unstyled">
-              <p class="links">Or Sign Up with Google :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>
+              <p class="links"><?php echo Yii::t('app','Or Sign Up with Google')?> :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>
             </ul>
           </div>
 
