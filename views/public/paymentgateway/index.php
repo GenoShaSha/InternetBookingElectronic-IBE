@@ -30,33 +30,30 @@ $this->registerCssFile("@web/css/payment.css")
     <div class="LoginForm1">
         <form method="post" ,action="Login.html">
             <div class="row">
-                <h2 class="LoginTitle" style="text-align: left">
-                    My Profile
-                </h2>
 
                 <div class="col">
-                    <div class="hide-md-lg">
-                        <!-- <p>Sign Up manually:</p> -->
-                    </div>
-                    <h3>Card Name:</h3>
+                    <h2 class="LoginTitle" style="text-align: left">
+                        <?php echo Yii::t('app', 'My Profile') ?> :
+                    </h2>
+                    <h3><?php echo Yii::t('app', 'Card Name') ?> :</h3>
                     <input type="text" name="email" id="email" placeholder="Card Name" required />
-                    <h3>Card Number:</h3>
+                    <h3><?php echo Yii::t('app', 'Card Number') ?>r:</h3>
                     <input type="text" name="email" id="email" placeholder="Card Number" required />
                     <div class='InnerContainer'>
                         <div class='exp'>
-                            <h3>Valid Thru:</h3>
+                            <h3><?php echo Yii::t('app', 'Valid Thru') ?>:</h3>
                             <div class="exp-wrapper">
                                 <input autocomplete="off" class="exp" id="month" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="MM" type="text" data-pattern-validate />
                                 <input autocomplete="off" class="exp" id="year" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="YY" type="text" data-pattern-validate />
                             </div>
                         </div>
                         <div class='exp'>
-                            <h3>CVV:</h3>
+                            <h3><?php echo Yii::t('app', 'CVV') ?>:</h3>
                             <input type="text" name="password" id="cvv" placeholder="CVV" required />
                         </div>
                     </div>
                     <br></br>
-                    <input type="button" value="PAY" id="payment" />
+                    <input type="button" value=<?php echo Yii::t('app', 'Pay') ?> id="payment" />
                     <br>
                 </div>
             </div>
@@ -90,7 +87,7 @@ $this->registerCssFile("@web/css/payment.css")
         price = adultPrice + childPrice + infantPrice
 
         for (let i = 0; i < 1; i++) {
-            var templateString = '<div class="Price"  id="payment' + i + '"><div class="container1"><h1>Price:<h1><h3>' + "Adult : " + singleTicketPrice + "x" + adult + '</h3><h3>' + "Child : " + singleTicketPrice + "x" + child + '</h3><h3>' + "Infant : " + iftPrice + "x" + infant + '</h3><h3>' + "Total Price : " + price + '</h3></div></div><br>';
+            var templateString = '<div class="Price"  id="payment' + i + '"><div class="container1"><h1><?php echo Yii::t('app', 'Price') ?>:<h1><h3><?php echo Yii::t('app', 'Adult') ?>' + " : " + singleTicketPrice + "x" + adult + '</h3><h3><?php echo Yii::t('app', 'Child') ?>' + " : " + singleTicketPrice + "x" + child + '</h3><h3><?php echo Yii::t('app', 'Infant') ?>' + " : " + iftPrice + "x" + infant + '</h3><h3><?php echo Yii::t('app', 'Total Price') ?>' + " : " + price + '</h3></div></div><br>';
             $("#Bla").append(templateString);
         }
 
@@ -104,6 +101,10 @@ $this->registerCssFile("@web/css/payment.css")
 
             var flight = localStorage.getItem('selectedBooking');
             var flightObj = JSON.parse(flight)
+
+            if(!JSON.parse(localStorage.getItem('roundTrip'))){
+                flightObj = [flightObj]
+            }
 
             var usr = <?php if (Yii::$app->user->identity != null) {
                             echo Yii::$app->user->identity->user_id;

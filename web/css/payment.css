@@ -150,6 +150,7 @@ body {
     /* padding-top: 50px; */
     position: 100%;
     /* padding-left: 250px; */
+    padding-right: 80px !important;
   }
   
   /* Clear floats after the columns */

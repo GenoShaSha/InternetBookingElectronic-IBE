@@ -65,7 +65,7 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			'items' => [
 				['label' => Yii::t('app','Home'), 'url' => ['public/site/index']],
 				['label' => Yii::t('app','My-Trip'), 'url' => ['/public/gettrips/index']],
-				['label' => Yii::t('app','Check-in'), 'url' => ['/public/gocheckin/index']],
+				['label' => Yii::t('app','Check-In'), 'url' => ['/public/gocheckin/index']],
 				[
 					'label' => Yii::t('app','Profile'),
 					'items' => [

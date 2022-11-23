@@ -17,7 +17,7 @@ $this->registerCssFile("@web/css/error.css")
 <div class="LoginForm">
     <div  class="Container">
         <div class="Background" src="@web/images/browser.png"></div>
-        <h3 >Sorry we couldn't find the flight that you're looking for!</h3>
+        <h3 ><?php echo Yii::t('app','Sorry we could not find the flight that you are looking for!')?></h3>
 
     </div>
 </div>
