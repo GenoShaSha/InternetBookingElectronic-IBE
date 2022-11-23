@@ -10,6 +10,9 @@ $config = [
     'bootstrap' => ['log'],
     'sourceLanguage' => 'en',
     'language' => 'id',
+    'on beforeRequest' => function ($event) {
+        Yii::$app->language = Yii::$app->session->get('language');
+    },
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
