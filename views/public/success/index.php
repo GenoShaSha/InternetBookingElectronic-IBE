@@ -17,7 +17,7 @@ $this->registerCssFile("@web/css/error.css")
 <div class="LoginForm">
     <div  class="Container">
         <div class="Background" src="@web/images/payment-success.png"></div>
-        <h3 >Your payment is complete! Thank You!</h3>
+        <h3 ><?php echo Yii::t('app', 'Your payment is complete! Thank You!') ?></h3>
 
     </div>
 </div>

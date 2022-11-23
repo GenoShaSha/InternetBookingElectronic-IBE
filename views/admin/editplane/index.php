@@ -24,26 +24,26 @@ $this->registerCssFile("@web/css/popup.css")
 <body>
     <div class="containerSignIn">
         <h2 class="LoginTitle">
-            Update Plane
+        <?php echo Yii::t('app', 'Update Plane') ?>
         </h2>
         <div class="row">
             <div class="col">
-                <h3>Plane Number :</h3>
+                <h3><?php echo Yii::t('app', 'Plane Number') ?> :</h3>
                 <input type="text" name="planeNumber" id="planeNumber" placeholder="Plane Number" disabled />
-                <h3>Plane Type :</h3>
+                <h3><?php echo Yii::t('app', 'Plane Type') ?> :</h3>
                 <input type="planeType" name="planeType" id="planeType" placeholder="Plane Type" required/>
-                <h3>Column of the seat :</h3>
+                <h3><?php echo Yii::t('app', 'Column of the seat') ?> :</h3>
                 <input type="column" name="column" id="column" placeholder="Column" required />
-                <h3>Row of the seat :</h3>
+                <h3><?php echo Yii::t('app', 'Row of the seat') ?> :</h3>
                 <input type="row" name="row" id="row" placeholder="Row" required />
-                <h3>Row of the business seat :</h3>
+                <h3><?php echo Yii::t('app', 'Row of the business seat') ?> :</h3>
                 <input type="businessRow" name="businessRow" id="businessRow" placeholder="Business Row" required />
                 <br></br>
-                <input type="button" value="Update Plane" id="updatePlane" />
+                <input type="button" value=<?php echo Yii::t('app', 'Update Plane') ?> id="updatePlane" />
                 <br>
                 <br>
                 <div class="poppingup" style="display:none;font-size:14px;font-family: 'Poppins', sans-serif;color:rgb(33, 207, 27)">
-                    The plane is sucessfuly updated!
+                <?php echo Yii::t('app', 'The plane is sucessfuly updated!') ?>
                 </div>
 
             </div>

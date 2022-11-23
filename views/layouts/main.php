@@ -79,15 +79,14 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			echo Nav::widget([
 				'options' => ['class' => 'navbar-nav'],
 				'items' => [
-					['label' => Yii::t('app','Home'), 'url' => ['public/site/index']],
-					['label' => 'Flight Management', 'url' => ['/admin/flightmanagement/index']],
-					['label' => 'Plane Management', 'url' => ['/admin/planemanagement/index']],
-					['label' => 'Control Panel', 'url' => ['/admin/controlpanel/index']],
+					['label' => Yii::t('app','Flight Management'), 'url' => ['/admin/flightmanagement/index']],
+					['label' => Yii::t('app','Plane Management'), 'url' => ['/admin/planemanagement/index']],
+					['label' => Yii::t('app','Control Panel'), 'url' => ['/admin/controlpanel/index']],
 					[
 						'label' => Yii::$app->user->identity->email,
 						'items' => [
 							['label' => Yii::t('app','My-Profile'), 'url' => ['/admin/profile/index']],
-							['label' => 'LogOut', 'url' => ['/admin/signin/logout']]
+							['label' => Yii::t('app','LogOut'), 'url' => ['/admin/signin/logout']]
 						],
 					],
 				],
@@ -96,14 +95,14 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			echo Nav::widget([
 				'options' => ['class' => 'navbar-nav'],
 				'items' => [
-					['label' => 'Home', 'url' => ['public/site/index']],
-					['label' => 'My-Trip', 'url' => ['/public/gettrips/index']],
-					['label' => 'Check-In', 'url' => ['/public/gocheckin/index']],
+					['label' => Yii::t('app','Home'), 'url' => ['public/site/index']],
+					['label' => Yii::t('app','My-Trip'), 'url' => ['/public/gettrips/index']],
+					['label' => Yii::t('app','Check-In'), 'url' => ['/public/gocheckin/index']],
 					[
 						'label' => Yii::$app->user->identity->email,
 						'items' => [
-							['label' => 'My Profile', 'url' => ['public/profile/index']],
-							['label' => 'LogOut', 'url' => ['public/signin/logout']]
+							['label' => Yii::t('app','My Profile'), 'url' => ['public/profile/index']],
+							['label' => Yii::t('app','LogOut'), 'url' => ['public/signin/logout']]
 						],
 					],
 				],

@@ -14,36 +14,37 @@ $this->registerCssFile("@web/css/bckgrndClr.css");
     <div class="LoginForm1">
         <form method="post" ,action="Login.html">
             <div class="row">
-                <h2 class="LoginTitle" style="text-align: left">
-                    Control Panel
-                </h2>
                 <div class="col">
-                    <h3>Background Color (Navbar) :</h3>
+                    <h2 class="LoginTitle" style="text-align: left">
+                        <?php echo Yii::t('app', 'Control Panel') ?>
+                    </h2>
+
+                    <h3><?php echo Yii::t('app', 'Background Color (Navbar)') ?> :</h3>
                     <input type="text" name="backgroundColorNvbrTxt" id="backgroundColorNvbrTxt" disabled />
                     <input type="color" name="backgroundColorNvbr" id="backgroundColorNvbr" />
                     <br></br>
-                    <input type="button" value="SUBMIT - NAVBAR" id="navChange" />
-                    <h3>Background Image :</h3>
+                    <input type="button" value=<?php echo Yii::t('app', 'SUBMIT') ?> id="navChange" />
+                    <h3><?php echo Yii::t('app', 'Background Image') ?>:</h3>
                     <input type="url" name="backgroundImg" id="backgroundImg" placeholder="input the URL here" />
                     <br></br>
-                    <input type="button" value="SUBMIT - BG IMG" id="bgImgChange" />
-                    <h3>Logo :</h3>
+                    <input type="button" value=<?php echo Yii::t('app', 'SUBMIT') ?> id="bgImgChange" />
+                    <h3><?php echo Yii::t('app', 'Logo') ?> :</h3>
                     <input type="url" name="logoImg" id="logoImg" placeholder="input the URL here" />
                     <br></br>
-                    <input type="button" value="SUBMIT - LOGO" id="logoChange" />
-                    <h3>Font Color :</h3>
+                    <input type="button" value=<?php echo Yii::t('app', 'SUBMIT') ?> id="logoChange" />
+                    <h3><?php echo Yii::t('app', 'Font Color') ?> :</h3>
                     <input type="text" name="fontColorTxt" id="fontColorTxt" disabled />
                     <input type="color" name="fontColor" id="fontColor" />
                     <br></br>
-                    <input type="button" value="SUBMIT - FONT" id="fontChange" />
-                    <h3>Button Color :</h3>
+                    <input type="button" value=<?php echo Yii::t('app', 'SUBMIT') ?> id="fontChange" />
+                    <h3><?php echo Yii::t('app', 'Button Color') ?> :</h3>
                     <input type="text" name="buttonColorTxt" id="buttonColorTxt" disabled />
                     <input type="color" name="buttonColor" id="buttonColor" />
-                    <h3>Font Button Color :</h3>
+                    <h3><?php echo Yii::t('app', 'Font Button Color') ?> :</h3>
                     <input type="text" name="fontbuttonColorTxt" id="fontbuttonColorTxt" disabled />
                     <input type="color" name="fontbuttonColor" id="fontbuttonColor" />
                     <br></br>
-                    <input type="button" value="SUBMIT - BUTTON" id="buttonChange" />
+                    <input type="button" value=<?php echo Yii::t('app', 'SUBMIT') ?> id="buttonChange" />
 
                     <br>
                 </div>
