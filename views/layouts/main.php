@@ -111,6 +111,14 @@ else {
 							['label' => 'LogOut', 'url' => ['/admin/signin/logout']]
 						],
 					],
+					[
+						'label' => 	Html::img($flagImg,['id' => 'Flag']),
+						'items' => [
+							['label' => Html::img('https://www.countryflags.com/wp-content/uploads/indonesia-flag-png-large.png',['id' => 'Flag']), 'url' => ['/public/language/indonesian']],
+							['label' => Html::img('https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png',['id' => 'Flag']), 'url' => ['/public/language/english']],
+							['label' => Html::img('https://www.countryflags.com/wp-content/uploads/bulgaria-flag-png-large.png',['id' => 'Flag']), 'url' => ['/public/language/bulgarian']]
+						],
+					],
 				],
 			]);
 		} else {
@@ -125,6 +133,14 @@ else {
 						'items' => [
 							['label' => 'My Profile', 'url' => ['public/profile/index']],
 							['label' => 'LogOut', 'url' => ['public/signin/logout']]
+						],
+					],
+					[
+						'label' => 	Html::img($flagImg,['id' => 'Flag']),
+						'items' => [
+							['label' => Html::img('https://www.countryflags.com/wp-content/uploads/indonesia-flag-png-large.png',['id' => 'Flag']), 'url' => ['/public/language/indonesian']],
+							['label' => Html::img('https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png',['id' => 'Flag']), 'url' => ['/public/language/english']],
+							['label' => Html::img('https://www.countryflags.com/wp-content/uploads/bulgaria-flag-png-large.png',['id' => 'Flag']), 'url' => ['/public/language/bulgarian']]
 						],
 					],
 				],
