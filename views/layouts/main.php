@@ -98,6 +98,7 @@ else {
 	} else {
 		if (Yii::$app->user->identity->user_type == 'admin') {
 			echo Nav::widget([
+				'encodeLabels' => false,
 				'options' => ['class' => 'navbar-nav'],
 				'items' => [
 					['label' => Yii::t('app','Flight Management'), 'url' => ['/admin/flightmanagement/index']],
@@ -122,6 +123,7 @@ else {
 			]);
 		} else {
 			echo Nav::widget([
+				'encodeLabels' => false,
 				'options' => ['class' => 'navbar-nav'],
 				'items' => [
 					['label' => Yii::t('app','Home'), 'url' => ['public/site/index']],

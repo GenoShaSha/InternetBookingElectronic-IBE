@@ -11,7 +11,12 @@ $config = [
     'sourceLanguage' => 'en',
     'language' => 'id',
     'on beforeRequest' => function ($event) {
-        Yii::$app->language = Yii::$app->session->get('language');
+        if(Yii::$app->session->get('language') != null){
+            Yii::$app->language = Yii::$app->session->get('language');
+        }
+        else{
+            Yii::$app->language = 'en';
+        }
     },
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
