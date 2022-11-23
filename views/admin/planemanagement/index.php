@@ -24,16 +24,16 @@ $this->registerCssFile("@web/css/flightmanagement.css")
 </head>
 
 <body>
-    <input type="button" value="Create New Plane" id="createFlight" />
+    <input type="button" value=<?php echo Yii::t('app', 'Create New Plane') ?> id="createFlight" />
     <br></br>
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>Plane Number</th>
-                <th>Plane Type</th>
-                <th>Number of Seat Columns</th>
-                <th>Number of Seat Rows</th>
-                <th>Number of Business Seat Rows</th>
+                <th><?php echo Yii::t('app', 'Plane Number') ?></th>
+                <th><?php echo Yii::t('app', 'Plane Type') ?></th>
+                <th><?php echo Yii::t('app', 'Number of Seat Columns')?></th>
+                <th><?php echo Yii::t('app', 'Number of Seat Rows') ?></th>
+                <th><?php echo Yii::t('app', 'Number of Business Seat Rows') ?></th>
             </tr>
         </thead>
     </table>

@@ -25,35 +25,35 @@ DropdownAsset::register($this);
     <div class="containerSignIn">
         <form method="post" ,action="Login.html">
             <h2 class="LoginTitle">
-                Add Flight
+            <?php echo Yii::t('app', 'Add Flight') ?>
             </h2>
             <div class="row">
 
 
                 <div class="col">
-                    <h3>Plane Number :</h3>
+                    <h3><?php echo Yii::t('app', 'Plane Number') ?> :</h3>
                     <select class="js-example-basic-single" id='dropdown'>
                     </select>
-                    <h3>From :</h3>
+                    <h3><?php echo Yii::t('app', 'From') ?>:</h3>
                     <input type="from" name="from" id="from" placeholder="From" required />
-                    <h3>To :</h3>
+                    <h3><?php echo Yii::t('app', 'To') ?> :</h3>
                     <input type="to" name="to" id="to" placeholder="To" required />
-                    <h3>Depart. Terminal :</h3>
+                    <h3><?php echo Yii::t('app', 'Depart. Terminal') ?> :</h3>
                     <input type="departTerminal" name="departTerminal" id="departTerminal" placeholder="Depart. Terminal" required />
-                    <h3>Arrival Terminal :</h3>
+                    <h3><?php echo Yii::t('app', 'Arrival Terminal') ?> :</h3>
                     <input type="arrivalTerminal" name="arrivalTerminal" id="arrivalTerminal" placeholder="Arrival Terminal" required />
                 </div>
                 <div class="col">
-                    <h3>Depart. Date :</h3>
+                    <h3><?php echo Yii::t('app', 'Depart. Date') ?> :</h3>
                     <input type="datetime-local" name="departDate" id="departDate" placeholder="Depart. Date" required />
-                    <h3>Arrival Date :</h3>
+                    <h3><?php echo Yii::t('app', 'Arrival. Date') ?> :</h3>
                     <input type="datetime-local" name="arrivalDate" id="arrivalDate" placeholder="Arrival Date" required />
-                    <h3>Price of 1 economy seat :</h3>
+                    <h3><?php echo Yii::t('app', 'Price Of 1 economy seat') ?> :</h3>
                     <input type="number" name="economy_price" id="economy_price" placeholder="Economy price" required />
-                    <h3>Price of 1 business seat :</h3>
+                    <h3><?php echo Yii::t('app', 'Price Of 1 business seat') ?> :</h3>
                     <input type="number" name="business_price" id="business_price" placeholder="Business price" required />
                     <br></br>
-                    <input type="button" value="Add Flight" id="login" />
+                    <input type="button" value=<?php echo Yii::t('app', 'Add Flight') ?> id="login" />
                     <br>
                 </div>
             </div>

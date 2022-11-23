@@ -37,7 +37,7 @@ $this->registerCssFile("@web/css/payment.css")
                     </h2>
                     <h3><?php echo Yii::t('app', 'Card Name') ?> :</h3>
                     <input type="text" name="email" id="email" placeholder="Card Name" required />
-                    <h3><?php echo Yii::t('app', 'Card Number') ?>r:</h3>
+                    <h3><?php echo Yii::t('app', 'Card Number') ?> :</h3>
                     <input type="text" name="email" id="email" placeholder="Card Number" required />
                     <div class='InnerContainer'>
                         <div class='exp'>

@@ -25,15 +25,15 @@ $this->registerCssFile("@web/css/login.css")
     <div class="containerSignIn">
       <form method="post" ,action="Login.html">
         <div class="row">
-          <h2 class="LoginTitle" style="text-align: left">
-            Sign In
-          </h2>
 
           <div class="col">
+          <h2 class="LoginTitle" style="text-align: left">
+          <?php echo Yii::t('app', 'Sign In') ?>
+          </h2>
             <div class="hide-md-lg">
-              <p>Sign In manually:</p>
+              <p><?php echo Yii::t('app', 'Sign In manually') ?>:</p>
             </div>
-            <h3>Email :</h3>
+            <h3><?php echo Yii::t('app', 'Email') ?> :</h3>
             <input
               type="email"
               name="email"
@@ -41,7 +41,7 @@ $this->registerCssFile("@web/css/login.css")
               placeholder="Email"
               required
             />
-            <h3>Password :</h3>
+            <h3><?php echo Yii::t('app', 'Password') ?> :</h3>
             <input
               type="password"
               name="password"
@@ -50,13 +50,13 @@ $this->registerCssFile("@web/css/login.css")
               required
             />    
             <br></br>    
-            <input type="button" value="Login" id="login" />
+            <input type="button" value=<?php echo Yii::t('app', 'Login') ?> id="login" />
             <br>
-            <p class="links">Forgot Password? <a href="https://www.w3schools.com/">click here</a></p>
-            <p class="links">Not a member yet? <a href="<?= \Yii::getAlias('@web/signup/index') ?>">Register here</a></p>
+            <p class="links"><?php echo Yii::t('app', 'Forgot Password') ?>? <a href="https://www.w3schools.com/"><?php echo Yii::t('app', 'Click Here') ?></a></p>
+            <p class="links"><?php echo Yii::t('app', 'Not a Member Yet') ?>? <a href="<?= \Yii::getAlias('@web/signup/index') ?>"><?php echo Yii::t('app', 'Register Here') ?></a></p>
             <div class="foot-icons">
           <ul class="footer-social-links list-inline list-unstyled">
-          <p class="links">Or Sign In with Google :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>	  
+          <p class="links"><?php echo Yii::t('app', 'Or Sign In with Google') ?> :<a class="glink" href="https://id.linkedin.com/company/sqiva" target="_blank"> <img src="<?= \Yii::getAlias('@web/images/home/google2.png') ?>"></a></p>	  
 		      </ul>
           
           </div>

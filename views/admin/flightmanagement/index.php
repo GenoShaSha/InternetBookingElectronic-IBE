@@ -24,21 +24,21 @@ $this->registerCssFile("@web/css/flightmanagement.css")
 </head>
 
 <body>
-    <input type="button" value="Create New Flight" id="createFlight" />
+    <input type="button" value=<?php echo Yii::t('app', 'Create New Flight') ?> id="createFlight" />
     <br></br>
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Flight Number</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Departure date</th>
-                <th>Departure time</th>
-                <th>Arrival date</th>
-                <th>Arrival time</th>
-                <th>Economy class price</th>
-                <th>Business class price</th>
+                <th><?php echo Yii::t('app', 'Id') ?></th>
+                <th><?php echo Yii::t('app', 'Flight Number') ?></th>
+                <th><?php echo Yii::t('app', 'From') ?></th>
+                <th><?php echo Yii::t('app', 'To') ?></th>
+                <th><?php echo Yii::t('app', 'Departure date') ?></th>
+                <th><?php echo Yii::t('app', 'Departure time') ?></th>
+                <th><?php echo Yii::t('app', 'Arrival date') ?></th>
+                <th><?php echo Yii::t('app', 'Arrival time') ?></th>
+                <th><?php echo Yii::t('app', 'Economy class price') ?></th>
+                <th><?php echo Yii::t('app', 'Business class price') ?></th>
             </tr>
         </thead>
     </table>

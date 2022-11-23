@@ -23,12 +23,12 @@ $this->registerCssFile("@web/css/popup.css")
 
 <body>
     <div class="containerSignIn">
-        <h2 class="LoginTitle">
-            Update Flight
-        </h2>
         <div class="row">
             <div class="col">
-                <h3>Plane Number :</h3>
+                <h2 class="LoginTitle">
+                <?php echo Yii::t('app', 'Update Flight') ?>
+                </h2>
+                <h3><?php echo Yii::t('app', 'Plane Number') ?> :</h3>
                 <input type="text" name="planeNumber" id="planeNumber" placeholder="Plane Number" required />
             </div>
         </div>
@@ -37,30 +37,30 @@ $this->registerCssFile("@web/css/popup.css")
     <div class="containerSignIn">
         <div class="row">
             <div class="col">
-                <h3>From :</h3>
+                <h3><?php echo Yii::t('app', 'From') ?> :</h3>
                 <input type="from" name="from" id="from" placeholder="From" required />
-                <h3>To :</h3>
+                <h3><?php echo Yii::t('app', 'To') ?> :</h3>
                 <input type="to" name="to" id="to" placeholder="To" required />
-                <h3>Depart. Terminal :</h3>
+                <h3><?php echo Yii::t('app', 'Depart. Terminal') ?> :</h3>
                 <input type="departTerminal" name="departTerminal" id="departTerminal" placeholder="Depart. Terminal" required />
-                <h3>Arrival Terminal :</h3>
+                <h3><?php echo Yii::t('app', 'Arrival Terminal') ?> :</h3>
                 <input type="arrivalTerminal" name="arrivalTerminal" id="arrivalTerminal" placeholder="Arrival Terminal" required />
             </div>
             <div class="col">
-                <h3>Depart. Date :</h3>
+                <h3><?php echo Yii::t('app', 'Depart. Date') ?> :</h3>
                 <input type="datetime-local" name="departDate" id="departDate" placeholder="Depart. Date" required />
-                <h3>Arrival Date :</h3>
+                <h3><?php echo Yii::t('app', 'Arrival Date') ?>:</h3>
                 <input type="datetime-local" name="arrivalDate" id="arrivalDate" placeholder="Arrival Date" required />
-                <h3>Price of 1 economy seat :</h3>
+                <h3><?php echo Yii::t('app', 'Price Of 1 economy seat') ?>:</h3>
                 <input type="number" name="economy_price" id="economy_price" placeholder="Economy price" required />
-                <h3>Price of 1 business seat :</h3>
+                <h3><?php echo Yii::t('app', 'Price Of 1 business seat') ?> :</h3>
                 <input type="number" name="business_price" id="business_price" placeholder="Business price" required />
                 <br></br>
-                <input type="button" value="Update Flight" id="login" />
+                <input type="button" value=<?php echo Yii::t('app', 'Update Flight') ?> id="login" />
                 <br>
                 <br>
                 <div class="poppingup" style="display:none;font-size:14px;font-family: 'Poppins', sans-serif;color:rgb(33, 207, 27)">
-                    The flight is sucessfuly updated!
+                <?php echo Yii::t('app', 'The flight is sucessfuly updated!') ?>
                 </div>
             </div>
         </div>

@@ -19,25 +19,25 @@ $this->registerCssFile("@web/css/createPlane.css")
 <body>
     <div class="containerSignIn">
         <form method="post" ,action="Login.html">
-        <h2 class="LoginTitle">
-                    Add Plane
-                </h2>
+            <h2 class="LoginTitle">
+                <?php echo Yii::t('app', 'Add Plane') ?>
+            </h2>
             <div class="row">
-                
+
 
                 <div class="col">
-                    <h3>Plane Number :</h3>
+                    <h3><?php echo Yii::t('app', 'Plane Number') ?> :</h3>
                     <input type="text" name="planeNumber" id="planeNumber" placeholder="Plane Number" required />
-                    <h3>Plane Type :</h3>
+                    <h3><?php echo Yii::t('app', 'Plane Type') ?> :</h3>
                     <input type="planeType" name="planeType" id="planeType" placeholder="Plane Type" required />
-                    <h3>Column of the seat :</h3>
+                    <h3><?php echo Yii::t('app', 'Column of the seat') ?> :</h3>
                     <input type="column" name="column" id="column" placeholder="Column" required />
-                    <h3>Row of the seat :</h3>
+                    <h3><?php echo Yii::t('app', 'Row of the seat') ?> :</h3>
                     <input type="row" name="row" id="row" placeholder="Row" required />
-                    <h3>Row of the business seat :</h3>
+                    <h3><?php echo Yii::t('app', 'Row of the business seat') ?> :</h3>
                     <input type="businessRow" name="businessRow" id="businessRow" placeholder="Business Row" required />
                     <br></br>
-                    <input type="button" value="Add Plane" id="addPlane" />
+                    <input type="button" value=<?php echo Yii::t('app', 'Add Plane') ?> id="addPlane" />
 
                 </div>
             </div>
