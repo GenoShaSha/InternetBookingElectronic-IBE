@@ -21,6 +21,18 @@ $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no']);
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
+
+Yii::$app->language = Yii::$app->session->get('language');
+
+$flagImg = '';
+
+if (Yii::$app->session->get('language') == 'bg') {
+	$flagImg = 'https://www.countryflags.com/wp-content/uploads/bulgaria-flag-png-large.png';
+} else if (Yii::$app->session->get('language') == 'id') {
+	$flagImg = 'https://www.countryflags.com/wp-content/uploads/indonesia-flag-png-large.png';
+} else {
+	$flagImg = 'https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png';
+}
 ?>
 
 <?php $this->beginPage() ?>
@@ -61,16 +73,25 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 	]);
 	if (Yii::$app->user->isGuest) {
 		echo Nav::widget([
+			'encodeLabels' => false,
 			'options' => ['class' => 'navbar-nav'],
 			'items' => [
-				['label' => Yii::t('app','Home'), 'url' => ['public/site/index']],
-				['label' => Yii::t('app','My-Trip'), 'url' => ['/public/gettrips/index']],
-				['label' => Yii::t('app','Check-In'), 'url' => ['/public/gocheckin/index']],
+				['label' => Yii::t('app', 'Home'), 'url' => ['public/site/index']],
+				['label' => Yii::t('app', 'My-Trip'), 'url' => ['/public/gettrips/index']],
+				['label' => Yii::t('app', 'Check-In'), 'url' => ['/public/gocheckin/index']],
 				[
-					'label' => Yii::t('app','Profile'),
+					'label' => Yii::t('app', 'Profile'),
 					'items' => [
-						['label' => Yii::t('app','Login'), 'url' => ['public/signin/index']],
+						['label' => Yii::t('app', 'Login'), 'url' => ['public/signin/index']],
 					]
+				],
+				[
+					'label' => 	Html::img($flagImg, ['id' => 'Flag']),
+					'items' => [
+						['label' => Html::img('https://www.countryflags.com/wp-content/uploads/indonesia-flag-png-large.png', ['id' => 'Flag']), 'url' => ['/public/language/indonesian']],
+						['label' => Html::img('https://www.countryflags.com/wp-content/uploads/united-states-of-america-flag-png-large.png', ['id' => 'Flag']), 'url' => ['/public/language/english']],
+						['label' => Html::img('https://www.countryflags.com/wp-content/uploads/bulgaria-flag-png-large.png', ['id' => 'Flag']), 'url' => ['/public/language/bulgarian']]
+					],
 				],
 			],
 		]);
@@ -79,14 +100,14 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 			echo Nav::widget([
 				'options' => ['class' => 'navbar-nav'],
 				'items' => [
-					['label' => Yii::t('app','Home'), 'url' => ['public/site/index']],
+					['label' => Yii::t('app', 'Home'), 'url' => ['public/site/index']],
 					['label' => 'Flight Management', 'url' => ['/admin/flightmanagement/index']],
 					['label' => 'Plane Management', 'url' => ['/admin/planemanagement/index']],
 					['label' => 'Control Panel', 'url' => ['/admin/controlpanel/index']],
 					[
 						'label' => Yii::$app->user->identity->email,
 						'items' => [
-							['label' => Yii::t('app','My-Profile'), 'url' => ['/admin/profile/index']],
+							['label' => Yii::t('app', 'My-Profile'), 'url' => ['/admin/profile/index']],
 							['label' => 'LogOut', 'url' => ['/admin/signin/logout']]
 						],
 					],
@@ -236,6 +257,9 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_k
 <?php $this->endPage() ?>
 
 <script>
+	function myFunction() {
+		alert('ss')
+	}
 	$(document).ready(function() {
 		$.ajax({
 			url: '<?php echo Yii::$app->request->baseUrl . '/admin/controlpanel/getcolors' ?>',

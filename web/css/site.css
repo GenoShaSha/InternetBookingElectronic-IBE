@@ -191,6 +191,10 @@ img {
   background-clip: padding-box;
 }
 
+img#Flag{
+  width: 30px;
+}
+
 .count {
   width: 2%;
 }
