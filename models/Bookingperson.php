@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use app\models\BookingPerson as ModelsBookingPerson;
 use Yii;
 
 /**
@@ -11,8 +10,8 @@ use Yii;
  * @property int $id
  * @property int|null $person_id
  * @property int|null $booking_id
- * @property int $check_in
  *
+ * @property FlightPerson[] $flightPeople
  * @property Person $person
  */
 class BookingPerson extends \yii\db\ActiveRecord
@@ -31,8 +30,7 @@ class BookingPerson extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['person_id', 'booking_id', 'check_in'], 'integer'],
-            [['check_in'], 'required'],
+            [['person_id', 'booking_id'], 'integer'],
             [['person_id'], 'exist', 'skipOnError' => true, 'targetClass' => Person::class, 'targetAttribute' => ['person_id' => 'person_id']],
         ];
     }
@@ -46,8 +44,17 @@ class BookingPerson extends \yii\db\ActiveRecord
             'id' => 'ID',
             'person_id' => 'Person ID',
             'booking_id' => 'Booking ID',
-            'check_in' => 'Check In',
         ];
+    }
+
+    /**
+     * Gets query for [[FlightPeople]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFlightPeople()
+    {
+        return $this->hasMany(FlightPerson::class, ['person_id' => 'person_id']);
     }
 
     /**

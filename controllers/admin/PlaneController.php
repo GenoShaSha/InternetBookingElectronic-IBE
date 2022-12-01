@@ -44,11 +44,11 @@ class PlaneController extends \yii\web\Controller
                     $seatNr = "$letters[$temp]$letters[$temp]";
                 }
                 else {
-                    $seatNr = $letters[$i];
+                    $seatName = $letters[$i];
                 }
                 for ($y = 1; $y < $columns + 1; $y++) {
                     $model1 = new Seat();
-                    $seatNr = $seatNr . '' . strval($y);
+                    $seatNr = strval($y) . $seatName;
                     $model1->plane_nr = $planeNr;
                     if ($i < $businessRows) {
                         $model1->seat_type = 'Business';

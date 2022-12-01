@@ -123,6 +123,7 @@ $this->registerCssFile("@web/css/payment.css")
                     user: usr,
                 },
                 success: function(response) {
+
                     window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/success/index' ?>';
                 },
             })

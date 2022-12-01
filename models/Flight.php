@@ -3,6 +3,7 @@
 namespace app\models;
 
 use yii\helpers\Json;
+use app\models\SeatAvailabilityFlight;
 
 use Yii;
 
@@ -78,9 +79,12 @@ class Flight extends \yii\db\ActiveRecord
     public static function findSpecificFlights($from, $to, $departure_date, $seatClass, $passengers)
     {
         $flights = Flight::find()
-            ->where(['from' => $from])
-            ->andWhere(['to' => $to])
-            ->andWhere(['like', 'departure_date', '%' . $departure_date . '%', false])
+            ->select('flight.*')
+            ->innerJoin('seat_availability_flight')
+            ->where(['flight.from' => $from])
+            ->andWhere(['flight.to' => $to])
+            ->andFilterWhere(['>=', 'seat_availability_flight.available_' . $seatClass . '_seats', 1])
+            ->andWhere(['like', 'flight.departure_date', '%' . $departure_date . '%', false])
             ->all();
         return $flights;
     }

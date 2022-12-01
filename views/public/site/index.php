@@ -36,7 +36,7 @@ $this->registerCssFile("@web/css/search.css")
 									<label for="radio01">
 										<span class="round-boarder">
 											<span class="round-boarder1"></span>
-										</span><?php echo Yii::t('app','Round Trip')?>
+										</span><?php echo Yii::t('app', 'Round Trip') ?>
 									</label>
 								</div>
 								<!--/.single-trip-circle-->
@@ -45,7 +45,7 @@ $this->registerCssFile("@web/css/search.css")
 									<label for="radio02">
 										<span class="round-boarder">
 											<span class="round-boarder1"></span>
-										</span><?php echo Yii::t('app','One-Way')?>
+										</span><?php echo Yii::t('app', 'One-Way') ?>
 									</label>
 								</div>
 								<!--/.single-trip-circle-->
@@ -54,7 +54,7 @@ $this->registerCssFile("@web/css/search.css")
 							<div class="row">
 								<div class="col-lg-4 col-md-4 col-sm-12">
 									<div class="single-tab-select-box">
-										<h2 class="searchTitle"><?php echo Yii::t('app','From')?> :</h2>
+										<h2 class="searchTitle"><?php echo Yii::t('app', 'From') ?> :</h2>
 										<select class="js-example-basic-single" id='dropdownFrom'>
 											<option value="placeholder" disabled>Choose Origin</option>
 										</select>
@@ -65,8 +65,8 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-2 col-md-3 col-sm-4">
 									<div class="single-tab-select-box">
-										<h2><?php echo Yii::t('app','Departure Date')?> :</h2>
-										<input type="date" class="datepicker" name="datetime" id="datetime1" />
+										<h2><?php echo Yii::t('app', 'Departure Date') ?> :</h2>
+										<input type="date" class="datepicker" name="datetimeDepart" id="datetime1" onChange="DisableDate()">
 									</div>
 									<!--/.single-tab-select-box-->
 								</div>
@@ -74,8 +74,8 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-2 col-md-3 col-sm-4">
 									<div class="single-tab-select-box">
-										<h2><?php echo Yii::t('app','Return Date')?> :</h2>
-										<input type="date" class="datepicker" name="datetime" id="datetime2" />
+										<h2><?php echo Yii::t('app', 'Return Date') ?> :</h2>
+										<input type="date" class="datepicker" name="datetimeReturn" id="datetime2"/>
 
 									</div>
 									<!--/.single-tab-select-box-->
@@ -84,19 +84,19 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-2 col-md-1 col-sm-4">
 									<div class="single-tab-select-box">
-										<h2 class="searchTitle"><?php echo Yii::t('app','Passangers')?>:</h2>
+										<h2 class="searchTitle"><?php echo Yii::t('app', 'Passangers') ?>:</h2>
 										<div class="qty mt-5">
-											<p class='passangerSelectText'><?php echo Yii::t('app','Adults (12+ years)')?></p>
+											<p class='passangerSelectText'><?php echo Yii::t('app', 'Adults (12+ years)') ?></p>
 											<span class="minus bg-dark">-</span>
 											<input type="number" class="count" name="qty" value="1">
 											<span class="plus bg-dark">+</span>
 
-											<p class='passangerSelectText'><?php echo Yii::t('app','Child (2-11 years)')?></p>
+											<p class='passangerSelectText'><?php echo Yii::t('app', 'Child (2-11 years)') ?></p>
 											<span class="minus1 bg-dark">-</span>
 											<input type="number" class="count1" name="qty" value="0">
 											<span class="plus1 bg-dark">+</span>
 
-											<p class='passangerSelectText'><?php echo Yii::t('app','Infant (Under 2 years)')?></p>
+											<p class='passangerSelectText'><?php echo Yii::t('app', 'Infant (Under 2 years)') ?></p>
 											<span class="minus2 bg-dark">-</span>
 											<input type="number" class="count2" name="qty" value="0">
 											<span class="plus2 bg-dark">+</span>
@@ -154,7 +154,7 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-4 col-md-4 col-sm-12">
 									<div class="single-tab-select-box">
-										<h2 class="searchTitle"><?php echo Yii::t('app','To')?> :</h2>
+										<h2 class="searchTitle"><?php echo Yii::t('app', 'To') ?> :</h2>
 										<select class="js-example-basic-single" id='dropdownWhere'>
 											<option value="placeholder" disabled>Choose Origin</option>
 										</select>
@@ -164,7 +164,7 @@ $this->registerCssFile("@web/css/search.css")
 
 								<div class="col-lg-3 col-md-3 col-sm-4">
 									<div class="single-tab-select-box">
-										<h2 class="searchTitle"><?php echo Yii::t('app','Class')?> :</h2>
+										<h2 class="searchTitle"><?php echo Yii::t('app', 'Class') ?> :</h2>
 										<select class="js-example-basic-single" id='dropdownTo'>
 											<option value="placeholder" disabled>Choose Seat Type</option>
 											<option value="economy">Economy</option>
@@ -177,7 +177,7 @@ $this->registerCssFile("@web/css/search.css")
 								<div class="clo-sm-5">
 									<div class="about-btn pull-right">
 										<button class="about-view travel-btn" id='submitBtn'>
-										<?php echo Yii::t('app','Search')?>
+											<?php echo Yii::t('app', 'Search') ?>
 										</button>
 										<!--/.travel-btn-->
 									</div>
@@ -291,7 +291,17 @@ $this->registerCssFile("@web/css/search.css")
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
+		function DisableDate() {
+			document.getElementsByName("datetimeReturn")[0].setAttribute('min', $("#datetime1").val());
+			document.getElementById("datetime2").value = "";
+		}
+		
 		$(document).ready(function() {
+			var today = new Date().toISOString().split('T')[0];
+			document.getElementsByName("datetimeDepart")[0].setAttribute('min', today);
+			document.getElementsByName("datetimeReturn")[0].setAttribute('min', today);
+
+
 			$('#submitBtn').on('click', function() {
 				origin = $("#dropdownFrom").val();
 				destination = $("#dropdownWhere").val();
@@ -303,7 +313,7 @@ $this->registerCssFile("@web/css/search.css")
 				infant = $(".count2").val();
 				passanger = parseInt($(".count1").val()) + parseInt($(".count").val());
 				localStorage.setItem('seatTypeWanted', seat_class);
-				roundTrip=$("#radio01").prop("checked")
+				roundTrip = $("#radio01").prop("checked")
 
 				if (depart_date == '') {
 					alert('Please fill in all fields ! ')
@@ -318,10 +328,9 @@ $this->registerCssFile("@web/css/search.css")
 
 				switchUrl = null;
 
-				if(roundTrip){
+				if (roundTrip) {
 					switchUrl = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/searchreturn' ?>'
-				}
-				else{
+				} else {
 					switchUrl = '<?php echo Yii::$app->request->baseUrl . '/public/searchbooking/search' ?>'
 				}
 
@@ -342,10 +351,9 @@ $this->registerCssFile("@web/css/search.css")
 						console.log(JSON.parse(response))
 						if (JSON.parse(response).length == 0) {
 							window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/error/index' ?>';
-						} else if (roundTrip && JSON.parse(response)[0].length == 0){
+						} else if (roundTrip && JSON.parse(response)[0].length == 0) {
 							window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/error/index' ?>';
-						}
-						else {
+						} else {
 							localStorage.setItem('filteredFlights', response);
 							localStorage.setItem('roundTrip', roundTrip);
 							localStorage.setItem('tripSelection', 0);
@@ -426,6 +434,11 @@ $this->registerCssFile("@web/css/search.css")
 
 			document.getElementById('radio02').checked = true;
 			document.getElementById('datetime2').disabled = true;
+
+
+			$('#datetime1').datepicker().on("change", function(e) {
+				alert('ss')
+			});
 		});
 	</script>
 	</body>

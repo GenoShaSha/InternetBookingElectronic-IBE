@@ -7,6 +7,8 @@ use app\models\Booking;
 use app\models\Bookingflight;
 use app\models\Bookingperson;
 use app\models\SeatAvailabilityFlight;
+use app\models\FlightPerson;
+use yii\helpers\Json;
 
 use Yii;
 
@@ -33,6 +35,8 @@ class PaymentgatewayController extends \yii\web\Controller
             $booking->seat_types = $data['seatType'];
             $booking->save();
 
+            $peopleIds = array();
+
             for ($i = 0; $i < count($data['passengers']); $i++) {
                 $data2 = $data['passengers'][$i];
                 $person = new person();
@@ -48,18 +52,25 @@ class PaymentgatewayController extends \yii\web\Controller
                 $bookingPerson = new Bookingperson();
                 $bookingPerson->person_id = $person->person_id;
                 $bookingPerson->booking_id = $booking->booking_id;
-                $bookingPerson->check_in = 0;
-
                 $bookingPerson->save();
+
+                array_push($peopleIds, $person->person_id);
             }
 
 
             for ($i = 0; $i < count($data['flightNr']); $i++) {
                 $bookingFlight = new Bookingflight();
                 $bookingFlight->booking_id = $booking->booking_id;
-                $bookingFlight->flight_id = $data['flightNr'][$i]['plane_nr'];
+                $bookingFlight->flight_id = $data['flightNr'][$i]['flight_id'];
                 $bookingFlight->save();
 
+                for ($b = 0; $b < count($peopleIds); $b++) {
+                    $flightPerson = new FlightPerson();
+                    $flightPerson->person_id = $peopleIds[$b];
+                    $flightPerson->flight_id = $data['flightNr'][$i]['flight_id'];
+                    $flightPerson->check_in = 0;
+                    $flightPerson->save();
+                }
 
                 $seatAvailability = new SeatAvailabilityFlight();
                 $flightSeats = $seatAvailability->getByFlightID($data['flightNr'][$i]['flight_id']);

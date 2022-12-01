@@ -6,6 +6,7 @@ use app\models\Booking;
 use app\models\Flight;
 use app\models\Bookingflight;
 use app\models\Bookingperson;
+use app\models\FlightPerson;
 use app\models\Seat;
 use app\models\Person;
 use app\models\Plane;
@@ -56,16 +57,20 @@ class GocheckinController extends \yii\web\Controller
         $model3 = new Bookingperson();
         $foundPassengerBookingList = $model3->getByBookingId($foundTrip->booking_id);
         $PassangersArray = [];
+        $PassangersCheckin = [];
         for ($i = 0; $i < count($foundPassengerBookingList); $i++) {
-            if ($foundPassengerBookingList[$i]->check_in == 0) {
-                $person = new Person();
-                $foundPassengers = $person->getPassengerByID($foundPassengerBookingList[$i]->person_id);
-                array_push($PassangersArray, $foundPassengers);
+            for ($b = 0; $b < count($foundConnectionFlightBookingList); $b++) {
+                $flightPerson = new FlightPerson();
+                $personCheckedin = $flightPerson->findByFlightIdAndPersonId($foundConnectionFlightBookingList[$b]->flight_id, $foundPassengerBookingList[$i]->person_id);
+                array_push($PassangersCheckin, $personCheckedin);
             }
+            $person = new Person();
+            $foundPassengers = $person->getPassengerByID($foundPassengerBookingList[$i]->person_id);
+            array_push($PassangersArray, $foundPassengers);
         }
 
         $AllBookingInformation = [];
-        array_push($AllBookingInformation, $foundTrip, $FlightsArray, $PassangersArray,$SeatsArray,$PlaneArray,$TakenSeatArray);
+        array_push($AllBookingInformation, $foundTrip, $FlightsArray, $PassangersArray, $SeatsArray, $PlaneArray, $TakenSeatArray, $PassangersCheckin);
         $data = JSON::encode($AllBookingInformation);
         return $data;
     }
