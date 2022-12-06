@@ -56,6 +56,8 @@ $this->registerCssFile("@web/css/bookingcreation.css")
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script>
         $(document).ready(function() {
+
+
             var data = localStorage.getItem('selectedBooking')
             var child = localStorage.getItem('childPassengers')
             var infant = localStorage.getItem('infantPassengers')
@@ -98,27 +100,58 @@ $this->registerCssFile("@web/css/bookingcreation.css")
                 btn.onclick = function() {
                     Passengers = []
                     var passengers = parseInt(localStorage.getItem('adultPassengers')) + parseInt(localStorage.getItem('childPassengers')) + parseInt(localStorage.getItem('infantPassengers'));
-                    for (let i = 0; i < passengers; i++) {
-                        var passenger = {
-                            "first_name": $("#firstName" + i).val(),
-                            "last_name": $("#lastName" + i).val(),
-                            "date_of_birth": $("#dateOfBirth" + i).val(),
-                            "gender": $("#gender" + i).val(),
-                            "nationality": $("#nationality" + i).val(),
-                            "personal_doc_type": $("#documentType" + i).val(),
-                            "personal_doc_num": $("#documentNumber" + i).val()
+                    if (ValidateEmail($("#email").val())) {
+                        var contact = {
+                            "email": $("#email").val()
                         }
-                        Passengers.push(passenger)
-                        localStorage.setItem('Pasng', JSON.stringify(Passengers))
-                    };
-                    var contact = {
-                        "email": $("#email").val()
+                        for (let i = 0; i < passengers; i++) {
+                            if (NullIdentity($("#firstName" + i).val(), $("#lastName" + i).val(), $("#gender" + i).val(), $("#dateOfBirth" + i).val(), $("#nationality" + i).val(), $("#documentNumber" + i).val(), $("#documentType" + i).val())) {
+                                var passenger = {
+                                    "first_name": $("#firstName" + i).val(),
+                                    "last_name": $("#lastName" + i).val(),
+                                    "date_of_birth": $("#dateOfBirth" + i).val(),
+                                    "gender": $("#gender" + i).val(),
+                                    "nationality": $("#nationality" + i).val(),
+                                    "personal_doc_type": $("#documentType" + i).val(),
+                                    "personal_doc_num": $("#documentNumber" + i).val()
+                                }
+                                Passengers.push(passenger)
+                                localStorage.setItem('Pasng', JSON.stringify(Passengers))
+                            }
+                        };
+                        localStorage.setItem('contact', JSON.stringify(contact))
+                        window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/paymentgateway/index' ?>';
                     }
-                    localStorage.setItem('contact', JSON.stringify(contact))
-                    window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/paymentgateway/index' ?>';
+
                 }
                 document.getElementById('payment' + i).appendChild(btn);
             }
+
+            function ValidateEmail(inputText) {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (inputText.match(mailformat)) {
+                    return true;
+                } else {
+                    alert("You have entered an invalid email address!");
+                    return false;
+                }
+            }
+
+ 
+
+            function NullIdentity(fName, lName, gender, dob, nat, docId, docType) {
+                if (fName != "" && lName != "" && gender != "" && dob != "" && nat != "" && docId != "" && docType != "") {
+                    alert("Valid data");
+                    return true;
+                } else {
+                    alert("you must filled in all the fields");
+                    throw new FatalError("Something went badly wrong!");
+                    return false;
+                }
+            }
+
+            function FatalError(){ Error.apply(this, arguments); this.name = "FatalError"; }
+FatalError.prototype = Object.create(Error.prototype);
             // Make a fileds for passenger based on the amount of the passanger
             var passengers = parseInt(localStorage.getItem('adultPassengers')) + parseInt(localStorage.getItem('childPassengers')) + parseInt(localStorage.getItem('infantPassengers'));
             for (let i = 0; i < passengers; i++) {

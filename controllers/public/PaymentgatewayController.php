@@ -27,6 +27,7 @@ class PaymentgatewayController extends \yii\web\Controller
             $booking = new Booking();
             $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
             $generatedNr = substr(str_shuffle($str_result), 0, 10);
+            Yii::$app->session->set('bookingNr', $generatedNr);
             $booking->email = $data['email'];
             $booking->booking_nr = $generatedNr;
             if ($data['user'] != -1) {

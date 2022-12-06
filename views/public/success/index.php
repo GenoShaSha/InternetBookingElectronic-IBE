@@ -18,13 +18,14 @@ $this->registerCssFile("@web/css/error.css")
     <div  class="Container">
         <div class="Background" src="@web/images/payment-success.png"></div>
         <h3 ><?php echo Yii::t('app', 'Your payment is complete! Thank You!') ?></h3>
-
+        <h3 ><?php echo Yii::t('app', 'Your booking number is ' . Yii::$app->session->get('bookingNr'))?></h3>
     </div>
 </div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
+    var suc = 'ssasa'
     $(document).ready(function() {
         var image = new Image();
         image.src = '../../../web/images/payment-success.png';

@@ -97,8 +97,7 @@ SeatAsset::register($this);
             var pass_id = localStorage.getItem('passengerBeeingCheckedIn');
             var passIdObj = JSON.parse(pass_id)
 
-            var flightIdObj = JSON.parse(localStorage.getItem('selectedBooking'));
-            var flightId = flightIdObj.flight_id;
+            var flightId = JSON.parse(localStorage.getItem('flightBeeingCheckedIn'));
 
             var check_in = 1;
             var checkInObj = JSON.parse(check_in)
@@ -123,6 +122,20 @@ SeatAsset::register($this);
             },
             success: function(response) {
               alert("Register sucessful")
+              var booking = JSON.parse(localStorage.getItem('retrieveBooking'))
+              $.ajax({
+                url: '<?php echo Yii::$app->request->baseUrl . '/public/gocheckin/search' ?>',
+                type: "POST",
+                data: {
+                    email:booking[0].email,
+                    bookingNr: booking[0].booking_nr
+                },
+                success: function(response) {
+                    localStorage.setItem('retrieveBooking', response)
+                    window.location.href = '<?php echo Yii::$app->request->baseUrl . '/public/passengerlistcheckin/index' ?>';
+
+                },
+            });
             },
           });
         });

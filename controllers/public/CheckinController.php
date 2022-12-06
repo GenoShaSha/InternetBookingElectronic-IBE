@@ -3,6 +3,7 @@
 namespace app\controllers\public;
 use app\models\SeatPerson;
 use app\models\BookingPerson;
+use app\models\FlightPerson;
 use app\models\Seat;
 
 
@@ -26,9 +27,9 @@ class CheckinController extends \yii\web\Controller
             $seat->flight_id = $data['flightID'];
             $seat->save();
                         
-            $isCheckedIn = new BookingPerson();
-            $checkedIn = $isCheckedIn->getByPersonID($data['personID']);
-            $checkedIn->check_in = $checkedIn->check_in + 1;
+            $isCheckedIn = new FlightPerson();
+            $checkedIn = $isCheckedIn->findByFlightIdAndPersonId($data['flightID'],$data['personID']);
+            $checkedIn->check_in = 1;
             $checkedIn->save();
         }
     }
