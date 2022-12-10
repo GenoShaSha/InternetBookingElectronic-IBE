@@ -9,19 +9,29 @@ settings:
     memory_limit: 1024M
     colors: true
 modules:
+    enabled:
+      - Asserts
+      - Db
     config:
+        Db:
+            dsn: 'mysql:host=localhost;dbname=ibe_testing'
+            user: 'root'
+            password: 'Matt_Will9318'
+            cleanup: true
         Yii2:
             configFile: 'config/test.php'
+            transaction: false # don't wrap test in transaction
 
-# To enable code coverage:
-#coverage:
-#    #c3_url: http://localhost:8080/index-test.php/
-#    enabled: true
-#    #remote: true
-#    #remote_config: '../codeception.yml'
-#    whitelist:
-#        include:
-#            - models/*
-#            - controllers/*
-#            - commands/*
-#            - mail/*
+
+To enable code coverage:
+coverage:
+   #c3_url: http://localhost:8080/index-test.php/
+   enabled: true
+   #remote: true
+   #remote_config: '../codeception.yml'
+   whitelist:
+       include:
+           - models/*
+           - controllers/*
+           - commands/*
+           - mail/*
